@@ -2,12 +2,11 @@ import { Button, StyleSheet, Text, View } from 'react-native'
 import React, { useState, forwardRef, useImperativeHandle } from 'react'
 import styles from './styles'
 import Modal from "react-native-modal";
-import { InputFieldValidate, InputField } from "../../index"
-import { PrimaryBtn } from "../../index"
+import InputFieldValidate from "../../inputs/Input"
+import PrimaryBtn from "../../buttons/primary"
 import { useForm } from "react-hook-form"
 import * as yup from "yup"
 import { yupResolver } from '@hookform/resolvers/yup';
-import { LinkSentModal } from "../../index"
 import { useRef } from 'react';
 
 

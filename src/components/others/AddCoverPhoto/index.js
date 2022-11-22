@@ -1,9 +1,9 @@
 import { StyleSheet, Text, View, TouchableOpacity, Image } from 'react-native';
 import React from 'react';
 import styles from './styles';
-import { CustomText } from '../../index';
+import CustomText from '../../texts';
 import AppFonts from '../../../utills/AppFonts';
-import { ImagePicker } from '../../index';
+import ImagePicker from '../../pickers/ImagePicker';
 import { useRef } from 'react';
 import { useState } from 'react';
 

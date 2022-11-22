@@ -24,6 +24,7 @@ const ImagePickers = (
         .catch(console.log);
     },
   }));
+
   function openCamera() {
     ImagePicker.openCamera({
       cropping: true,
@@ -98,7 +99,6 @@ const ImagePickers = (
     </Modal>
   );
 };
-export default forwardRef(ImagePickers);
 const styles = StyleSheet.create({
   imageModalContainer: {
     // backgroundColor: 'white',
@@ -147,3 +147,7 @@ const styles = StyleSheet.create({
     height: 20,
   },
 });
+
+
+export default forwardRef(ImagePickers);
+
