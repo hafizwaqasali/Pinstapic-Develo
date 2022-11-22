@@ -1,5 +1,6 @@
 import { StyleSheet } from 'react-native';
-import { height, width } from './Dimension';
+import { height, width } from '~utills/Dimension';
+import AppColors from '../utills/AppColors'
 
 const CommonStyles = StyleSheet.create({
     marginLeft_1: {

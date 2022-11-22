@@ -1,9 +1,9 @@
-import React from 'react';
-import {ActivityIndicator, Text, TouchableOpacity} from 'react-native';
-import AppColors from '~utills/AppColors';
-import styles from './styles';
+import { ActivityIndicator, Text, TouchableOpacity, View } from 'react-native';
+import AppColors from '../../../utills/AppColors';
+import React from 'react'
+import styles from "./styles"
 
-const Button = ({
+export const PrimaryBtn = ({
   title,
   onPress,
   disabled = false,
@@ -12,20 +12,19 @@ const Button = ({
   activeOpacity = 0.7,
   containerStyle = {},
   textStyle = {},
+  transparentBtn
 }) => {
   return (
     <TouchableOpacity
       onPress={onPress}
       disabled={disabled || isLoading}
       activeOpacity={activeOpacity}
-      style={[styles.container, containerStyle]}>
+      style={[styles.container, transparentBtn && styles.transparent, containerStyle]}>
       {isLoading ? (
         <ActivityIndicator color={loaderColor} size="small" />
       ) : (
         <Text style={[styles.text, textStyle]}>{title}</Text>
       )}
     </TouchableOpacity>
-  );
-};
-
-export default Button;
+  )
+}

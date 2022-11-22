@@ -1,8 +1,8 @@
 import React from "react";
-import { Text, View } from "react-native";
+import { Text, View, Button } from "react-native";
 import styles from "./styles";
 import { useDispatch } from "react-redux";
-import { Button, ScreenWrapper } from "~components";
+import ScreenWrapper from "../../../components/screenWrapper"
 import { setIsLoggedIn, setUserMeta } from "~redux/slices/user";
 import { setAppLoader } from "~redux/slices/config";
 export default function Login({ navigation, route }) {

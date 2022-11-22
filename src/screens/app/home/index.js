@@ -1,7 +1,7 @@
 import React from "react";
-import { View, Text } from "react-native";
+import { View, Text, Button } from "react-native";
 import { useDispatch, useSelector } from "react-redux";
-import { Button, ScreenWrapper } from "~components";
+import ScreenWrapper from "../../../components/screenWrapper"
 import { setAppLoader } from "~redux/slices/config";
 import { selectUserMeta, setIsLoggedIn, setUserMeta } from "~redux/slices/user";
 import styles from "./styles";
