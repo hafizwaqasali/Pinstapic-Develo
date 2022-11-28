@@ -7,10 +7,14 @@ import { Loader } from '~components';
 import ScreenNames from './routes';
 import { HomeScreen } from '~screens/app';
 import { selectIsLoggedIn } from '~redux/slices/user';
+import SplashScreen from 'react-native-splash-screen'
 const Stack = createNativeStackNavigator();
 
 export default function Routes() {
   const isLogin = useSelector(selectIsLoggedIn)
+  SplashScreen.hide();
+
+
   return (
     <NavigationContainer>
       <Loader />
