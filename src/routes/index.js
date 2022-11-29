@@ -2,7 +2,7 @@ import * as React from 'react';
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { useSelector } from 'react-redux';
-import { LoginScreen } from '~screens/auth';
+import { LoginScreen, WelcomeScreen } from '~screens/auth';
 import { Loader } from '~components';
 import ScreenNames from './routes';
 import { HomeScreen } from '~screens/app';
@@ -19,8 +19,8 @@ export default function Routes() {
     <NavigationContainer>
       <Loader />
       {!isLogin ? (
-        <Stack.Navigator initialRouteName={ScreenNames.LOGIN} screenOptions={{ header: () => false }}>
-          <Stack.Screen name={ScreenNames.LOGIN} component={LoginScreen} />
+        <Stack.Navigator initialRouteName={ScreenNames.WELCOME} screenOptions={{ header: () => false }}>
+          <Stack.Screen name={ScreenNames.WELCOME} component={WelcomeScreen} />
         </Stack.Navigator>
       ) : (
         <Stack.Navigator initialRouteName={ScreenNames.HOME} screenOptions={{ header: () => false }}>

@@ -1,6 +1,7 @@
-const ScreenNames ={
-    LOGIN: 'Login',
-    HOME: 'Home',
-   
-  }
-  export default ScreenNames;
+const ScreenNames = {
+  LOGIN: 'Login',
+  HOME: 'Home',
+  WELCOME: 'Welcome'
+
+}
+export default ScreenNames;
