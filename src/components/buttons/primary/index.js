@@ -4,7 +4,7 @@ import React from 'react'
 import styles from "./styles"
 
 export const PrimaryBtn = ({
-  title,
+  title = '',
   onPress,
   disabled = false,
   isLoading = false,

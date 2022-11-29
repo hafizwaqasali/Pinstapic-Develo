@@ -1,6 +1,6 @@
-export { default as PrimaryBtn } from './buttons/primary';
+export { PrimaryBtn } from './buttons/primary';
 export { default as Loader } from './loaders/loader';
-export { default as CustomText } from './texts';
+export { CustomText } from './texts';
 export { default as ScreenWrapper } from './screenWrapper';
 export { default as CheckBox } from "./checkboxes/CheckBox"
 export { default as Header } from "./headers/Header"
