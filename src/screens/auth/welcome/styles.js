@@ -9,7 +9,6 @@ const styles = StyleSheet.create({
         backgroundColor: AppColors.blueBackground
     },
     swipperContainer: {
-        height: height(75),
         alignItems: "center",
         justifyContent: "center"
     },
