@@ -1,31 +1,43 @@
-import { StyleSheet, Text, View } from 'react-native'
-import React from 'react'
-import styles from './styles'
+import { Image, StyleSheet, Text, View } from "react-native";
+import React from "react";
+import styles from "./styles";
 import { FlashList } from "@shopify/flash-list";
-const DATA = [
-    {
-        title: "First Item",
-    },
-    {
-        title: "Second Item",
-    },
-];
+import { CustomText } from "~components/texts";
 
-export default function OnBoardingSwiper({ containerStyle }) {
+export default function OnBoardingSwiper({
+    containerStyle,
+    estimatedDataSize = 200,
+    data = [],
+    inActivedotColor = "grey",
+    activeDotColor = "blue",
+    activeDotSize = 3,
+    inActiveDotSize = 3,
+    onSwipeRight = () => null,
+    onSwipeLeft = () => null,
+    belowImgText = "",
+    imgStyles,
+    itemWrapper,
+}) {
     const renderItem = ({ item }) => {
         return (
-            <View style={styles.mainWrapper}>
-                <Text>{item.title}</Text>
+            <View style={[styles.mainWrapper, itemWrapper]}>
+                <Image
+                    source={item?.img}
+                    style={[styles.imgStyle, imgStyles]}
+                    resizeMode="contain"
+                />
+                <CustomText children={item?.text} size={4} />
             </View>
-        )
-    }
+        );
+    };
     return (
         <View style={[styles.container, containerStyle]}>
             <FlashList
-                data={DATA}
+                data={data}
                 renderItem={renderItem}
-                estimatedItemSize={200}
+                estimatedItemSize={estimatedDataSize}
+            // horizontal={true}
             />
         </View>
-    )
+    );
 }

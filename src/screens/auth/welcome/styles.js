@@ -10,7 +10,8 @@ const styles = StyleSheet.create({
     },
     swipperContainer: {
         alignItems: "center",
-        justifyContent: "center"
+        justifyContent: "center",
+        flex: 1
     },
     bottomButtons: {
         alignItems: "center",

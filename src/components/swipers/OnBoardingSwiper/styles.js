@@ -4,13 +4,16 @@ import { height, width } from '~utills/Dimension'
 
 const styles = StyleSheet.create({
     container: {
-        width: width(100),
-        height: height(73),
-        backgroundColor: "red"
+        flex: 1,
     },
     mainWrapper: {
-        width: width(100),
-        height: height(100)
+        flex: 1,
+        justifyContent: "space-between",
+        alignItems: "center"
+    },
+    imgStyle: {
+        width: width(30),
+        height: height(15),
     }
 })
 
