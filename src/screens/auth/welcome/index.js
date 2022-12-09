@@ -5,6 +5,7 @@ import { PrimaryBtn } from "~components/buttons/primary";
 import AppColors from "~utills/AppColors";
 import CommonStyles from "~utills/CommonStyles";
 import styles from "./styles";
+import ScreenNames from "~routes/routes";
 const DATA = [
     {
         img: require("../../../assets/images/Swipeable1.png"),
@@ -37,6 +38,7 @@ export default function Welcome({ navigation }) {
                         title="Login"
                         transparentBtn={true}
                         containerStyle={CommonStyles.marginVertical_2}
+                        onPress={() => navigation.navigate(ScreenNames.LOGIN)}
                     />
                     <PrimaryBtn title="Join Now" />
                 </View>
