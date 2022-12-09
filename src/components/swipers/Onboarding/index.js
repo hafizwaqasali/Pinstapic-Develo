@@ -38,33 +38,15 @@ export default function OnBoardingSwiper({
                 activeDotStyle={activeDotStyle}
                 dotColor={dotColor}
                 dotStyle={dotStyle}>
-                {dataarray?.map((item, index) => {
-                    return (
-                        <View style={[styles.wrapper, wrapperStyle]} key={index}>
+                {
+                    fullScreenImages?.map((item, index) => {
+                        return (
                             <Image
+                                key={index}
                                 source={item.img}
                                 style={[styles.imgStyle, ImageStyles]}
                                 resizeMode={resizeMode}
                             />
-                            {item.description && (
-                                <Text style={[styles.description, descriptionStyle]}>
-                                    {item.description}
-                                </Text>
-                            )}
-                        </View>
-                    );
-                })
-                }
-                {
-                    fullScreenImages?.map((item, index) => {
-                        return (
-                            <View style={[styles.wrapper, wrapperStyle]} key={index}>
-                                <Image
-                                    source={item.img}
-                                    style={[styles.imgStyle, ImageStyles]}
-                                    resizeMode={resizeMode}
-                                />
-                            </View>
                         )
                     })
                 }

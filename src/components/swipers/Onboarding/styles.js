@@ -25,8 +25,6 @@ const styles = StyleSheet.create({
         fontFamily: AppFonts.segoe_ui_regular,
         fontSize: width(3)
     },
-    wrapper: {
-        backgroundColor: "red"
-    }
+
 })
 export default styles

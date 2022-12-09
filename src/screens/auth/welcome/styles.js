@@ -12,11 +12,9 @@ const styles = StyleSheet.create({
         alignItems: "center",
         justifyContent: "center",
         flex: 0.78,
-        backgroundColor: "red"
     },
     bottomButtons: {
         alignItems: "center",
-        backgroundColor: "green",
         flex: 0.22
     },
 })
