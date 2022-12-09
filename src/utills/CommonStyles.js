@@ -33,6 +33,21 @@ const CommonStyles = StyleSheet.create({
     marginRight_5: {
         marginRight: width(5)
     },
+    marginVertical_1: {
+        marginVertical: height(1)
+    },
+    marginVertical_2: {
+        marginVertical: height(2)
+    },
+    marginVertical_3: {
+        marginVertical: height(3)
+    },
+    marginVertical_4: {
+        marginVertical: height(4)
+    },
+    marginVertical_5: {
+        marginVertical: height(5)
+    },
     marginTop_1: {
         marginTop: height(1)
     },

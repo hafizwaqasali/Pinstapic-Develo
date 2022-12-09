@@ -1,32 +1,43 @@
-import { Button, StyleSheet, Text, View } from "react-native";
+import { View } from "react-native";
 import React from "react";
-import styles from "./styles";
-import { CustomSwipper, CustomText, ScreenWrapper, } from "~components";
+import { OnBoardingSwiper, ScreenWrapper } from "~components";
 import { PrimaryBtn } from "~components/buttons/primary";
 import AppColors from "~utills/AppColors";
-import AppFonts from "~utills/AppFonts";
+import CommonStyles from "~utills/CommonStyles";
+import styles from "./styles";
 const DATA = [
     {
-        text: "First Item",
-        img: require('../../../assets/images/GoogleIcon.png')
+        img: require("../../../assets/images/Swipeable1.png"),
     },
     {
-        text: "Second Item",
-        img: require('../../../assets/images/GoogleIcon.png')
+        img: require("../../../assets/images/Swipeable2.png"),
     },
     {
-        text: "third Item",
-        img: require('../../../assets/images/GoogleIcon.png')
+        img: require("../../../assets/images/Swipeable3.png"),
+    },
+    {
+        img: require("../../../assets/images/Swipeable4.png"),
     },
 ];
 
-export default function Welcome() {
+export default function Welcome({ navigation }) {
     return (
         <ScreenWrapper statusBarColor={AppColors.blueBackground}>
             <View style={styles.container}>
-                <CustomSwipper data={DATA} />
+                <View style={styles.swipperContainer}>
+                    <OnBoardingSwiper
+                        fullScreenImages={DATA}
+                        showDots={false}
+                        resizeMode={"cover"}
+                        horizontal={true}
+                    />
+                </View>
                 <View style={styles.bottomButtons}>
-                    <PrimaryBtn title="Login" transparentBtn={true} />
+                    <PrimaryBtn
+                        title="Login"
+                        transparentBtn={true}
+                        containerStyle={CommonStyles.marginVertical_2}
+                    />
                     <PrimaryBtn title="Join Now" />
                 </View>
             </View>

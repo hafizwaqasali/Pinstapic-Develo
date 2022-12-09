@@ -11,12 +11,13 @@ const styles = StyleSheet.create({
     swipperContainer: {
         alignItems: "center",
         justifyContent: "center",
-        flex: 1
+        flex: 0.78,
+        backgroundColor: "red"
     },
     bottomButtons: {
         alignItems: "center",
-        justifyContent: "space-evenly",
-        height: height(18)
+        backgroundColor: "green",
+        flex: 0.22
     },
 })
 
