@@ -6,9 +6,9 @@ import AppColors from '../../../utills/AppColors'
 
 const styles = StyleSheet.create({
     container: {
-        height: height(7),
+        height: height(6.5),
         width: width(14),
-        borderRadius: width(1),
+        borderRadius: width(2),
         borderWidth: width(.25),
         borderColor: AppColors.darkOrange,
         backgroundColor: AppColors.white,

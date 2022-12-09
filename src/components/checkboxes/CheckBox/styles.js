@@ -5,16 +5,17 @@ import AppColors from '../../../utills/AppColors'
 
 const styles = StyleSheet.create({
     container: {
-        height: height(3),
-        width: width(6),
-        borderRadius: width(1.7),
+        height: width(5),
+        width: width(5),
+        borderRadius: width(2),
         borderColor: AppColors.white,
         borderWidth: width(.2),
         alignItems: "center",
         justifyContent: "center"
     },
     checkedContainer: {
-        backgroundColor: AppColors.white
+        backgroundColor: AppColors.white,
+        alignSelf: "center"
     },
 })
 export default styles

@@ -1,12 +1,15 @@
-import { StyleSheet, Text, View } from 'react-native'
+import { StyleSheet, Text, View, Platform, } from 'react-native'
 import React from 'react'
 import { height, width } from '~utills/Dimension';
 import AppColors from '../../../utills/AppColors'
 import AppFonts from '../../../utills/AppFonts'
 
+const Ios = Platform.OS == "ios" ? true : false
+
 const styles = StyleSheet.create({
     container: {
-        width: width(80),
+        height: Ios ? height(6) : height(6.5),
+        width: width(90),
         paddingHorizontal: width(4),
         borderColor: AppColors.white,
         borderWidth: width(.2),
@@ -16,23 +19,24 @@ const styles = StyleSheet.create({
         alignItems: "center"
     },
     invertedContainer: {
-        borderColor: AppColors.darkblue
+        borderColor: AppColors.blueBackground
     },
     inputContainer: {
         flex: 1,
         color: AppColors.white,
         fontFamily: AppFonts.segoe_ui_regular,
         fontSize: width(3.75),
+        flexWrap: "wrap"
     },
     invertedInputContainer: {
-        color: AppColors.darkblue,
+        color: AppColors.blueBackground,
     },
     labelText:
     {
         position: 'absolute',
         left: width(4),
         top: -10,
-        backgroundColor: AppColors.blue,
+        backgroundColor: AppColors.blueBackground,
         paddingHorizontal: width(1.5),
         fontFamily: AppFonts.segoe_ui_regular,
         color: AppColors.white,
@@ -44,7 +48,7 @@ const styles = StyleSheet.create({
         color: AppColors.darkblue,
     },
     errorText: {
-        color: AppColors.red,
+        color: "#CBEDD5",
         fontFamily: AppFonts.segoe_ui_regular,
         fontSize: width(2.5),
         // alignSelf: "center"

@@ -7,9 +7,10 @@ export default function SocialIcon({
     resizeMode = "contain",
     imgStyles,
     containerStyles,
+    onPress
 }) {
     return (
-        <TouchableOpacity style={[styles.container, containerStyles]}>
+        <TouchableOpacity style={[styles.container, containerStyles]} onPress={onPress}>
             <Image
                 source={imgSrc}
                 resizeMode={resizeMode}

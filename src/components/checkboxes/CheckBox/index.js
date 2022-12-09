@@ -8,8 +8,8 @@ export default function CheckBox({
     getcheckedValue = () => null,
     checkedContainer,
     uncheckedContainer,
-    checkedIconSize = 5,
-    iconColor = AppColors.blue
+    checkedIconSize = 4.3,
+    iconColor = AppColors.blueBackground
 }) {
     const [checked, setChecked] = useState(false)
     function toggle() {
@@ -20,7 +20,7 @@ export default function CheckBox({
             onPress={getcheckedValue(checked) ?? toggle}
             style={[styles.container, checked && styles.checkedContainer, uncheckedContainer, checkedContainer]}>
             {
-                checked && <MaterialCommunityIcons name={'check-bold'} size={width(checkedIconSize)} color={iconColor} />
+                checked && <MaterialCommunityIcons name={'check'} size={width(checkedIconSize)} color={iconColor} />
             }
         </TouchableOpacity>
     );
