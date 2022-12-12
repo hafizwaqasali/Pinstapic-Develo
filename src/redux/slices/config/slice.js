@@ -1,7 +1,8 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
-  appLoader:false
+  appLoader: false,
+  switchLoader: false,
 };
 
 const configSlice = createSlice({
@@ -10,7 +11,10 @@ const configSlice = createSlice({
   reducers: {
     setAppLoader: (state, action) => {
       state.appLoader = action.payload
-  },
+    },
+    setSwitchLoader: (state, action) => {
+      state.switchLoader = action.payload
+    },
   },
 });
 

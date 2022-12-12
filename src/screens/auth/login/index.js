@@ -13,6 +13,7 @@ import {
   CheckBox,
   PrimaryBtn,
   SocialIcon,
+  AnimatedLoader,
 } from "../../../components";
 import CommonStyles from "~utills/CommonStyles";
 import { Icons, Images } from "../../../assets";
@@ -20,6 +21,7 @@ import { useForm, Controller } from "react-hook-form";
 import AppFonts from "~utills/AppFonts";
 import { height } from "~utills/Dimension";
 import { loginValidationSchema } from "~utills/validationSchema/LoginSchema";
+import { setSwitchLoader } from "~redux/slices/config";
 
 export default function Login({ navigation }) {
   const {
@@ -34,7 +36,15 @@ export default function Login({ navigation }) {
     mode: "all",
     resolver: yupResolver(loginValidationSchema)
   });
-  const onSubmit = (data) => console.log(data);
+  const dispatch = useDispatch()
+
+  const onSubmit = (data) => {
+    dispatch(setSwitchLoader(true))
+    console.log(data)
+    setTimeout(() => {
+      dispatch(setSwitchLoader(false))
+    }, 3000);
+  };
   return (
     <ScreenWrapper
       statusBarColor={AppColors.blueBackground}
@@ -49,6 +59,7 @@ export default function Login({ navigation }) {
       )}
     >
       <View style={styles.container}>
+
         {/* Icon Section */}
         <Image
           source={Icons.pinstapicLogo}
