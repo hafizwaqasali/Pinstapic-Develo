@@ -4,7 +4,7 @@ import ScreenWrapper from "../../../components/screenWrapper";
 import { Image, Text, TouchableOpacity, View } from "react-native";
 import styles from "./styles";
 import AppColors from "~utills/AppColors";
-import { yupResolver } from "@hookform/resolvers/yup"
+import { yupResolver } from "@hookform/resolvers/yup";
 import {
   ScreenNameHeader,
   InputFieldValidate,
@@ -36,17 +36,18 @@ export default function Login({ navigation }) {
       password: "",
     },
     mode: "all",
-    resolver: yupResolver(loginValidationSchema)
+    resolver: yupResolver(loginValidationSchema),
   });
-  const dispatch = useDispatch()
-  const [toggleEye, setToggleEye] = useState(true)
+  const dispatch = useDispatch();
+  const [toggleEye, setToggleEye] = useState(true);
   const onSubmit = (data) => {
-    dispatch(setSwitchLoader(true))
-    console.log(data)
+    dispatch(setSwitchLoader(true));
+    console.log(data);
     setTimeout(() => {
-      dispatch(setSwitchLoader(false))
+      dispatch(setSwitchLoader(false));
     }, 3000);
   };
+  const toggleVisibilty = () => setToggleEye(!toggleEye);
 
   return (
     <ScreenWrapper
@@ -62,7 +63,6 @@ export default function Login({ navigation }) {
       )}
     >
       <View style={styles.container}>
-
         {/* Icon Section */}
         <Image
           source={Icons.pinstapicLogo}
@@ -78,7 +78,17 @@ export default function Login({ navigation }) {
           errorMsg={errors.email}
         />
         <InputFieldValidate
-          rightIcon={!toggleEye ? <HiddenEyeSvg /> : <VisibleEyeSvg />}
+          rightIcon={
+            !toggleEye ? (
+              <TouchableOpacity onPress={toggleVisibilty}>
+                <HiddenEyeSvg />
+              </TouchableOpacity>
+            ) : (
+              <TouchableOpacity onPress={toggleVisibilty}>
+                <VisibleEyeSvg />
+              </TouchableOpacity>
+            )
+          }
           formControl={control}
           name="password"
           label={"Password"}
@@ -130,7 +140,11 @@ export default function Login({ navigation }) {
           />
         </View>
         {/* Signup Section */}
-        <CustomText fontFamily={AppFonts.robotoregular} size={3} marginTop={height(5)}>
+        <CustomText
+          fontFamily={AppFonts.robotoregular}
+          size={3}
+          marginTop={height(5)}
+        >
           Don't have an account? Create now
         </CustomText>
         <PrimaryBtn
@@ -138,7 +152,6 @@ export default function Login({ navigation }) {
           title="Sign Up"
           containerStyle={CommonStyles.marginTop_1}
           onPress={() => navigation.navigate(ScreenNames.SIGNUP)}
-
         />
       </View>
     </ScreenWrapper>

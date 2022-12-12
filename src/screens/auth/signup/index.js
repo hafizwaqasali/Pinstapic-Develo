@@ -1,5 +1,5 @@
-import { StyleSheet, Text, View } from "react-native";
-import React from "react";
+import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import React, { useState } from "react";
 import styles from "./styles";
 import {
     CheckBox,
@@ -21,6 +21,7 @@ import AppFonts from "~utills/AppFonts";
 import { height, width } from "~utills/Dimension";
 import { Images } from "~assets";
 import ScreenNames from "~routes/routes";
+import { HiddenEyeSvg, VisibleEyeSvg } from "~assets/Svg";
 
 export default function Signup({ navigation }) {
     const {
@@ -37,8 +38,11 @@ export default function Signup({ navigation }) {
         mode: "all",
         resolver: yupResolver(signupValidationSchema),
     });
+    const [toggleEye, setToggleEye] = useState(true);
+    const [toggleEyePassword, setToggleEyePassword] = useState(true);
     const dispatch = useDispatch();
-
+    const toggleVisibilty = () => setToggleEye(!toggleEye);
+    const toggleConfirmVisibilty = () => setToggleEyePassword(!toggleEyePassword);
     const onSubmit = (data) => {
         dispatch(setSwitchLoader(true));
         console.log(data);
@@ -77,20 +81,42 @@ export default function Signup({ navigation }) {
                         errorMsg={errors.email}
                     />
                     <InputFieldValidate
+                        rightIcon={
+                            !toggleEye ? (
+                                <TouchableOpacity onPress={toggleVisibilty}>
+                                    <HiddenEyeSvg />
+                                </TouchableOpacity>
+                            ) : (
+                                <TouchableOpacity onPress={toggleVisibilty}>
+                                    <VisibleEyeSvg />
+                                </TouchableOpacity>
+                            )
+                        }
                         formControl={control}
                         name="password"
                         label={"Password"}
                         placeholder={"• • • • • • • • • • • • • • •"}
-                        secureTextEntry
+                        secureTextEntry={toggleEye}
                         returnKeyType={"done"}
                         errorMsg={errors.password}
                     />
                     <InputFieldValidate
+                        rightIcon={
+                            !toggleEyePassword ? (
+                                <TouchableOpacity onPress={toggleConfirmVisibilty}>
+                                    <HiddenEyeSvg />
+                                </TouchableOpacity>
+                            ) : (
+                                <TouchableOpacity onPress={toggleConfirmVisibilty}>
+                                    <VisibleEyeSvg />
+                                </TouchableOpacity>
+                            )
+                        }
                         formControl={control}
                         name="confirm_password"
                         label={"Confirm Password"}
                         placeholder={"• • • • • • • • • • • • • • •"}
-                        secureTextEntry
+                        secureTextEntry={toggleEyePassword}
                         returnKeyType={"done"}
                         errorMsg={errors.confirm_password}
                     />
