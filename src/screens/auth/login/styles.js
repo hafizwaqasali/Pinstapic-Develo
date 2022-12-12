@@ -11,7 +11,7 @@ const styles = StyleSheet.create({
   logoStyles: {
     height: height(17),
     width: width(34),
-    marginVertical: height(4)
+    marginVertical: height(3.5)
   },
   forgotPassContainer: {
     flexDirection: "row",

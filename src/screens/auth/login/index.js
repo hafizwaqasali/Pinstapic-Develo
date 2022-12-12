@@ -22,6 +22,7 @@ import AppFonts from "~utills/AppFonts";
 import { height } from "~utills/Dimension";
 import { loginValidationSchema } from "~utills/validationSchema/LoginSchema";
 import { setSwitchLoader } from "~redux/slices/config";
+import ScreenNames from "~routes/routes";
 
 export default function Login({ navigation }) {
   const {
@@ -133,7 +134,7 @@ export default function Login({ navigation }) {
           transparentBtn={true}
           title="Sign Up"
           containerStyle={CommonStyles.marginTop_1}
-          onPress={() => alert("Pressed")}
+          onPress={() => navigation.navigate(ScreenNames.SIGNUP)}
 
         />
       </View>
