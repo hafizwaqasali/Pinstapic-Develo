@@ -51,6 +51,7 @@ export default function Login({ navigation }) {
 
   return (
     <ScreenWrapper
+      scrollEnabled
       statusBarColor={AppColors.blueBackground}
       backgroundColor={AppColors.blueBackground}
       barStyle="light-content"

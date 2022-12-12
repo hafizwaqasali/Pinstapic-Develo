@@ -52,6 +52,7 @@ export default function Signup({ navigation }) {
     };
     return (
         <ScreenWrapper
+            scrollEnabled
             statusBarColor={AppColors.blueBackground}
             backgroundColor={AppColors.blueBackground}
             barStyle="light-content"
@@ -72,6 +73,7 @@ export default function Signup({ navigation }) {
                         label={"Name"}
                         placeholder={"John Doe"}
                         errorMsg={errors.name}
+
                     />
                     <InputFieldValidate
                         formControl={control}
@@ -185,7 +187,7 @@ export default function Signup({ navigation }) {
                         size={3}
                         marginTop={height(5)}
                     >
-                        Don't have an account? Create now
+                        Already have an account?
                     </CustomText>
                     <PrimaryBtn
                         transparentBtn={true}
