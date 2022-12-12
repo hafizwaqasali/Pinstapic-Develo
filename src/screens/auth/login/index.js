@@ -1,5 +1,5 @@
 import { useDispatch } from "react-redux";
-import React from "react";
+import React, { useState } from "react";
 import ScreenWrapper from "../../../components/screenWrapper";
 import { Image, Text, TouchableOpacity, View } from "react-native";
 import styles from "./styles";
@@ -23,6 +23,7 @@ import { height } from "~utills/Dimension";
 import { loginValidationSchema } from "~utills/validationSchema/LoginSchema";
 import { setSwitchLoader } from "~redux/slices/config";
 import ScreenNames from "~routes/routes";
+import { HiddenEyeSvg, VisibleEyeSvg } from "~assets/Svg";
 
 export default function Login({ navigation }) {
   const {
@@ -38,7 +39,7 @@ export default function Login({ navigation }) {
     resolver: yupResolver(loginValidationSchema)
   });
   const dispatch = useDispatch()
-
+  const [toggleEye, setToggleEye] = useState(true)
   const onSubmit = (data) => {
     dispatch(setSwitchLoader(true))
     console.log(data)
@@ -46,6 +47,7 @@ export default function Login({ navigation }) {
       dispatch(setSwitchLoader(false))
     }, 3000);
   };
+
   return (
     <ScreenWrapper
       statusBarColor={AppColors.blueBackground}
@@ -76,11 +78,12 @@ export default function Login({ navigation }) {
           errorMsg={errors.email}
         />
         <InputFieldValidate
+          rightIcon={!toggleEye ? <HiddenEyeSvg /> : <VisibleEyeSvg />}
           formControl={control}
           name="password"
           label={"Password"}
           placeholder={"• • • • • • • • • • • • • • •"}
-          secureTextEntry
+          secureTextEntry={toggleEye}
           returnKeyType={"done"}
           errorMsg={errors.password}
         />
