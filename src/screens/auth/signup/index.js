@@ -134,7 +134,7 @@ export default function Signup({ navigation }) {
                         I Agree
                     </CustomText>
                     <CustomText
-                        onPress={() => alert("pressed")}
+                        onPress={() => navigation.navigate(ScreenNames.TERMSANDCONDITIONS)}
                         fontFamily={AppFonts.robotoregular}
                         size={3}
                         marginLeft={width(1.5)}
@@ -143,7 +143,7 @@ export default function Signup({ navigation }) {
                         Accept T&C,
                     </CustomText>
                     <CustomText
-                        onPress={() => alert("pressed")}
+                        onPress={() => navigation.navigate(ScreenNames.PRIVACYPOLICY)}
                         fontFamily={AppFonts.robotoregular}
                         size={3}
                         marginLeft={width(1.5)}
