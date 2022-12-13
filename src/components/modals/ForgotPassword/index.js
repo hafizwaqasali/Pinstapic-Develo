@@ -8,12 +8,13 @@ import React, {
 } from "react";
 import styles from "./styles";
 import Modal from "react-native-modal";
-import { InputFieldValidate, PrimaryBtn, LinkSentModal } from "~components";
+import { InputFieldValidate } from "../../inputs/Input"
+import { PrimaryBtn } from "../../buttons/primary";
+import LinkSentModal from "../Linksent";
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import CommonStyles from "~utills/CommonStyles";
-import { height, width } from "~utills/Dimension";
 import { useDispatch } from "react-redux";
 import { setSwitchLoader } from "~redux/slices/config";
 import AppColors from "~utills/AppColors";
@@ -70,6 +71,7 @@ const ForgotPassword = ({ }, ref) => {
                 animationIn={"zoomIn"}
                 animationOut={"zoomOut"}
                 backdropOpacity={0}
+                onBackdropPress={() => toggleModal()}
             >
                 <View style={styles.container}>
                     <Text style={styles.forgotPassword}>Forgot Password?</Text>

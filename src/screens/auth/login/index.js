@@ -148,6 +148,7 @@ export default function Login({ navigation }) {
           fontFamily={AppFonts.robotoregular}
           size={3}
           marginTop={height(5)}
+          onPress={() => navigation.navigate(ScreenNames.SIGNUP)}
         >
           Don't have an account? Create now
         </CustomText>

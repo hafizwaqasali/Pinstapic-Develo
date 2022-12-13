@@ -48,6 +48,7 @@ export default function Signup({ navigation }) {
         console.log(data);
         setTimeout(() => {
             dispatch(setSwitchLoader(false));
+            navigation.navigate(ScreenNames.CHOOSECATEGORY)
         }, 3000);
     };
     return (
