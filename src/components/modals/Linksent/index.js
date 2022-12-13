@@ -2,7 +2,7 @@ import { StyleSheet, Text, View, TouchableOpacity, Image } from 'react-native'
 import React, { useState, useRef, useImperativeHandle, forwardRef } from 'react'
 import styles from "./styles"
 import Modal from "react-native-modal";
-import PrimaryBtn from '../../buttons/primary';
+import { PrimaryBtn } from '~components';
 
 const Linksent = ({ }, ref) => {
     const [isModalVisible, setModalVisible] = useState(false);

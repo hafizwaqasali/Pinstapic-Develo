@@ -1,5 +1,5 @@
 import { useDispatch } from "react-redux";
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import ScreenWrapper from "../../../components/screenWrapper";
 import { Image, Text, TouchableOpacity, View } from "react-native";
 import styles from "./styles";
@@ -14,6 +14,8 @@ import {
   PrimaryBtn,
   SocialIcon,
   AnimatedLoader,
+  ForgotPassModal,
+  LinkSentModal
 } from "../../../components";
 import CommonStyles from "~utills/CommonStyles";
 import { Icons, Images } from "../../../assets";
@@ -48,7 +50,7 @@ export default function Login({ navigation }) {
     }, 3000);
   };
   const toggleVisibilty = () => setToggleEye(!toggleEye);
-
+  const forgotPassRef = useRef()
   return (
     <ScreenWrapper
       scrollEnabled
@@ -64,6 +66,7 @@ export default function Login({ navigation }) {
       )}
     >
       <View style={styles.container}>
+        <ForgotPassModal ref={forgotPassRef} />
         {/* Icon Section */}
         <Image
           source={Icons.pinstapicLogo}
@@ -107,7 +110,7 @@ export default function Login({ navigation }) {
             </CustomText>
           </View>
           <TouchableOpacity style={styles.forgotPassword}>
-            <CustomText fontFamily={AppFonts.robotoregular} size={3}>
+            <CustomText fontFamily={AppFonts.robotoregular} size={3} onPress={() => forgotPassRef.current.show()}>
               Forgot Password?
             </CustomText>
           </TouchableOpacity>
