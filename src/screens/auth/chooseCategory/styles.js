@@ -18,14 +18,7 @@ const styles = StyleSheet.create({
         top: Ios ? height(3) : height(2),
         backgroundColor: "transparent",
     },
-    flashListContainer: {
-        height: height(60),
-        width: width(60),
-        backgroundColor: "red"
-    },
-    ImgStyle: {
 
-    }
 })
 
 export default styles

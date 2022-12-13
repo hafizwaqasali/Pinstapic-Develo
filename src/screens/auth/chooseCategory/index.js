@@ -10,14 +10,7 @@ const data = [Icons.pinstarIcon, Icons.pinstylistIcon, Icons.pinstoreIcon]
 
 
 export default function ChooseCategory({ navigation }) {
-    const renderItem = ({ item, index }) => {
 
-        return (
-            <TouchableOpacity style={styles.flashListContainer}>
-                <Image source={item} style={styles.ImgStyle} resizeMode="contain" />
-            </TouchableOpacity>
-        )
-    }
     return (
         <ScreenWrapper
             scrollEnabled
@@ -36,12 +29,7 @@ export default function ChooseCategory({ navigation }) {
                     containerStyles={styles.underLineStyles}
                     underLineStyles={{ width: width(16.5) }}
                 />
-                <Flatlist
-                    data={data}
-                    renderItem={renderItem}
-                    keyExtractor={(i) => i.toString()}
 
-                />
             </View>
         </ScreenWrapper>
     );
