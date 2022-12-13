@@ -88,7 +88,8 @@ export const InputFieldValidate = ({
     name,
     maxLength,
     errorMsg,
-    inverted
+    inverted,
+    errorTextColor
 
 }) => {
     return (
@@ -123,7 +124,7 @@ export const InputFieldValidate = ({
                 <Text style={[styles.labelText, inverted && styles.invertedLabel, labelStyles]}>{label}</Text>
                 {rightIcon}
             </TouchableOpacity >
-            <Text style={styles.errorText}>
+            <Text style={[styles.errorText, { color: errorTextColor ?? '#CBEDD5' }]}>
                 {errorMsg?.message && errorMsg.message}
             </Text>
         </View>

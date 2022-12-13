@@ -16,6 +16,7 @@ import CommonStyles from "~utills/CommonStyles";
 import { height, width } from "~utills/Dimension";
 import { useDispatch } from "react-redux";
 import { setSwitchLoader } from "~redux/slices/config";
+import AppColors from "~utills/AppColors";
 
 const EmailValidation = yup.object().shape({
     email: yup
@@ -85,6 +86,7 @@ const ForgotPassword = ({ }, ref) => {
                         label={"Email"}
                         placeholder={"johndoe@email.com"}
                         returnKeyType={'done'}
+                        errorTextColor={AppColors.blueBackground}
                     />
 
                     <PrimaryBtn
