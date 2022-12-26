@@ -2,7 +2,7 @@ import * as React from 'react';
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { useSelector } from 'react-redux';
-import { ChooseCategoryScreen, LoginScreen, PrivacyPolicyScreen, SignupScreen, TermsandConditionsScreen, WelcomeScreen } from '~screens/auth';
+import { ChooseCategoryScreen, LoginScreen, PrivacyPolicyScreen, SignupScreen, TermsandConditionsScreen, WelcomeScreen, CategoryDescriptionScreen } from '~screens/auth';
 import { AnimatedLoader, } from '~components';
 import ScreenNames from './routes';
 import { HomeScreen } from '~screens/app';
@@ -26,6 +26,7 @@ export default function Routes() {
           <Stack.Screen name={ScreenNames.TERMSANDCONDITIONS} component={TermsandConditionsScreen} />
           <Stack.Screen name={ScreenNames.PRIVACYPOLICY} component={PrivacyPolicyScreen} />
           <Stack.Screen name={ScreenNames.CHOOSECATEGORY} component={ChooseCategoryScreen} />
+          <Stack.Screen name={ScreenNames.CATEGORYDESCRIPTION} component={CategoryDescriptionScreen} />
         </Stack.Navigator>
       ) : (
         <Stack.Navigator initialRouteName={ScreenNames.HOME} screenOptions={{ header: () => false }}>

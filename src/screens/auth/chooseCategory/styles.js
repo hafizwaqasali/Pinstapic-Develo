@@ -18,6 +18,13 @@ const styles = StyleSheet.create({
         top: Ios ? height(3) : height(2),
         backgroundColor: "transparent",
     },
+    flatlistContentContainer: {
+        paddingVertical: height(5),
+        marginTop: height(1.5)
+    },
+    flatListView: {
+        marginVertical: height(2)
+    }
 
 })
 

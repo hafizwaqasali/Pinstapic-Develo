@@ -1,19 +1,36 @@
-import { StyleSheet, Text, TouchableOpacity, View, Image, Flatlist } from "react-native";
+import {
+    View,
+    FlatList,
+} from "react-native";
 import React from "react";
 import styles from "./styles";
 import AppColors from "~utills/AppColors";
 import { height, width } from "~utills/Dimension";
-import { CustomText, ScreenWrapper, ScreenNameHeader } from "~components";
-import { Icons } from "~assets";
-
-const data = [Icons.pinstarIcon, Icons.pinstylistIcon, Icons.pinstoreIcon]
-
+import {
+    CustomText,
+    ScreenWrapper,
+    ScreenNameHeader,
+    Category,
+} from "~components";
+import { useDummyData } from "~hooks";
+import ScreenNames from "~routes/routes";
+const data = useDummyData()
 
 export default function ChooseCategory({ navigation }) {
+    const _renderItem = ({ item, index }) => {
+        return (
+            <View style={styles.flatListView}>
+                <Category
+                    imgSrc={item.img}
+                    resizeMode="contain"
+                    onPress={() => navigation.navigate(ScreenNames.CATEGORYDESCRIPTION, { title: item.title })}
+                />
+            </View>
+        );
+    };
 
     return (
         <ScreenWrapper
-            scrollEnabled
             statusBarColor={AppColors.blueBackground}
             backgroundColor={AppColors.blueBackground}
             barStyle="light-content"
@@ -29,7 +46,15 @@ export default function ChooseCategory({ navigation }) {
                     containerStyles={styles.underLineStyles}
                     underLineStyles={{ width: width(16.5) }}
                 />
-
+                {
+                    <FlatList
+                        contentContainerStyle={styles.flatlistContentContainer}
+                        data={data.categoryImages}
+                        keyExtractor={(item, index) => String(index)}
+                        renderItem={_renderItem}
+                        showsVerticalScrollIndicator={false}
+                    />
+                }
             </View>
         </ScreenWrapper>
     );

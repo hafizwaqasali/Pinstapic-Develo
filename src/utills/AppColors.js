@@ -8,5 +8,7 @@ const AppColors = {
   darkblue: "#2D66C9",
   blueBackground: "#2A74D1",
   white_30: 'rgba(255, 255, 255,0.3)',
+  sky_Blue: "#7ECDF6",
+
 };
 export default AppColors;

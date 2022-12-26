@@ -5,6 +5,7 @@ const ScreenNames = {
   SIGNUP: 'Signup',
   TERMSANDCONDITIONS: 'TermsAndConditions',
   PRIVACYPOLICY: 'PrivacyPolicy',
-  CHOOSECATEGORY: 'ChooseCategory'
+  CHOOSECATEGORY: 'ChooseCategory',
+  CATEGORYDESCRIPTION: 'CategoryDescription'
 }
 export default ScreenNames;

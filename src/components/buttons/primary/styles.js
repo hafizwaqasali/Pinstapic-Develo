@@ -23,6 +23,7 @@ const styles = StyleSheet.create({
     backgroundColor: 'transparent',
     borderColor: '#fff',
     borderWidth: width(0.25),
-  }
+  },
+
 });
 export default styles;
