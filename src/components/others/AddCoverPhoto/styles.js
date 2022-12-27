@@ -24,7 +24,7 @@ const styles = StyleSheet.create({
         borderRadius: height(7.8125),
     },
     imageSelected: {
-        borderColor: "rgba(255, 255, 255,.8)",
+        borderColor: AppColors.sky_Blue,
         borderWidth: width(.5),
     },
     cameraStyles: {

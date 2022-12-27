@@ -1,11 +1,11 @@
 import { StyleSheet, Text, View, TouchableOpacity, Image } from 'react-native';
-import React from 'react';
+import React, { useState, useRef } from 'react';
 import styles from './styles';
-import CustomText from '../../texts';
+import { CustomText } from "../../../components"
 import AppFonts from '../../../utills/AppFonts';
 import ImagePicker from '../../pickers/ImagePicker';
-import { useRef } from 'react';
-import { useState } from 'react';
+import { Images } from "../../../assets/index"
+import CommonStyles from '~utills/CommonStyles';
 
 export default function AddCoverPhoto({ containerStyles }) {
     const imageRef = useRef();
@@ -18,7 +18,7 @@ export default function AddCoverPhoto({ containerStyles }) {
                     image && styles.imageSelected,
                     containerStyles,
                 ]}
-                onPress={() => imageRef.current.show()}>
+                onPress={() => imageRef?.current?.show()}>
                 <Image
                     source={{ uri: image }}
                     style={styles.selectedImage}
@@ -34,16 +34,20 @@ export default function AddCoverPhoto({ containerStyles }) {
                 }
                 <View style={styles.cameraStyles}>
 
-                    <Image
-                        source={require('../../../assets/images/whitecamera.png')}
-                        style={styles.imgStyle}
-                        resizeMode="contain"
-                    />
-                    <CustomText
-                        size={2.5}
-                        children="Add a cover photo"
-                        fontFamily={AppFonts.segoe_ui_regular}
-                    />
+                    {!image &&
+                        <>
+                            <Image
+                                source={Images.whiteCameraIcon}
+                                style={styles.imgStyle}
+                                resizeMode="contain"
+                            />
+                            <CustomText
+                                size={2.5}
+                                children="Add a cover photo"
+                                fontFamily={AppFonts.segoe_ui_regular}
+                            />
+                        </>
+                    }
                 </View>
             </TouchableOpacity>
         </>

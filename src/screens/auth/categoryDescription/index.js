@@ -21,6 +21,7 @@ import {
     pinstylist_Desc2,
 } from "~utills/Constants";
 import AppFonts from "~utills/AppFonts";
+import ScreenNames from "~routes/routes";
 
 export default function CategoryDescription({ navigation, route }) {
     const type = route.params.title;
@@ -101,7 +102,7 @@ export default function CategoryDescription({ navigation, route }) {
                     containerStyle={styles.btnContainer}
                     title={`JOIN AS ${type}`}
                     textStyle={styles.btnText}
-                    onPress={() => alert("pressed")}
+                    onPress={() => navigation.navigate(ScreenNames.WELCOMEPROFILE, type)}
                 />
             </View>
         </ScreenWrapper>

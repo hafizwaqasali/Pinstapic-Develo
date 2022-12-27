@@ -5,6 +5,7 @@ import { BackArrowSvg } from "~assets/Svg";
 import AppColors from "~utills/AppColors";
 import { CustomText } from "~components/texts";
 import AppFonts from "~utills/AppFonts";
+import CommonStyles from "~utills/CommonStyles";
 
 export default function HeaderWithBtn({
     containerStyles,
@@ -18,6 +19,7 @@ export default function HeaderWithBtn({
     onPressBackBtn,
     centerText = "",
     centerTxtStyles,
+    isCenterTitle = false
 }) {
     return (
         <View style={[styles.container, containerStyles]}>
@@ -31,7 +33,7 @@ export default function HeaderWithBtn({
                     </TouchableOpacity>
                 )}
             </View>
-            <View style={[styles.centerWrapper, centerWrapperStyles]}>
+            <View style={[styles.centerWrapper, centerWrapperStyles, isCenterTitle && CommonStyles.marginLeft_5]}>
                 {centerElement ?? (
                     <CustomText
                         children={centerText}

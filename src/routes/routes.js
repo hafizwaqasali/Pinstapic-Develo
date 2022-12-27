@@ -6,6 +6,7 @@ const ScreenNames = {
   TERMSANDCONDITIONS: 'TermsAndConditions',
   PRIVACYPOLICY: 'PrivacyPolicy',
   CHOOSECATEGORY: 'ChooseCategory',
-  CATEGORYDESCRIPTION: 'CategoryDescription'
+  CATEGORYDESCRIPTION: 'CategoryDescription',
+  WELCOMEPROFILE: 'WelcomeProfile',
 }
 export default ScreenNames;
