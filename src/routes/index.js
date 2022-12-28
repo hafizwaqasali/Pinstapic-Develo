@@ -8,6 +8,7 @@ import ScreenNames from './routes';
 import { HomeScreen } from '~screens/app';
 import { selectIsLoggedIn } from '~redux/slices/user';
 import SplashScreen from 'react-native-splash-screen'
+import { ManageLocationScreen } from '~screens/common';
 const Stack = createNativeStackNavigator();
 
 export default function Routes() {
@@ -19,7 +20,7 @@ export default function Routes() {
     <NavigationContainer>
       <AnimatedLoader />
       {!isLogin ? (
-        <Stack.Navigator initialRouteName={ScreenNames.WELCOME} screenOptions={{ header: () => false }}>
+        <Stack.Navigator initialRouteName={ScreenNames.CHOOSECATEGORY} screenOptions={{ header: () => false }}>
           <Stack.Screen name={ScreenNames.WELCOME} component={WelcomeScreen} />
           <Stack.Screen name={ScreenNames.LOGIN} component={LoginScreen} />
           <Stack.Screen name={ScreenNames.SIGNUP} component={SignupScreen} />
@@ -28,6 +29,7 @@ export default function Routes() {
           <Stack.Screen name={ScreenNames.CHOOSECATEGORY} component={ChooseCategoryScreen} />
           <Stack.Screen name={ScreenNames.CATEGORYDESCRIPTION} component={CategoryDescriptionScreen} />
           <Stack.Screen name={ScreenNames.WELCOMEPROFILE} component={WelcomeProfileScreen} />
+          <Stack.Screen name={ScreenNames.MANAGELOCATION} component={ManageLocationScreen} />
         </Stack.Navigator>
       ) : (
         <Stack.Navigator initialRouteName={ScreenNames.HOME} screenOptions={{ header: () => false }}>

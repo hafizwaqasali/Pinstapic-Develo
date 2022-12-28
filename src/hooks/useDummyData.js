@@ -34,6 +34,100 @@ const type_of_stylist = [{
     isSelected: false,
 },
 ]
+const type_of_pinstar = [{
+    label: "Classic",
+    isSelected: false,
+},
+{
+    label: "Designer",
+    isSelected: false,
+},
+{
+    label: "Sporty",
+    isSelected: false,
+},
+{
+    label: "Retro",
+    isSelected: false,
+},
+{
+    label: "Bohemian",
+    isSelected: false,
+},
+{
+    label: "Vintage",
+    isSelected: false,
+},
+{
+    label: "Sexy",
+    isSelected: false,
+},
+{
+    label: "Urban",
+    isSelected: false,
+},
+{
+    label: "Casual",
+    isSelected: false,
+},
+{
+    label: "Trendy",
+    isSelected: false,
+},
+{
+    label: "Gothic",
+    isSelected: false,
+},
+{
+    label: "Other",
+    isSelected: false,
+},
+]
+const type_of_pinstore = [{
+    label: "Clothes",
+    isSelected: false,
+},
+{
+    label: "Shoes",
+    isSelected: false,
+},
+{
+    label: "Accessories",
+    isSelected: false,
+},
+{
+    label: "Cosmetic",
+    isSelected: false,
+},
+{
+    label: "Women",
+    isSelected: false,
+},
+{
+    label: "Men",
+    isSelected: false,
+},
+{
+    label: "Unisex",
+    isSelected: false,
+},
+{
+    label: "Kids",
+    isSelected: false,
+},
+{
+    label: "Babies",
+    isSelected: false,
+},
+{
+    label: "Pets",
+    isSelected: false,
+},
+{
+    label: "Other",
+    isSelected: false,
+},
+]
 
 
 
@@ -41,5 +135,7 @@ export default function useDummyData() {
     return {
         categoryImages: category_Images_data,
         typeofstylist: type_of_stylist,
+        typeofpinstar: type_of_pinstar,
+        typeofpinstore: type_of_pinstore,
     }
 }

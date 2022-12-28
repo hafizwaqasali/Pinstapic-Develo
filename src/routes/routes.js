@@ -8,5 +8,6 @@ const ScreenNames = {
   CHOOSECATEGORY: 'ChooseCategory',
   CATEGORYDESCRIPTION: 'CategoryDescription',
   WELCOMEPROFILE: 'WelcomeProfile',
+  MANAGELOCATION: 'ManageLocation',
 }
 export default ScreenNames;

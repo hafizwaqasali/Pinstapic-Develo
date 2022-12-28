@@ -1,5 +1,5 @@
 import { Text, View } from "react-native";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
     ScreenWrapper,
     HeaderWithBtn,
@@ -13,30 +13,49 @@ import CommonStyles from "~utills/CommonStyles";
 import Entypo from "react-native-vector-icons/Entypo";
 import { width } from "~utills/Dimension";
 import DropDown from "~components/dropdowns/dropDown";
-import { useDummyData } from "../../../hooks"
+import { useDummyData } from "../../../hooks";
+import ScreenNames from "~routes/routes";
 
 export default function WelcomeProfile({ navigation, route }) {
     const [type, setType] = useState(route.params);
     const [userName, setuserName] = useState("");
-    const [visible, setVisible] = useState(false)
-    const [dropDownValue, setDropDownValue] = useState('')
+    const [visible, setVisible] = useState(false);
+    const [dropDownValue, setDropDownValue] = useState("");
     const tempData = useDummyData();
-    const [dropDownData, setDropDownData] = useState(tempData.typeofstylist)
+    const [dropDownData, setDropDownData] = useState([]);
 
-    const toggleModal = () => setVisible(!visible)
+    useEffect(() => {
+        setDropDown()
+    }, [])
 
-    const _selectFromDropdown = async (value) => {
-        setDropDownValue(value)
-        dropDownData?.forEach((item, index) => {
-            if (item.label == value) item.isSelected = true
-            else item.isSelected = false
-        })
-        console.log(dropDownData)
-        setDropDownData(dropDownData)
-        toggleModal()
+    const setDropDown = async () => {
+        switch (type) {
+            case 'PINSTAR':
+                setDropDownData(tempData.typeofpinstar)
+                break;
+            case 'PINSTYLIST':
+                setDropDownData(tempData.typeofstylist)
+                break;
+            case 'PINSTORE':
+                setDropDownData(tempData.typeofpinstore)
+                break;
 
+            default:
+                break;
+        }
     }
 
+    const toggleModal = () => setVisible(!visible);
+
+    const _selectFromDropdown = async (value) => {
+        setDropDownValue(value);
+        dropDownData?.forEach((item, index) => {
+            if (item.label == value) item.isSelected = true;
+            else item.isSelected = false;
+        });
+        setDropDownData(dropDownData);
+        toggleModal();
+    };
 
     return (
         <ScreenWrapper
@@ -53,7 +72,11 @@ export default function WelcomeProfile({ navigation, route }) {
             )}
         >
             <View style={styles.container}>
-                <DropDown isVisible={visible} tempData={dropDownData} onPress={_selectFromDropdown} />
+                <DropDown
+                    isVisible={visible}
+                    tempData={dropDownData}
+                    onPress={_selectFromDropdown}
+                />
                 <View style={styles.coverPhotoWrapper}>
                     <AddCoverPhoto />
                 </View>
@@ -72,7 +95,7 @@ export default function WelcomeProfile({ navigation, route }) {
                         onChangeText={setuserName}
                     />
                     <InputField
-                        onPress={() => alert("pressed")}
+                        onPress={() => navigation.navigate(ScreenNames.MANAGELOCATION)}
                         editable={false}
                         label={"Location"}
                         placeholder={"Select here..."}
@@ -83,7 +106,7 @@ export default function WelcomeProfile({ navigation, route }) {
                                 name="chevron-thin-right"
                                 size={width(5)}
                                 color={AppColors.white}
-                                onPress={() => alert("pressed")}
+                                onPress={() => navigation.navigate(ScreenNames.MANAGELOCATION)}
                             />
                         }
                     />

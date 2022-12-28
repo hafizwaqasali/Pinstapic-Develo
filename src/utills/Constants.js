@@ -7,3 +7,4 @@ export const pinstylist_Desc1 = 'If you chose to become a PINSTYLIST, you are ab
 export const pinstylist_Desc2 = 'You can promote your services and get more clients and exposure. You can share with your network and Inspire other users to find or improve their Look.'
 export const pinstore_Desc1 = 'If you chose to become a PINSTORE, you are able to sell your items, promote your latest collection & see who is wearing your brand.'
 export const pinstore_Desc2 = 'You can share with your network and Inspire others to find or improve their own style. You can also reward your most loyal customer with coupons & more.'
+export const APIKEY = 'AIzaSyDn-zgL6nFtCy40cEVDMZmpJsjmTLNkGN8'
