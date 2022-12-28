@@ -17,7 +17,7 @@ export default function CheckBox({
     }
     return (
         <TouchableOpacity
-            onPress={getcheckedValue(checked) ?? toggle}
+            onPress={getcheckedValue(!checked) ?? toggle}
             style={[styles.container, checked && styles.checkedContainer, uncheckedContainer, checkedContainer]}>
             {
                 checked && <MaterialCommunityIcons name={'check'} size={width(checkedIconSize)} color={iconColor} />

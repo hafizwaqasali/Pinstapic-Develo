@@ -40,12 +40,14 @@ export default function Signup({ navigation }) {
     });
     const [toggleEye, setToggleEye] = useState(true);
     const [toggleEyePassword, setToggleEyePassword] = useState(true);
+    const [iAgree, setIAgree] = useState(false)
     const dispatch = useDispatch();
     const toggleVisibilty = () => setToggleEye(!toggleEye);
+    const _checkBoxStatus = (val) => setIAgree(val)
     const toggleConfirmVisibilty = () => setToggleEyePassword(!toggleEyePassword);
     const onSubmit = (data) => {
         dispatch(setSwitchLoader(true));
-        console.log(data);
+        console.log(JSON.stringify(data) + iAgree);
         setTimeout(() => {
             dispatch(setSwitchLoader(false));
             navigation.navigate(ScreenNames.CHOOSECATEGORY)
@@ -126,7 +128,7 @@ export default function Signup({ navigation }) {
                 </View>
                 {/* terms & conditions */}
                 <View style={styles.termsAndConditions}>
-                    <CheckBox />
+                    <CheckBox getcheckedValue={_checkBoxStatus} />
                     <CustomText
                         fontFamily={AppFonts.robotoregular}
                         size={3}

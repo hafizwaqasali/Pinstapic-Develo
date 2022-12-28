@@ -42,15 +42,21 @@ export default function Login({ navigation }) {
   });
   const dispatch = useDispatch();
   const [toggleEye, setToggleEye] = useState(true);
+  const [rememberMe, setRememberMe] = useState(false)
   const onSubmit = (data) => {
     dispatch(setSwitchLoader(true));
-    console.log(data);
+    console.log(JSON.stringify(data) + rememberMe);
     setTimeout(() => {
       dispatch(setSwitchLoader(false));
     }, 3000);
   };
   const toggleVisibilty = () => setToggleEye(!toggleEye);
   const forgotPassRef = useRef()
+
+  const _checkBoxStatus = (val) => {
+    setRememberMe(val)
+  }
+
   return (
     <ScreenWrapper
       scrollEnabled
@@ -104,7 +110,7 @@ export default function Login({ navigation }) {
         {/* Forgot Password Section */}
         <View style={styles.forgotPassContainer}>
           <View style={styles.rememberMeWrapper}>
-            <CheckBox />
+            <CheckBox getcheckedValue={_checkBoxStatus} />
             <CustomText fontFamily={AppFonts.robotoregular} size={3}>
               Remember me
             </CustomText>
