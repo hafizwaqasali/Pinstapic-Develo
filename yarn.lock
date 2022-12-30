@@ -1448,6 +1448,11 @@
     "@jridgewell/resolve-uri" "^3.0.3"
     "@jridgewell/sourcemap-codec" "^1.4.10"
 
+"@react-native-camera-roll/camera-roll@^5.2.0":
+  version "5.2.0"
+  resolved "https://registry.yarnpkg.com/@react-native-camera-roll/camera-roll/-/camera-roll-5.2.0.tgz#a30dca7c486379650c03fb8cc6fe35b7de6eeb82"
+  integrity sha512-CIFkEqWeMtFo3fG/0nULrmLs8xikbOUuEty8wWxpyBWq7OM9Hi13pXJ1FWrIrxDcFuL7d0bxIqpqNrt59lAPrQ==
+
 "@react-native-community/cli-debugger-ui@^7.0.3":
   version "7.0.3"
   resolved "https://registry.yarnpkg.com/@react-native-community/cli-debugger-ui/-/cli-debugger-ui-7.0.3.tgz#3eeeacc5a43513cbcae56e5e965d77726361bcb4"

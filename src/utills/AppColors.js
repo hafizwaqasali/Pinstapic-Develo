@@ -12,7 +12,8 @@ const AppColors = {
   white_50: 'rgba(255, 255, 255,0.5)',
   white_85: 'rgba(245, 245, 245,0.85)',
   sky_Blue: "#7ECDF6",
-  dark_Grey: "#00000029"
+  dark_Grey: "#00000029",
+  parrotGreen_20: "rgba(118, 255, 8, .2)",
 
 };
 export default AppColors;

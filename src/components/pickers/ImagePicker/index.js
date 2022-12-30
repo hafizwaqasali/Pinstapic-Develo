@@ -1,5 +1,5 @@
 import React, { forwardRef, useImperativeHandle, useState } from 'react';
-import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { Image, PermissionsAndroid, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { height, width } from '~utills/Dimension';
 import ImagePicker from 'react-native-image-crop-picker';
 import Modal from 'react-native-modal';
@@ -16,6 +16,10 @@ const ImagePickers = (
     hide: function () {
       setVisible(false);
     },
+    openCam: function () {
+      openCamera()
+      // alert("clicked")
+    },
     cleanTempImages: () => {
       ImagePicker.clean()
         .then(() => {
@@ -25,7 +29,32 @@ const ImagePickers = (
     },
   }));
 
+  const requestCameraPermission = async () => {
+    try {
+      const granted = await PermissionsAndroid.request(
+        PermissionsAndroid.PERMISSIONS.CAMERA,
+        {
+          title: "Camera Permission",
+          message:
+            "This App needs access to your camera " +
+            "so you can take awesome pictures.",
+          buttonNeutral: "Ask Me Later",
+          buttonNegative: "Cancel",
+          buttonPositive: "OK"
+        }
+      );
+      if (granted === PermissionsAndroid.RESULTS.GRANTED) {
+        console.log("You can use the camera");
+      } else {
+        console.log("Camera permission denied");
+      }
+    } catch (err) {
+      console.warn(err);
+    }
+  };
+
   function openCamera() {
+    requestCameraPermission()
     ImagePicker.openCamera({
       cropping: true,
       mediaType: 'photo',

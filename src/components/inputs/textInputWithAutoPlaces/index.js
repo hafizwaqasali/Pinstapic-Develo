@@ -17,7 +17,7 @@ const TextInputWithAutoPlaces = (
     containerStyle = {},
     textinputViewStyle = {},
     onIconPress,
-    selectionColor = AppColors.black + "40",
+    selectionColor = AppColors.darkOrange_30,
     onSubmitEditing,
     returnKeyType,
     onPressIn,

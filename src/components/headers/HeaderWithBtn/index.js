@@ -1,7 +1,7 @@
 import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import React from "react";
 import { height, width } from "~utills/Dimension";
-import { BackArrowSvg } from "~assets/Svg";
+import { BackArrowSvg, CloseiconSvg } from "~assets/Svg";
 import AppColors from "~utills/AppColors";
 import { CustomText } from "~components/texts";
 import AppFonts from "~utills/AppFonts";
@@ -19,7 +19,8 @@ export default function HeaderWithBtn({
     onPressBackBtn,
     centerText = "",
     centerTxtStyles,
-    isCenterTitle = false
+    isCenterTitle = false,
+    enableCloseButton = false
 }) {
     return (
         <View style={[styles.container, containerStyles]}>
@@ -29,7 +30,7 @@ export default function HeaderWithBtn({
                         style={[styles.backButton, backButtonStyles]}
                         onPress={onPressBackBtn}
                     >
-                        <BackArrowSvg />
+                        {enableCloseButton ? <CloseiconSvg /> : <BackArrowSvg />}
                     </TouchableOpacity>
                 )}
             </View>

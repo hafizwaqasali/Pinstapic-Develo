@@ -6,10 +6,13 @@ import AppFonts from '../../../utills/AppFonts';
 import ImagePicker from '../../pickers/ImagePicker';
 import { Images } from "../../../assets/index"
 import CommonStyles from '~utills/CommonStyles';
+import { useNavigation } from '@react-navigation/native';
+import ScreenNames from '~routes/routes';
 
 export default function AddCoverPhoto({ containerStyles }) {
     const imageRef = useRef();
     const [image, setImage] = useState(null);
+    const navigation = useNavigation()
     return (
         <>
             <TouchableOpacity
@@ -18,17 +21,17 @@ export default function AddCoverPhoto({ containerStyles }) {
                     image && styles.imageSelected,
                     containerStyles,
                 ]}
-                onPress={() => imageRef?.current?.show()}>
+                onPress={() => navigation.navigate(ScreenNames.IMAGEGALLERY)}>
                 <Image
                     source={{ uri: image }}
                     style={styles.selectedImage}
                     resizeMode="cover"
                 />
 
-                <ImagePicker
+                {/* <ImagePicker
                     ref={imageRef}
                     onFilesSelected={images => setImage(images[0].path)}
-                />
+                /> */}
                 {
                     image && <View style={styles.blackEffect} />
                 }

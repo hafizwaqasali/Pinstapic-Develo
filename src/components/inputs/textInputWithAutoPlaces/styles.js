@@ -13,7 +13,8 @@ const styles = StyleSheet.create({
   },
   iconStyle: {
     width: width(8),
-    alignItems: "flex-end",
+    // alignItems: "flex-end",
+
   },
   textInputView: {
     alignItems: "flex-start",

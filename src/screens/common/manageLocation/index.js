@@ -15,10 +15,10 @@ import Slider from "react-native-slider";
 import CommonStyles from "~utills/CommonStyles";
 import { MapPinSvg, SearchIconSvg } from "~assets/Svg";
 
-export default function ManageLocation({ navigation }) {
+export default function ManageLocation({ navigation, route }) {
     const mapRef = useRef();
     const [sliderValue, setSliderValue] = useState(1);
-    const [zoomValue, setZoomValue] = useState();
+    const [selectedPlace, setSelectedPlace] = useState('');
     const [latestRegion, setLatestRegion] = useState({
         latitude: 37.78825,
         longitude: -122.4324,
@@ -43,11 +43,19 @@ export default function ManageLocation({ navigation }) {
             <View style={styles.container}>
                 <View style={styles.topSearchBar}>
                     <TextInputWithAutoPlaces
-                        // Icon={<SearchIconSvg />}
+                        Icon={<SearchIconSvg />}
                         containerStyle={styles.Searchbar}
                         placeholder={"Search..."}
                         placeholderTextColor={AppColors.white_85}
                         textinputViewStyle={styles.searchinputViewStyle}
+                        onAddress={(data, details = null) => {
+                            setSelectedPlace(data.description)
+                            setLatestRegion({
+                                latitude: details.geometry.location.lat,
+                                longitude: details.geometry.location.lng
+                            })
+                            mapRef.current?.animateToRegion(latestRegion, 2000)
+                        }}
                     />
                 </View>
                 <MapView
