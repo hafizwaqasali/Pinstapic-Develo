@@ -50,6 +50,7 @@ const TextInputWithAutoPlaces = (
             suppressDefaultStyles={true}
             listViewDisplayed="auto"
             textInputProps={{
+              clearButtonMode: "never",
               selectionColor: selectionColor,
               placeholder: placeholder,
               placeholderTextColor: placeholderTextColor,
@@ -61,7 +62,7 @@ const TextInputWithAutoPlaces = (
               keyboardType: keyboardType,
             }}
             styles={{
-              textInput: [styles.input, { width: width(90) }],
+              textInput: [styles.input, { width: width(83), overflow: "hidden" }],
               description: {
                 color: AppColors.white,
               },

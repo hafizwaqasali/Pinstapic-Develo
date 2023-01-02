@@ -10,12 +10,12 @@ const styles = StyleSheet.create({
         // height: height(100)
     },
     mapView: {
-        height: Ios ? height(80) : height(92)
+        height: Ios ? height(88) : height(92)
     },
     BottomSlider: {
         borderTopEndRadius: width(5),
         borderTopStartRadius: width(5),
-        height: Ios ? height(35) : height(20),
+        height: Ios ? height(20) : height(20),
         width: width(100),
         backgroundColor: "white",
         position: "absolute",
