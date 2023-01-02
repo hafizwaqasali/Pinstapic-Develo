@@ -14,17 +14,21 @@ import { height } from "~utills/Dimension";
 import Slider from "react-native-slider";
 import CommonStyles from "~utills/CommonStyles";
 import { MapPinSvg, SearchIconSvg } from "~assets/Svg";
+import useLocations from "~hooks/useLocations";
 
 export default function ManageLocation({ navigation, route }) {
     const mapRef = useRef();
     const [sliderValue, setSliderValue] = useState(1);
-    const [selectedPlace, setSelectedPlace] = useState('');
+    const myLocation = useLocations()
     const [latestRegion, setLatestRegion] = useState({
-        latitude: 37.78825,
-        longitude: -122.4324,
+        latitude: myLocation.lat ?? 37.78825,
+        longitude: myLocation.lng ?? -122.4324,
         latitudeDelta: 0.0922,
         longitudeDelta: 0.0421,
     });
+    const [selectedPlace, setSelectedPlace] = useState('');
+
+
 
     return (
         <ScreenWrapper
@@ -70,8 +74,10 @@ export default function ManageLocation({ navigation, route }) {
                             : 0.0421,
                     }}
                     provider={PROVIDER_DEFAULT}
-                    onRegionChangeComplete={(region) => {
+                    onRegionChangeComplete={async (region) => {
+                        const locationName = await mapRef.current.addressForCoordinate(region)
                         setLatestRegion(region);
+                        setSelectedPlace(locationName.name)
                     }}
                     ref={mapRef}
                     style={styles.mapView}
@@ -120,7 +126,13 @@ export default function ManageLocation({ navigation, route }) {
                     <PrimaryBtn
                         title="Continue"
                         containerStyle={CommonStyles.marginTop_1}
-                        onPress={() => alert("---pressed---")}
+                        onPress={() => {
+                            // Pass and merge params back to home screen
+                            navigation.navigate({
+                                name: route?.params?.screenName,
+                                params: { Loc: selectedPlace },
+                            });
+                        }}
                     />
                 </View>
             </View>

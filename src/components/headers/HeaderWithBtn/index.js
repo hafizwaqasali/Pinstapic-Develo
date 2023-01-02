@@ -16,11 +16,14 @@ export default function HeaderWithBtn({
     centerWrapperStyles,
     rightWrapperStyles,
     backButtonStyles,
+    rightButtonStyles,
     onPressBackBtn,
     centerText = "",
     centerTxtStyles,
+    enableRightElement = false,
     isCenterTitle = false,
-    enableCloseButton = false
+    enableCloseButton = false,
+    onPressRightBtn = () => null,
 }) {
     return (
         <View style={[styles.container, containerStyles]}>
@@ -34,7 +37,13 @@ export default function HeaderWithBtn({
                     </TouchableOpacity>
                 )}
             </View>
-            <View style={[styles.centerWrapper, centerWrapperStyles, isCenterTitle && CommonStyles.marginLeft_5]}>
+            <View
+                style={[
+                    styles.centerWrapper,
+                    centerWrapperStyles,
+                    isCenterTitle && CommonStyles.marginLeft_5,
+                ]}
+            >
                 {centerElement ?? (
                     <CustomText
                         children={centerText}
@@ -45,7 +54,11 @@ export default function HeaderWithBtn({
                 )}
             </View>
             <View style={[styles.rightWrapper, rightWrapperStyles]}>
-                {rightElement}
+                {enableRightElement && (
+                    <TouchableOpacity onPress={onPressRightBtn} style={[styles.rightButton, rightButtonStyles]}>
+                        {rightElement}
+                    </TouchableOpacity>
+                )}
             </View>
         </View>
     );
@@ -80,4 +93,12 @@ const styles = StyleSheet.create({
         alignItems: "center",
         justifyContent: "center",
     },
+    rightButton: {
+        backgroundColor: AppColors.lightBlue,
+        height: height(4),
+        width: height(4),
+        borderRadius: height(2),
+        alignItems: "center",
+        justifyContent: "center",
+    }
 });

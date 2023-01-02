@@ -15,6 +15,8 @@ import { width } from "~utills/Dimension";
 import DropDown from "~components/dropdowns/dropDown";
 import { useDummyData } from "../../../hooks";
 import ScreenNames from "~routes/routes";
+import { useDispatch } from "react-redux";
+import { setIsLoggedIn } from "~redux/slices/user";
 
 export default function WelcomeProfile({ navigation, route }) {
     const [type, setType] = useState(route.params);
@@ -23,27 +25,38 @@ export default function WelcomeProfile({ navigation, route }) {
     const [dropDownValue, setDropDownValue] = useState("");
     const tempData = useDummyData();
     const [dropDownData, setDropDownData] = useState([]);
+    const [choosenloc, setChoosenLoc] = useState("");
+    const dispatch = useDispatch()
 
     useEffect(() => {
-        setDropDown()
-    }, [])
+        setDropDown();
+    }, []);
+
+    useEffect(() => {
+        if (route?.params?.Loc) {
+            setChoosenLoc(route?.params?.Loc)
+        }
+
+
+    }, [route?.params?.Loc])
+
 
     const setDropDown = async () => {
         switch (type) {
-            case 'PINSTAR':
-                setDropDownData(tempData.typeofpinstar)
+            case "PINSTAR":
+                setDropDownData(tempData.typeofpinstar);
                 break;
-            case 'PINSTYLIST':
-                setDropDownData(tempData.typeofstylist)
+            case "PINSTYLIST":
+                setDropDownData(tempData.typeofstylist);
                 break;
-            case 'PINSTORE':
-                setDropDownData(tempData.typeofpinstore)
+            case "PINSTORE":
+                setDropDownData(tempData.typeofpinstore);
                 break;
 
             default:
                 break;
         }
-    }
+    };
 
     const toggleModal = () => setVisible(!visible);
 
@@ -95,10 +108,13 @@ export default function WelcomeProfile({ navigation, route }) {
                         onChangeText={setuserName}
                     />
                     <InputField
-                        onPress={() => navigation.navigate(ScreenNames.MANAGELOCATION)}
+                        onPress={() => {
+                            navigation.navigate(ScreenNames.MANAGELOCATION, { screenName: ScreenNames.WELCOMEPROFILE });
+                        }}
                         editable={false}
                         label={"Location"}
                         placeholder={"Select here..."}
+                        value={choosenloc}
                         placeholderColor={AppColors.white_50}
                         containerStyles={CommonStyles.marginTop_3}
                         rightIcon={
@@ -106,7 +122,9 @@ export default function WelcomeProfile({ navigation, route }) {
                                 name="chevron-thin-right"
                                 size={width(5)}
                                 color={AppColors.white}
-                                onPress={() => navigation.navigate(ScreenNames.MANAGELOCATION)}
+                                onPress={() => {
+                                    navigation.navigate(ScreenNames.MANAGELOCATION, { screenName: ScreenNames.WELCOMEPROFILE });
+                                }}
                             />
                         }
                     />
@@ -144,7 +162,9 @@ export default function WelcomeProfile({ navigation, route }) {
                         containerStyle={styles.btnContainer}
                         title={`Continue`}
                         textStyle={styles.btnText}
-                        onPress={() => alert("pressed")}
+                        onPress={() => {
+                            dispatch(setIsLoggedIn(true))
+                        }}
                     />
                 </View>
             </View>

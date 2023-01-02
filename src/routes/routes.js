@@ -10,5 +10,6 @@ const ScreenNames = {
   WELCOMEPROFILE: 'WelcomeProfile',
   MANAGELOCATION: 'ManageLocation',
   IMAGEGALLERY: 'ImageGallery',
+  USERPROFILEPINSTAR: 'UserProfilePinstar'
 }
 export default ScreenNames;

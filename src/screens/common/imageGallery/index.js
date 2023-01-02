@@ -83,6 +83,7 @@ export default function ImageGallery({ navigation, route }) {
         })
             .then((r) => {
                 let arr = r.edges;
+                arr.forEach((i) => i.selected = false)
                 arr.unshift("camera");
                 setPhotos(arr);
             })

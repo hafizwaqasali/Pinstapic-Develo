@@ -1,4 +1,4 @@
-import { StyleSheet, Text, TouchableOpacity, View, Image } from "react-native";
+import { StyleSheet, Text, TouchableOpacity, View, Image, Platform } from "react-native";
 import React, { useState } from "react";
 import { height, width } from "~utills/Dimension";
 import { CameraIconSvg, CheckMarkSvg } from "~assets/Svg";
@@ -46,10 +46,14 @@ const ImageViewer = ({
     );
 };
 
+const isIos = Platform.OS == "ios" ? true : false
+
 const styles = StyleSheet.create({
     container: {
-        height: height(13),
-        width: width(26),
+        // height: isIos ? height(13) : height(16.5),
+        // width: width(26),
+        height: 100,
+        width: 100,
         backgroundColor: AppColors.white_30,
         borderRadius: width(5),
         alignItems: "center",
@@ -57,8 +61,10 @@ const styles = StyleSheet.create({
         overflow: "hidden",
     },
     imgStyles: {
-        height: height(13),
-        width: width(26),
+        // height: isIos ? height(13) : height(16.5),
+        // width: width(26),
+        height: 100,
+        width: 100,
         borderRadius: width(5),
     },
     overLay: {
