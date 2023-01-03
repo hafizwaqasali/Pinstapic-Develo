@@ -129,6 +129,17 @@ const type_of_pinstore = [{
 },
 ]
 
+// for profile data component
+
+const profileData = {
+    name: "MANGO SCAVO",
+    location: "Newyork City. USA",
+    description: "I love Fashion My style is very colorful & trendy.",
+    type: "pinstar",
+    noOfFollowers: 481,
+    noOfFollowing: 264,
+    noOfFavourites: 40,
+}
 
 
 export default function useDummyData() {
@@ -137,5 +148,6 @@ export default function useDummyData() {
         typeofstylist: type_of_stylist,
         typeofpinstar: type_of_pinstar,
         typeofpinstore: type_of_pinstore,
+        profileData: profileData
     }
 }

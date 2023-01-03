@@ -16,5 +16,6 @@ const AppColors = {
   dark_Grey: "#00000029",
   parrotGreen_20: "rgba(118, 255, 8, .2)",
   lightBlue: "#5786D6",
+  smoky_Grey: "#444444"
 };
 export default AppColors;
