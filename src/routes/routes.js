@@ -10,6 +10,7 @@ const ScreenNames = {
   WELCOMEPROFILE: 'WelcomeProfile',
   MANAGELOCATION: 'ManageLocation',
   IMAGEGALLERY: 'ImageGallery',
-  USERPROFILEPINSTAR: 'UserProfilePinstar'
+  USERPROFILEPINSTAR: 'UserProfilePinstar',
+  CREATELOOKBOOK: 'CreateLookbook',
 }
 export default ScreenNames;

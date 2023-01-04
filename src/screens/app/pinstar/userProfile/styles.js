@@ -23,6 +23,32 @@ const styles = StyleSheet.create({
     },
     storiesWrapper: {
         width: width(100),
+    },
+    containerStyles: {
+        marginTop: height(2),
+    },
+    emptyBoxImg: {
+        tintColor: AppColors.white_50,
+        alignSelf: "center"
+    },
+    lookbookContainer: {
+        height: height(60),
+        justifyContent: "center",
+        alignItems: "center"
+    },
+    YayorNayContainer: {
+        height: height(60),
+        justifyContent: "center",
+        alignItems: "center"
+    },
+    myClosetContainer: {
+        height: height(60),
+        justifyContent: "center",
+        alignItems: "center"
+    },
+    btnStyles: {
+        backgroundColor: AppColors.white_30,
+        marginTop: height(3)
     }
 })
 

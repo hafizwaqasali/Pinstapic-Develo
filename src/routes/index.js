@@ -5,7 +5,7 @@ import { useSelector } from 'react-redux';
 import { ChooseCategoryScreen, LoginScreen, PrivacyPolicyScreen, SignupScreen, TermsandConditionsScreen, WelcomeScreen, CategoryDescriptionScreen, WelcomeProfileScreen } from '~screens/auth';
 import { AnimatedLoader, } from '~components';
 import ScreenNames from './routes';
-import { HomeScreen, UserProfilePinstarScreen } from '~screens/app';
+import { CreateLookbookScreen, HomeScreen, UserProfilePinstarScreen } from '~screens/app';
 import { selectIsLoggedIn } from '~redux/slices/user';
 import SplashScreen from 'react-native-splash-screen'
 import { ImageGalleryScreen, ManageLocationScreen } from '~screens/common';
@@ -34,8 +34,8 @@ export default function Routes() {
         </Stack.Navigator>
       ) : (
         <Stack.Navigator initialRouteName={ScreenNames.USERPROFILEPINSTAR} screenOptions={{ header: () => false }}>
-          {/* <Stack.Screen name={ScreenNames.HOME} component={HomeScreen} /> */}
           <Stack.Screen name={ScreenNames.USERPROFILEPINSTAR} component={UserProfilePinstarScreen} />
+          <Stack.Screen name={ScreenNames.CREATELOOKBOOK} component={CreateLookbookScreen} />
         </Stack.Navigator>
       )}
     </NavigationContainer>

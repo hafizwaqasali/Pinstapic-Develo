@@ -5,4 +5,5 @@ export const Icons = {
     pinstoreIcon: require("../Icons/pinstore_Icon.png"),
     checkedIcon: require("../Icons/checked.png"),
     plusIcon: require("../Icons/plus.png"),
+    emptyBoxIcon: require("../Icons/box.png"),
 }

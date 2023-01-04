@@ -19,3 +19,4 @@ export { default as TextInputWithAutoPlaces } from "./inputs/textInputWithAutoPl
 export { default as ImageViewer } from "./others/ImageViewer"
 export { default as ProfileInfo } from "./profiles/ProfileInfo"
 export { default as UserStories } from "./stories/UserStories"
+export { default as TabBar } from "./tapbars/tabBar"
