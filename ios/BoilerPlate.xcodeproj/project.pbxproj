@@ -28,17 +28,17 @@
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		3E8C0A77442D4A32BFDD8267 /* Roboto-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6AD8DC866BDE4E28B9078A3C /* Roboto-Black.ttf */; };
+		4C2754E5E925B89E70191F9A /* libPods-BoilerPlate-BoilerPlateTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A31AD95235E3CFAE9FBC0185 /* libPods-BoilerPlate-BoilerPlateTests.a */; };
 		57332DE651694C529AF24600 /* Quicksand-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 01FE86E3936F483A930B80CB /* Quicksand-Light.ttf */; };
 		5DA967A430B549B5B2B4439B /* Roboto-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E36C9AF2D09043B69C09B1D1 /* Roboto-Light.ttf */; };
 		5ED5334EB9CA4794B03D3201 /* Roboto-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 66873B434A9043578B917523 /* Roboto-Medium.ttf */; };
 		67EE731381814DD4A5B022F2 /* Quicksand-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EF0C7594B35C4676AC0F4564 /* Quicksand-Bold.ttf */; };
-		6B282E26E09775F96D602768 /* libPods-BoilerPlate-BoilerPlateTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C49BA9F290E8F404158A8184 /* libPods-BoilerPlate-BoilerPlateTests.a */; };
 		6BC6E8D5743E4B72A63DC1E7 /* Quicksand-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 59FE8D38ED78423EBF83FC3E /* Quicksand-Medium.ttf */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
-		9DC5D167B8EABF08265FEC79 /* libPods-BoilerPlate.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 28A4D507750E34D04EC2DA11 /* libPods-BoilerPlate.a */; };
 		C9EEF770181C46F984494B89 /* Quicksand-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D460D38142684162B9206250 /* Quicksand-Regular.ttf */; };
 		CF5C5FEDEC9445209630B435 /* Roboto-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 42BB4E9609B24D3883CECD29 /* Roboto-Bold.ttf */; };
 		DC504707BD7C4C9884C3CC8F /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 308C2122A4844125874A5BC6 /* Roboto-Regular.ttf */; };
+		E2DAC76F5B69B1A4C19C5720 /* libPods-BoilerPlate.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 936DCE44F4E634E26BB7AF12 /* libPods-BoilerPlate.a */; };
 		FCCDA6F5A43743019E5C38C7 /* Quicksand-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 98EC36715BBB4A1A99CF8FC1 /* Quicksand-SemiBold.ttf */; };
 /* End PBXBuildFile section */
 
@@ -75,6 +75,7 @@
 		0EB9D034295C405400C33AE8 /* EvilIcons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = EvilIcons.ttf; sourceTree = "<group>"; };
 		0EB9D035295C405400C33AE8 /* SimpleLineIcons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SimpleLineIcons.ttf; sourceTree = "<group>"; };
 		0EB9D036295C405400C33AE8 /* MaterialIcons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = MaterialIcons.ttf; sourceTree = "<group>"; };
+		0F237592BA1B77435B13054B /* Pods-BoilerPlate-BoilerPlateTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BoilerPlate-BoilerPlateTests.release.xcconfig"; path = "Target Support Files/Pods-BoilerPlate-BoilerPlateTests/Pods-BoilerPlate-BoilerPlateTests.release.xcconfig"; sourceTree = "<group>"; };
 		13B07F961A680F5B00A75B9A /* BoilerPlate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BoilerPlate.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = BoilerPlate/AppDelegate.h; sourceTree = "<group>"; };
 		13B07FB01A68108700A75B9A /* AppDelegate.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = AppDelegate.mm; path = BoilerPlate/AppDelegate.mm; sourceTree = "<group>"; };
@@ -82,21 +83,20 @@
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = BoilerPlate/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = BoilerPlate/main.m; sourceTree = "<group>"; };
 		22EA98DE9EE84259B5550A78 /* segoe-ui.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "segoe-ui.ttf"; path = "../src/assets/fonts/segoe-ui.ttf"; sourceTree = "<group>"; };
-		23BCF6A4630530670A3589D5 /* Pods-BoilerPlate.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BoilerPlate.release.xcconfig"; path = "Target Support Files/Pods-BoilerPlate/Pods-BoilerPlate.release.xcconfig"; sourceTree = "<group>"; };
-		28A4D507750E34D04EC2DA11 /* libPods-BoilerPlate.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BoilerPlate.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		308C2122A4844125874A5BC6 /* Roboto-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Roboto-Regular.ttf"; path = "../src/assets/fonts/Roboto-Regular.ttf"; sourceTree = "<group>"; };
 		42BB4E9609B24D3883CECD29 /* Roboto-Bold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Roboto-Bold.ttf"; path = "../src/assets/fonts/Roboto-Bold.ttf"; sourceTree = "<group>"; };
-		4C85C53D7B2C7E63A6EF0147 /* Pods-BoilerPlate-BoilerPlateTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BoilerPlate-BoilerPlateTests.release.xcconfig"; path = "Target Support Files/Pods-BoilerPlate-BoilerPlateTests/Pods-BoilerPlate-BoilerPlateTests.release.xcconfig"; sourceTree = "<group>"; };
 		4CA4EB5D250E48A6901C0184 /* Segoe-UI-Bold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Segoe-UI-Bold.ttf"; path = "../src/assets/fonts/Segoe-UI-Bold.ttf"; sourceTree = "<group>"; };
-		4D06308793FA11CB7119540C /* Pods-BoilerPlate-BoilerPlateTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BoilerPlate-BoilerPlateTests.debug.xcconfig"; path = "Target Support Files/Pods-BoilerPlate-BoilerPlateTests/Pods-BoilerPlate-BoilerPlateTests.debug.xcconfig"; sourceTree = "<group>"; };
+		4EBEDAB585F092B20C8FD35B /* Pods-BoilerPlate-BoilerPlateTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BoilerPlate-BoilerPlateTests.debug.xcconfig"; path = "Target Support Files/Pods-BoilerPlate-BoilerPlateTests/Pods-BoilerPlate-BoilerPlateTests.debug.xcconfig"; sourceTree = "<group>"; };
 		59FE8D38ED78423EBF83FC3E /* Quicksand-Medium.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Quicksand-Medium.ttf"; path = "../src/assets/fonts/Quicksand-Medium.ttf"; sourceTree = "<group>"; };
 		66873B434A9043578B917523 /* Roboto-Medium.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Roboto-Medium.ttf"; path = "../src/assets/fonts/Roboto-Medium.ttf"; sourceTree = "<group>"; };
 		6AD8DC866BDE4E28B9078A3C /* Roboto-Black.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Roboto-Black.ttf"; path = "../src/assets/fonts/Roboto-Black.ttf"; sourceTree = "<group>"; };
+		77B980E6BB04865F67C3CF9D /* Pods-BoilerPlate.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BoilerPlate.debug.xcconfig"; path = "Target Support Files/Pods-BoilerPlate/Pods-BoilerPlate.debug.xcconfig"; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = BoilerPlate/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		8282E22807D9E16E882038F5 /* Pods-BoilerPlate.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BoilerPlate.release.xcconfig"; path = "Target Support Files/Pods-BoilerPlate/Pods-BoilerPlate.release.xcconfig"; sourceTree = "<group>"; };
 		82BB883289AD4F4EB60442FC /* FontsFree-Net-Segoe-UI-Bold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "FontsFree-Net-Segoe-UI-Bold.ttf"; path = "../src/assets/fonts/FontsFree-Net-Segoe-UI-Bold.ttf"; sourceTree = "<group>"; };
+		936DCE44F4E634E26BB7AF12 /* libPods-BoilerPlate.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BoilerPlate.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		98EC36715BBB4A1A99CF8FC1 /* Quicksand-SemiBold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Quicksand-SemiBold.ttf"; path = "../src/assets/fonts/Quicksand-SemiBold.ttf"; sourceTree = "<group>"; };
-		C28239F39383EB79C49155AE /* Pods-BoilerPlate.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BoilerPlate.debug.xcconfig"; path = "Target Support Files/Pods-BoilerPlate/Pods-BoilerPlate.debug.xcconfig"; sourceTree = "<group>"; };
-		C49BA9F290E8F404158A8184 /* libPods-BoilerPlate-BoilerPlateTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BoilerPlate-BoilerPlateTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A31AD95235E3CFAE9FBC0185 /* libPods-BoilerPlate-BoilerPlateTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BoilerPlate-BoilerPlateTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D460D38142684162B9206250 /* Quicksand-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Quicksand-Regular.ttf"; path = "../src/assets/fonts/Quicksand-Regular.ttf"; sourceTree = "<group>"; };
 		E126435850314339BF797EDF /* segoe-ui-bold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "segoe-ui-bold.ttf"; path = "../src/assets/fonts/segoe-ui-bold.ttf"; sourceTree = "<group>"; };
 		E36C9AF2D09043B69C09B1D1 /* Roboto-Light.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Roboto-Light.ttf"; path = "../src/assets/fonts/Roboto-Light.ttf"; sourceTree = "<group>"; };
@@ -109,7 +109,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6B282E26E09775F96D602768 /* libPods-BoilerPlate-BoilerPlateTests.a in Frameworks */,
+				4C2754E5E925B89E70191F9A /* libPods-BoilerPlate-BoilerPlateTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -117,7 +117,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9DC5D167B8EABF08265FEC79 /* libPods-BoilerPlate.a in Frameworks */,
+				E2DAC76F5B69B1A4C19C5720 /* libPods-BoilerPlate.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -183,8 +183,8 @@
 			isa = PBXGroup;
 			children = (
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
-				28A4D507750E34D04EC2DA11 /* libPods-BoilerPlate.a */,
-				C49BA9F290E8F404158A8184 /* libPods-BoilerPlate-BoilerPlateTests.a */,
+				936DCE44F4E634E26BB7AF12 /* libPods-BoilerPlate.a */,
+				A31AD95235E3CFAE9FBC0185 /* libPods-BoilerPlate-BoilerPlateTests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -247,10 +247,10 @@
 		BBD78D7AC51CEA395F1C20DB /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				C28239F39383EB79C49155AE /* Pods-BoilerPlate.debug.xcconfig */,
-				23BCF6A4630530670A3589D5 /* Pods-BoilerPlate.release.xcconfig */,
-				4D06308793FA11CB7119540C /* Pods-BoilerPlate-BoilerPlateTests.debug.xcconfig */,
-				4C85C53D7B2C7E63A6EF0147 /* Pods-BoilerPlate-BoilerPlateTests.release.xcconfig */,
+				77B980E6BB04865F67C3CF9D /* Pods-BoilerPlate.debug.xcconfig */,
+				8282E22807D9E16E882038F5 /* Pods-BoilerPlate.release.xcconfig */,
+				4EBEDAB585F092B20C8FD35B /* Pods-BoilerPlate-BoilerPlateTests.debug.xcconfig */,
+				0F237592BA1B77435B13054B /* Pods-BoilerPlate-BoilerPlateTests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -262,12 +262,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "BoilerPlateTests" */;
 			buildPhases = (
-				8A5703E76623ADAB5C1D881E /* [CP] Check Pods Manifest.lock */,
+				0E2546648CD36000E4CD4337 /* [CP] Check Pods Manifest.lock */,
 				00E356EA1AD99517003FC87E /* Sources */,
 				00E356EB1AD99517003FC87E /* Frameworks */,
 				00E356EC1AD99517003FC87E /* Resources */,
-				ACB0D2DCD9EB149D8CF1ACFC /* [CP] Embed Pods Frameworks */,
-				1BDF5974D78C1C9724118DBB /* [CP] Copy Pods Resources */,
+				911595432D4D7744B688A105 /* [CP] Embed Pods Frameworks */,
+				1CAEBE2D36D388C402B57BC6 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -283,14 +283,14 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "BoilerPlate" */;
 			buildPhases = (
-				507100DC8196F8F30FDA945F /* [CP] Check Pods Manifest.lock */,
+				9E5F4B1EF0501209CCA659F0 /* [CP] Check Pods Manifest.lock */,
 				FD10A7F022414F080027D42C /* Start Packager */,
 				13B07F871A680F5B00A75B9A /* Sources */,
 				13B07F8C1A680F5B00A75B9A /* Frameworks */,
 				13B07F8E1A680F5B00A75B9A /* Resources */,
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
-				A8DEEA3A3333447EEBEA1DEA /* [CP] Embed Pods Frameworks */,
-				9994AC67CBFC86BFE68A6B15 /* [CP] Copy Pods Resources */,
+				E4C12586EE20FB82F810222B /* [CP] Embed Pods Frameworks */,
+				5004AA5E443B6AF248EBA9A9 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -397,46 +397,7 @@
 			shellPath = /bin/sh;
 			shellScript = "set -e\n\nexport NODE_BINARY=node\n../node_modules/react-native/scripts/react-native-xcode.sh\n";
 		};
-		1BDF5974D78C1C9724118DBB /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-BoilerPlate-BoilerPlateTests/Pods-BoilerPlate-BoilerPlateTests-resources-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-BoilerPlate-BoilerPlateTests/Pods-BoilerPlate-BoilerPlateTests-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-BoilerPlate-BoilerPlateTests/Pods-BoilerPlate-BoilerPlateTests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		507100DC8196F8F30FDA945F /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-BoilerPlate-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		8A5703E76623ADAB5C1D881E /* [CP] Check Pods Manifest.lock */ = {
+		0E2546648CD36000E4CD4337 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -458,7 +419,24 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		9994AC67CBFC86BFE68A6B15 /* [CP] Copy Pods Resources */ = {
+		1CAEBE2D36D388C402B57BC6 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-BoilerPlate-BoilerPlateTests/Pods-BoilerPlate-BoilerPlateTests-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-BoilerPlate-BoilerPlateTests/Pods-BoilerPlate-BoilerPlateTests-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-BoilerPlate-BoilerPlateTests/Pods-BoilerPlate-BoilerPlateTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5004AA5E443B6AF248EBA9A9 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -475,24 +453,7 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-BoilerPlate/Pods-BoilerPlate-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		A8DEEA3A3333447EEBEA1DEA /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-BoilerPlate/Pods-BoilerPlate-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-BoilerPlate/Pods-BoilerPlate-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-BoilerPlate/Pods-BoilerPlate-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		ACB0D2DCD9EB149D8CF1ACFC /* [CP] Embed Pods Frameworks */ = {
+		911595432D4D7744B688A105 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -507,6 +468,45 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-BoilerPlate-BoilerPlateTests/Pods-BoilerPlate-BoilerPlateTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9E5F4B1EF0501209CCA659F0 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-BoilerPlate-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E4C12586EE20FB82F810222B /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-BoilerPlate/Pods-BoilerPlate-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-BoilerPlate/Pods-BoilerPlate-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-BoilerPlate/Pods-BoilerPlate-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		FD10A7F022414F080027D42C /* Start Packager */ = {
@@ -561,7 +561,7 @@
 /* Begin XCBuildConfiguration section */
 		00E356F61AD99517003FC87E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4D06308793FA11CB7119540C /* Pods-BoilerPlate-BoilerPlateTests.debug.xcconfig */;
+			baseConfigurationReference = 4EBEDAB585F092B20C8FD35B /* Pods-BoilerPlate-BoilerPlateTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -588,7 +588,7 @@
 		};
 		00E356F71AD99517003FC87E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4C85C53D7B2C7E63A6EF0147 /* Pods-BoilerPlate-BoilerPlateTests.release.xcconfig */;
+			baseConfigurationReference = 0F237592BA1B77435B13054B /* Pods-BoilerPlate-BoilerPlateTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;
@@ -612,7 +612,7 @@
 		};
 		13B07F941A680F5B00A75B9A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C28239F39383EB79C49155AE /* Pods-BoilerPlate.debug.xcconfig */;
+			baseConfigurationReference = 77B980E6BB04865F67C3CF9D /* Pods-BoilerPlate.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -638,7 +638,7 @@
 		};
 		13B07F951A680F5B00A75B9A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 23BCF6A4630530670A3589D5 /* Pods-BoilerPlate.release.xcconfig */;
+			baseConfigurationReference = 8282E22807D9E16E882038F5 /* Pods-BoilerPlate.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;

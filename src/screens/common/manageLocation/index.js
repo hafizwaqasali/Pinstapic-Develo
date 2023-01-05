@@ -1,5 +1,5 @@
 import { Text, View } from "react-native";
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import {
     CustomText,
     HeaderWithBtn,
@@ -15,20 +15,70 @@ import Slider from "react-native-slider";
 import CommonStyles from "~utills/CommonStyles";
 import { MapPinSvg, SearchIconSvg } from "~assets/Svg";
 import useLocations from "~hooks/useLocations";
+import RNLocation from "react-native-location";
+import Geocoder from "react-native-geocoding";
+import { useIsFocused } from '@react-navigation/native';
 
 export default function ManageLocation({ navigation, route }) {
     const mapRef = useRef();
     const [sliderValue, setSliderValue] = useState(1);
-    const myLocation = useLocations()
     const [latestRegion, setLatestRegion] = useState({
-        latitude: myLocation.lat ?? 37.78825,
-        longitude: myLocation.lng ?? -122.4324,
+        latitude: 37.78825,
+        longitude: -122.4324,
         latitudeDelta: 0.0922,
         longitudeDelta: 0.0421,
     });
-    const [selectedPlace, setSelectedPlace] = useState('');
+    const [selectedPlace, setSelectedPlace] = useState("");
+    // This hook returns `true` if the screen is focused, `false` otherwise
+    const isFocused = useIsFocused();
 
+    Geocoder.init('AIzaSyCZZt0P_BztZPme1q5icvLe65i51PjxX3M'); // use a valid API key
 
+    RNLocation.configure({
+        distanceFilter: 5.0,
+    });
+
+    useEffect(() => {
+        (async () => {
+            await getMyLocation();
+        })();
+    }, [isFocused]);
+
+    const getMyLocation = async () => {
+
+        await RNLocation.requestPermission({
+            ios: "whenInUse",
+            android: {
+                detail: "coarse",
+            },
+        }).then(async (granted) => {
+            if (granted) {
+                RNLocation.subscribeToLocationUpdates(async (locations) => {
+                    mapRef.current?.animateToRegion(
+                        {
+                            latitude: locations[0]?.latitude,
+                            longitude: locations[0]?.longitude,
+                            latitudeDelta: 0.0922,
+                            longitudeDelta: 0.0421,
+                        },
+                        2000
+                    );
+                    setLatestRegion({
+                        latitude: locations[0]?.latitude,
+                        longitude: locations[0]?.longitude,
+                        latitudeDelta: 0.0922,
+                        longitudeDelta: 0.0421,
+                    });
+                    await Geocoder.from({ lat: locations[0]?.latitude, lng: locations[0]?.longitude })
+                        .then((json) => {
+                            var address = json.results[0].formatted_address
+                            setSelectedPlace(address)
+                        })
+                        .catch((error) => console.warn(error));
+                });
+            }
+        });
+    };
 
     return (
         <ScreenWrapper
@@ -53,12 +103,12 @@ export default function ManageLocation({ navigation, route }) {
                         placeholderTextColor={AppColors.white_85}
                         textinputViewStyle={styles.searchinputViewStyle}
                         onAddress={(data, details = null) => {
-                            setSelectedPlace(data.description)
+                            setSelectedPlace(data.description);
                             setLatestRegion({
                                 latitude: details.geometry.location.lat,
-                                longitude: details.geometry.location.lng
-                            })
-                            mapRef.current?.animateToRegion(latestRegion, 2000)
+                                longitude: details.geometry.location.lng,
+                            });
+                            mapRef.current?.animateToRegion(latestRegion, 2000);
                         }}
                     />
                 </View>
@@ -75,9 +125,13 @@ export default function ManageLocation({ navigation, route }) {
                     }}
                     provider={PROVIDER_DEFAULT}
                     onRegionChangeComplete={async (region) => {
-                        const locationName = await mapRef.current.addressForCoordinate(region)
                         setLatestRegion(region);
-                        setSelectedPlace(locationName.name)
+                        await Geocoder.from({ lat: region?.latitude, lng: region?.longitude })
+                            .then((json) => {
+                                var address = json.results[0].formatted_address
+                                setSelectedPlace(address)
+                            })
+                            .catch((error) => console.warn(error));
                     }}
                     ref={mapRef}
                     style={styles.mapView}

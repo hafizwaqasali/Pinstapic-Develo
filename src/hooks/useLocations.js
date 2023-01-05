@@ -4,26 +4,28 @@ import RNLocation from 'react-native-location';
 
 
 
-export default function useLocations() {
-    const [MyLocation, setMyLocation] = useState('')
+export default async function useLocations() {
+    const [MyLocation, setMyLocation] = useState(null)
     RNLocation.configure({
         distanceFilter: 5.0
     })
-    RNLocation.requestPermission({
+    await RNLocation.requestPermission({
         ios: "whenInUse",
         android: {
             detail: "coarse"
         }
-    }).then(granted => {
+    }).then(async (granted) => {
         if (granted) {
-            RNLocation.subscribeToLocationUpdates(locations => {
+            RNLocation.subscribeToLocationUpdates(async (locations) => {
                 console.log(locations, "-----")
-                setMyLocation({ lat: locations.latitude, lng: locations.longitude })
+                return {
+                    lat: locations[0]?.latitude,
+                    long: locations[0]?.longitude
+                }
+
             })
         }
     })
 
-    return {
-        myLocation: MyLocation,
-    }
+
 }

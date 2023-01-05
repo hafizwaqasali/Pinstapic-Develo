@@ -12,7 +12,7 @@ const styles = StyleSheet.create({
         width: height(15.625),
         borderRadius: height(7.8125),
         alignItems: "center",
-        justifyContent: "center"
+        justifyContent: "center",
     },
     imgStyle: {
         height: height(4),
@@ -40,6 +40,23 @@ const styles = StyleSheet.create({
         borderRadius: height(7.8125),
         position: "absolute",
         bottom: 0,
-    }
+    },
+    squareShape: {
+        height: height(14.5),
+        width: height(15),
+        borderRadius: width(2)
+    },
+    squareBlackEffect: {
+        height: height(14.5),
+        width: height(15),
+        backgroundColor: "rgba(0,0,0,.4)",
+        borderRadius: width(2),
+        position: "absolute",
+        bottom: 0,
+    },
+    btnStyles: {
+        backgroundColor: AppColors.white_30,
+        marginTop: height(4)
+    },
 })
 export default styles

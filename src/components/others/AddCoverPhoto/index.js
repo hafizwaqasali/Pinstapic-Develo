@@ -9,7 +9,7 @@ import CommonStyles from '~utills/CommonStyles';
 import { useNavigation } from '@react-navigation/native';
 import ScreenNames from '~routes/routes';
 
-export default function AddCoverPhoto({ containerStyles }) {
+export default function AddCoverPhoto({ containerStyles, isSquare }) {
     const imageRef = useRef();
     const [image, setImage] = useState(null);
     const navigation = useNavigation()
@@ -20,6 +20,7 @@ export default function AddCoverPhoto({ containerStyles }) {
                     styles.container,
                     image && styles.imageSelected,
                     containerStyles,
+                    isSquare && styles.squareShape
                 ]}
                 onPress={() => navigation.navigate(ScreenNames.IMAGEGALLERY)}>
                 <Image
@@ -33,7 +34,7 @@ export default function AddCoverPhoto({ containerStyles }) {
                     onFilesSelected={images => setImage(images[0].path)}
                 /> */}
                 {
-                    image && <View style={styles.blackEffect} />
+                    image && <View style={[styles.blackEffect, isSquare && styles.squareBlackEffect]} />
                 }
                 <View style={styles.cameraStyles}>
 

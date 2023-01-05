@@ -12,5 +12,6 @@ const ScreenNames = {
   IMAGEGALLERY: 'ImageGallery',
   USERPROFILEPINSTAR: 'UserProfilePinstar',
   CREATELOOKBOOK: 'CreateLookbook',
+  ADDPHOTOSTOLOOKBOOK: 'AddPhotosToLookbook'
 }
 export default ScreenNames;

@@ -17,5 +17,6 @@ const AppColors = {
   parrotGreen_20: "rgba(118, 255, 8, .2)",
   lightBlue: "#5786D6",
   smoky_Grey: "#444444",
+  seprator_Grey_20: "rgba(164,164,164,.2)"
 };
 export default AppColors;
