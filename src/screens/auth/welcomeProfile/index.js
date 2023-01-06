@@ -6,6 +6,7 @@ import {
     AddCoverPhoto,
     InputField,
     PrimaryBtn,
+    CustomGallery,
 } from "~components";
 import styles from "./styles";
 import AppColors from "~utills/AppColors";
@@ -22,11 +23,15 @@ export default function WelcomeProfile({ navigation, route }) {
     const [type, setType] = useState(route.params);
     const [userName, setuserName] = useState("");
     const [visible, setVisible] = useState(false);
+    const [visibleGallery, setVisibleGallery] = useState(false);
     const [dropDownValue, setDropDownValue] = useState("");
     const tempData = useDummyData();
     const [dropDownData, setDropDownData] = useState([]);
     const [choosenloc, setChoosenLoc] = useState("");
     const dispatch = useDispatch()
+
+
+    const ToggleGallery = () => setVisibleGallery(!visibleGallery)
 
     useEffect(() => {
         setDropDown();
@@ -84,6 +89,7 @@ export default function WelcomeProfile({ navigation, route }) {
                 />
             )}
         >
+            <CustomGallery isVisible={visibleGallery} onPressBackBtn={ToggleGallery} />
             <View style={styles.container}>
                 <DropDown
                     isVisible={visible}
@@ -91,7 +97,7 @@ export default function WelcomeProfile({ navigation, route }) {
                     onPress={_selectFromDropdown}
                 />
                 <View style={styles.coverPhotoWrapper}>
-                    <AddCoverPhoto />
+                    <AddCoverPhoto onPress={ToggleGallery} />
                 </View>
                 <View style={styles.formContainer}>
                     <InputField
