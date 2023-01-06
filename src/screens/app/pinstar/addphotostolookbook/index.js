@@ -1,12 +1,14 @@
 import { Image, Text, View } from "react-native";
-import React from "react";
-import { HeaderWithBtn, PrimaryBtn, ScreenWrapper } from "~components";
+import React, { useRef, useState } from "react";
+import { HeaderWithBtn, PrimaryBtn, ScreenWrapper, AddTagModal, StatusMsgModal } from "~components";
 import AppColors from "~utills/AppColors";
 import styles from "./styles";
 
-export default function AddPhotosToLookbook({ navigation }) {
-    const imgUri =
-        "https://images.pexels.com/photos/1183266/pexels-photo-1183266.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2";
+export default function AddPhotosToLookbook({ navigation, route }) {
+    const img = route.params.lookImg
+    const tagModalRef = useRef()
+    const saveModalRef = useRef()
+    const [tags, setTags] = useState([])
     return (
         <ScreenWrapper
             scrollEnabled
@@ -21,13 +23,15 @@ export default function AddPhotosToLookbook({ navigation }) {
                 />
             )}
         >
+            <AddTagModal ref={tagModalRef} />
+            <StatusMsgModal ref={saveModalRef} title={'SAVED'} titleTxtColor={AppColors.blueBackground} />
             <View style={styles.container}>
                 <View style={styles.imgContainer}>
-                    <Image
-                        source={{ uri: imgUri }}
-                        resizeMode="cover"
+                    {img && <Image
+                        source={{ uri: img }}
+                        resizeMode="stretch"
                         style={styles.imgStyles}
-                    />
+                    />}
                 </View>
                 <View style={styles.bottomWrapper}>
                     <PrimaryBtn
@@ -37,11 +41,13 @@ export default function AddPhotosToLookbook({ navigation }) {
                             { backgroundColor: AppColors.white_30 },
                         ]}
                         textStyle={[styles.btnText]}
+                        onPress={() => tagModalRef?.current?.show()}
                     />
                     <PrimaryBtn
                         title="Save"
                         containerStyle={styles.btnContainer}
                         textStyle={styles.btnText}
+                        onPress={() => saveModalRef?.current?.show()}
                     />
                 </View>
             </View>

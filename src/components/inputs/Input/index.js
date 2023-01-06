@@ -30,7 +30,9 @@ export const InputField = ({
     activeOpacity = 0.9,
     maxLength,
     value,
-    inverted
+    inverted,
+    labelBackgroundColor,
+    labelColor,
 
 }) => {
     return (
@@ -53,8 +55,9 @@ export const InputField = ({
                 editable={editable}
                 maxLength={maxLength}
                 value={value}
+
             />
-            <Text style={[styles.labelText, inverted && styles.invertedLabel, labelStyles]}>{label}</Text>
+            <Text style={[styles.labelText, inverted && styles.invertedLabel, labelStyles, labelBackgroundColor && { backgroundColor: labelBackgroundColor, color: labelColor ?? AppColors.white }]}>{label}</Text>
             {rightIcon}
         </TouchableOpacity >
 
@@ -89,7 +92,9 @@ export const InputFieldValidate = ({
     maxLength,
     errorMsg,
     inverted,
-    errorTextColor
+    errorTextColor,
+    labelBackgroundColor,
+    labelColor
 
 }) => {
     return (
@@ -121,7 +126,7 @@ export const InputFieldValidate = ({
                     )}
 
                 />
-                <Text style={[styles.labelText, inverted && styles.invertedLabel, labelStyles]}>{label}</Text>
+                <Text style={[styles.labelText, inverted && styles.invertedLabel, labelStyles, labelBackgroundColor && { backgroundColor: labelBackgroundColor, color: labelColor ?? AppColors.white }]}>{label}</Text>
                 {rightIcon}
             </TouchableOpacity >
             <Text style={[styles.errorText, { color: errorTextColor ?? '#CBEDD5' }]}>

@@ -8,6 +8,7 @@ const AppColors = {
   blue: "#2E68CC",
   darkblue: "#2D66C9",
   blueBackground: "#2A74D1",
+  white_20: 'rgba(255, 255, 255,0.2)',
   white_30: 'rgba(255, 255, 255,0.3)',
   white_40: 'rgba(255, 255, 255,0.4)',
   white_50: 'rgba(255, 255, 255,0.5)',
@@ -17,6 +18,7 @@ const AppColors = {
   parrotGreen_20: "rgba(118, 255, 8, .2)",
   lightBlue: "#5786D6",
   smoky_Grey: "#444444",
+  smoky_Grey_20: "rgba(68, 68, 68, .2)",
   seprator_Grey_20: "rgba(164,164,164,.2)"
 };
 export default AppColors;

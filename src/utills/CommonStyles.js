@@ -18,6 +18,12 @@ const CommonStyles = StyleSheet.create({
     marginLeft_5: {
         marginLeft: width(5)
     },
+    marginLeft_6: {
+        marginLeft: width(6)
+    },
+    marginLeft_7: {
+        marginLeft: width(7)
+    },
     marginRight_1: {
         marginRight: width(1)
     },

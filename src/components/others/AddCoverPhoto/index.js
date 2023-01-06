@@ -8,33 +8,30 @@ import { Images } from "../../../assets/index"
 import CommonStyles from '~utills/CommonStyles';
 import { useNavigation } from '@react-navigation/native';
 import ScreenNames from '~routes/routes';
+import { width } from '~utills/Dimension';
+import AppColors from '~utills/AppColors';
 
-export default function AddCoverPhoto({ containerStyles, isSquare, onPress }) {
+export default function AddCoverPhoto({ containerStyles, isSquare, onPress, image = null }) {
     const imageRef = useRef();
-    const [image, setImage] = useState(null);
     const navigation = useNavigation()
     return (
         <>
             <TouchableOpacity
                 style={[
                     styles.container,
-                    image && styles.imageSelected,
+                    (image && !isSquare) && styles.imageSelected,
                     containerStyles,
                     isSquare && styles.squareShape
                 ]}
                 onPress={onPress}>
                 <Image
                     source={{ uri: image }}
-                    style={styles.selectedImage}
+                    style={[styles.selectedImage, isSquare && { borderRadius: width(2) }]}
                     resizeMode="cover"
                 />
 
-                {/* <ImagePicker
-                    ref={imageRef}
-                    onFilesSelected={images => setImage(images[0].path)}
-                /> */}
                 {
-                    image && <View style={[styles.blackEffect, isSquare && styles.squareBlackEffect]} />
+                    // !image && <View style={[styles.blackEffect, isSquare && styles.squareBlackEffect]} />
                 }
                 <View style={styles.cameraStyles}>
 
@@ -49,6 +46,7 @@ export default function AddCoverPhoto({ containerStyles, isSquare, onPress }) {
                                 size={2.5}
                                 children="Add a cover photo"
                                 fontFamily={AppFonts.segoe_ui_regular}
+                                textColor={AppColors.white}
                             />
                         </>
                     }

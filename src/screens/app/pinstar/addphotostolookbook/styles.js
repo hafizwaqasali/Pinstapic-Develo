@@ -1,6 +1,8 @@
-import { StyleSheet, Text, View } from 'react-native'
+import { StyleSheet, Text, View, Platform } from 'react-native'
 import React from 'react'
 import { height, width } from '~utills/Dimension'
+
+const isIos = Platform.OS == "ios" ? true : false
 
 const styles = StyleSheet.create({
     container: {
@@ -14,14 +16,14 @@ const styles = StyleSheet.create({
         width: "100%"
     },
     imgContainer: {
-        height: height(75)
+        height: isIos ? height(75) : height(84)
     },
     bottomWrapper: {
         flexDirection: "row",
         justifyContent: "space-between",
         paddingHorizontal: width(12),
         alignItems: "center",
-        marginTop: height(2)
+        paddingVertical: height(2)
     },
     btnContainer: {
         width: width(35),
@@ -35,7 +37,7 @@ const styles = StyleSheet.create({
         shadowOpacity: 0.44,
         shadowRadius: 10.32,
 
-        elevation: 16,
+        elevation: 4,
     },
     btnText: {
         lineHeight: height(2),

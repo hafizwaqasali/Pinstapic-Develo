@@ -7,6 +7,7 @@ import { height, width } from '~utills/Dimension';
 const styles = StyleSheet.create({
     container: {
         borderColor: "rgba(255, 255, 255, .2)",
+        backgroundColor: AppColors.white_20,
         borderWidth: width(.2),
         height: height(15.625),
         width: height(15.625),
@@ -31,7 +32,7 @@ const styles = StyleSheet.create({
         alignItems: "center",
         justifyContent: "center",
         position: "absolute",
-        top: 28
+        top: height(4)
     },
     blackEffect: {
         height: height(15),

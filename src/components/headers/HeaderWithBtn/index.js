@@ -41,7 +41,7 @@ export default function HeaderWithBtn({
                 style={[
                     styles.centerWrapper,
                     centerWrapperStyles,
-                    isCenterTitle && CommonStyles.marginLeft_5,
+                    isCenterTitle && CommonStyles.marginLeft_6,
                 ]}
             >
                 {centerElement ?? (

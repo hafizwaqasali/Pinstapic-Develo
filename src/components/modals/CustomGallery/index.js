@@ -1,12 +1,16 @@
-import { Text, View, PermissionsAndroid, Platform, Image } from "react-native";
+import {
+    Text,
+    View,
+    PermissionsAndroid,
+    Platform,
+    Image,
+    SafeAreaView,
+    TouchableOpacity,
+    FlatList,
+} from "react-native";
 import React, { useEffect, useRef, useState } from "react";
 import styles from "./styles";
-import {
-    HeaderWithBtn,
-    ImagePicker,
-    ImageViewer,
-    PrimaryBtn
-} from "~components";
+import { HeaderWithBtn, ImagePicker, PrimaryBtn } from "~components";
 import AppColors from "~utills/AppColors";
 import { CameraRoll } from "@react-native-camera-roll/camera-roll";
 import { FlashList } from "@shopify/flash-list";
@@ -15,14 +19,21 @@ import Modal from "react-native-modal";
 import { useIsFocused } from "@react-navigation/native";
 import { useDispatch } from "react-redux";
 import { setSwitchLoader } from "~redux/slices/config";
+import { CameraIconSvg, CheckMarkSvg } from "~assets/Svg";
 
-export default function CustomGallery({ isVisible = false, onPressBackBtn }) {
+export default function CustomGallery({
+    isVisible = false,
+    onPressBackBtn,
+    headerTitle = "",
+    btnTitle = "Continue",
+    onSave = () => null
+}) {
     const [photos, setPhotos] = useState();
     const imageRef = useRef();
-    const [selectedImage, setSelectedImage] = useState(false);
     const isFocused = useIsFocused();
-    const dispatch = useDispatch()
-
+    const dispatch = useDispatch();
+    const [singleImg, setSingleImg] = useState(null);
+    const [multiImgs, setMultiImgs] = useState([]);
     useEffect(() => {
         dispatch(setSwitchLoader(true));
         (async () => {
@@ -97,27 +108,7 @@ export default function CustomGallery({ isVisible = false, onPressBackBtn }) {
             });
     }
 
-    const _renderItem = ({ item, index }) => {
-        return (
-            <View style={styles.elementStyle}>
-                {item == "camera" ? (
-                    <ImageViewer
-                        enableCameraIcon
-                        onPressCamera={() => imageRef?.current?.openCam()}
-                    />
-                ) : (
-                    <ImageViewer
-                        imageUri={item.node.image.uri}
-                        onPress={() => getImageDetails(item.node.image.uri, index)}
-                    />
-                )}
-            </View>
-        );
-    };
 
-    const getImageDetails = (uri, index) => {
-        console.log(uri, index);
-    };
 
     return (
         <Modal
@@ -129,32 +120,69 @@ export default function CustomGallery({ isVisible = false, onPressBackBtn }) {
             animationIn={"lightSpeedIn"}
             animationOut={"lightSpeedOut"}
         >
-            <View style={styles.container}>
+            <SafeAreaView style={styles.container}>
                 <HeaderWithBtn
-                    centerText={`Select Profile Photo`}
+                    centerText={headerTitle}
                     isCenterTitle
                     onPressBackBtn={onPressBackBtn}
                     enableCloseButton
                 />
                 <ImagePicker
                     ref={imageRef}
-                    // onFilesSelected={images => setImage(images[0].path)}
                     onFilesSelected={async (images) =>
                         await savePicture(images[0].path, "photo", "Camera")
                     }
                 />
                 <View style={styles.flashListContainer}>
-                    <FlashList
+                    <FlatList
                         data={photos ?? []}
                         keyExtractor={(i, k) => k.toString()}
-                        renderItem={_renderItem}
+                        renderItem={({ item, index }) => {
+                            return (
+                                <View style={styles.elementStyle}>
+                                    {item == "camera" ? (
+                                        <TouchableOpacity
+                                            style={[styles.Imgcontainer]}
+                                            onPress={() => imageRef?.current?.openCam()}
+                                        >
+                                            <CameraIconSvg />
+                                        </TouchableOpacity>
+                                    ) : (
+                                        <TouchableOpacity
+                                            style={[styles.Imgcontainer]}
+                                            onPress={() => {
+                                                setSingleImg(item.node.image.uri);
+                                            }}
+                                        >
+                                            <Image
+                                                resizeMode="cover"
+                                                source={{ uri: item.node.image.uri }}
+                                                style={[styles.imgStyles]}
+                                            />
+                                            {singleImg === item.node.image.uri && (
+                                                <View style={[styles.overLay]}>
+                                                    <CheckMarkSvg />
+                                                </View>
+                                            )}
+                                        </TouchableOpacity>
+                                    )}
+                                </View>
+                            );
+                        }}
                         numColumns={3}
                         estimatedItemSize={113}
                         showsVerticalScrollIndicator={false}
-                    />
 
+                    />
+                    {singleImg && <PrimaryBtn
+                        containerStyle={styles.bottomBtnContainer}
+                        title={btnTitle}
+                        onPress={() => {
+                            onSave(singleImg)
+                        }}
+                    />}
                 </View>
-            </View>
+            </SafeAreaView>
         </Modal>
     );
 }

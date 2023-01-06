@@ -22,16 +22,16 @@ import { setIsLoggedIn } from "~redux/slices/user";
 export default function WelcomeProfile({ navigation, route }) {
     const [type, setType] = useState(route.params);
     const [userName, setuserName] = useState("");
+    const [coverImg, setcoverImg] = useState(null)
     const [visible, setVisible] = useState(false);
     const [visibleGallery, setVisibleGallery] = useState(false);
     const [dropDownValue, setDropDownValue] = useState("");
     const tempData = useDummyData();
     const [dropDownData, setDropDownData] = useState([]);
     const [choosenloc, setChoosenLoc] = useState("");
-    const dispatch = useDispatch()
+    const dispatch = useDispatch();
 
-
-    const ToggleGallery = () => setVisibleGallery(!visibleGallery)
+    const ToggleGallery = () => setVisibleGallery(!visibleGallery);
 
     useEffect(() => {
         setDropDown();
@@ -39,12 +39,9 @@ export default function WelcomeProfile({ navigation, route }) {
 
     useEffect(() => {
         if (route?.params?.Loc) {
-            setChoosenLoc(route?.params?.Loc)
+            setChoosenLoc(route?.params?.Loc);
         }
-
-
-    }, [route?.params?.Loc])
-
+    }, [route?.params?.Loc]);
 
     const setDropDown = async () => {
         switch (type) {
@@ -64,6 +61,11 @@ export default function WelcomeProfile({ navigation, route }) {
     };
 
     const toggleModal = () => setVisible(!visible);
+
+    const getSelectedImg = (val) => {
+        setcoverImg(val)
+        ToggleGallery()
+    }
 
     const _selectFromDropdown = async (value) => {
         setDropDownValue(value);
@@ -89,7 +91,12 @@ export default function WelcomeProfile({ navigation, route }) {
                 />
             )}
         >
-            <CustomGallery isVisible={visibleGallery} onPressBackBtn={ToggleGallery} />
+            <CustomGallery
+                isVisible={visibleGallery}
+                onPressBackBtn={ToggleGallery}
+                headerTitle={"Select Profile Photo"}
+                onSave={getSelectedImg}
+            />
             <View style={styles.container}>
                 <DropDown
                     isVisible={visible}
@@ -97,7 +104,7 @@ export default function WelcomeProfile({ navigation, route }) {
                     onPress={_selectFromDropdown}
                 />
                 <View style={styles.coverPhotoWrapper}>
-                    <AddCoverPhoto onPress={ToggleGallery} />
+                    <AddCoverPhoto onPress={ToggleGallery} image={coverImg} />
                 </View>
                 <View style={styles.formContainer}>
                     <InputField
@@ -115,7 +122,9 @@ export default function WelcomeProfile({ navigation, route }) {
                     />
                     <InputField
                         onPress={() => {
-                            navigation.navigate(ScreenNames.MANAGELOCATION, { screenName: ScreenNames.WELCOMEPROFILE });
+                            navigation.navigate(ScreenNames.MANAGELOCATION, {
+                                screenName: ScreenNames.WELCOMEPROFILE,
+                            });
                         }}
                         editable={false}
                         label={"Location"}
@@ -129,7 +138,9 @@ export default function WelcomeProfile({ navigation, route }) {
                                 size={width(5)}
                                 color={AppColors.white}
                                 onPress={() => {
-                                    navigation.navigate(ScreenNames.MANAGELOCATION, { screenName: ScreenNames.WELCOMEPROFILE });
+                                    navigation.navigate(ScreenNames.MANAGELOCATION, {
+                                        screenName: ScreenNames.WELCOMEPROFILE,
+                                    });
                                 }}
                             />
                         }
@@ -169,7 +180,7 @@ export default function WelcomeProfile({ navigation, route }) {
                         title={`Continue`}
                         textStyle={styles.btnText}
                         onPress={() => {
-                            dispatch(setIsLoggedIn(true))
+                            dispatch(setIsLoggedIn(true));
                         }}
                     />
                 </View>
