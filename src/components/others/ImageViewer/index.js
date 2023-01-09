@@ -12,7 +12,7 @@ const ImageViewer = ({
     imageUri,
     imageStyles,
     onPressCamera,
-    multiSelect = false,
+    onPressForImgViewer
 }) => {
     const [imageSelect, setImageSelect] = useState(false);
     const toggleSelection = () => setImageSelect(!imageSelect);
@@ -23,7 +23,7 @@ const ImageViewer = ({
     return (
         <TouchableOpacity
             style={[styles.container, containerStyles]}
-            onPress={onPressCamera ? onPressCamera : onPress && changeMode}
+            onPress={onPressCamera ? onPressCamera : onPress ? changeMode : onPressForImgViewer && onPressForImgViewer}
         >
             {enableCameraIcon ? (
                 <CameraIconSvg />

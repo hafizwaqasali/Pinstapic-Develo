@@ -14,5 +14,6 @@ const ScreenNames = {
   CREATELOOKBOOK: 'CreateLookbook',
   ADDPHOTOSTOLOOKBOOK: 'AddPhotosToLookbook',
   VIEWLOOKBOOK: 'ViewLookbook',
+  VIEWLOOKBOOKIMAGE: 'ViewLookbookImage',
 }
 export default ScreenNames;
