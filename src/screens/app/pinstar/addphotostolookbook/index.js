@@ -3,12 +3,15 @@ import React, { useRef, useState } from "react";
 import { HeaderWithBtn, PrimaryBtn, ScreenWrapper, AddTagModal, StatusMsgModal } from "~components";
 import AppColors from "~utills/AppColors";
 import styles from "./styles";
+import { useDispatch } from "react-redux";
+import { setIsLookAdded } from "~redux/slices/extras";
 
 export default function AddPhotosToLookbook({ navigation, route }) {
     const img = route.params.lookImg
     const tagModalRef = useRef()
     const saveModalRef = useRef()
     const [tags, setTags] = useState([])
+    const dispatch = useDispatch()
     return (
         <ScreenWrapper
             scrollEnabled
@@ -47,7 +50,10 @@ export default function AddPhotosToLookbook({ navigation, route }) {
                         title="Save"
                         containerStyle={styles.btnContainer}
                         textStyle={styles.btnText}
-                        onPress={() => saveModalRef?.current?.show()}
+                        onPress={() => {
+                            saveModalRef?.current?.show()
+                            dispatch(setIsLookAdded(true))
+                        }}
                     />
                 </View>
             </View>

@@ -166,7 +166,28 @@ const myLookbooks = [
         ]
     },
     {
-        coverimg: "https://images.pexels.com/photos/1183266/pexels-photo-1183266.jpeg?auto=compress&cs=tinysrgb&w=800",
+        coverimg: "https://images.pexels.com/photos/977796/pexels-photo-977796.jpeg?auto=compress&cs=tinysrgb&w=800",
+        lookbookName: "My Coats",
+        totalNoOfTags: 9,
+        totalImages: 3,
+        images: [
+            {
+                img: "https://images.pexels.com/photos/1183266/pexels-photo-1183266.jpeg?auto=compress&cs=tinysrgb&w=800",
+                tags: [{ tagName: 'jacket', price: 100 }, { tagName: 'shoes', price: 200 }, { tagName: 'glasses', price: 100 }]
+            },
+            {
+                img: "https://images.pexels.com/photos/977796/pexels-photo-977796.jpeg?auto=compress&cs=tinysrgb&w=800",
+                tags: [{ tagName: 'jacket', price: 100 }, { tagName: 'shoes', price: 200 }, { tagName: 'glasses', price: 100 }]
+            },
+            {
+                img: "https://images.pexels.com/photos/1018911/pexels-photo-1018911.jpeg?auto=compress&cs=tinysrgb&w=800",
+                tags: [{ tagName: 'jacket', price: 100 }, { tagName: 'shoes', price: 200 }, { tagName: 'glasses', price: 100 }]
+            },
+
+        ]
+    },
+    {
+        coverimg: "https://images.pexels.com/photos/1018911/pexels-photo-1018911.jpeg?auto=compress&cs=tinysrgb&w=800",
         lookbookName: "My Coats",
         totalNoOfTags: 9,
         totalImages: 3,
@@ -188,6 +209,48 @@ const myLookbooks = [
     },
     {
         coverimg: "https://images.pexels.com/photos/1183266/pexels-photo-1183266.jpeg?auto=compress&cs=tinysrgb&w=800",
+        lookbookName: "My Coats",
+        totalNoOfTags: 9,
+        totalImages: 3,
+        images: [
+            {
+                img: "https://images.pexels.com/photos/1183266/pexels-photo-1183266.jpeg?auto=compress&cs=tinysrgb&w=800",
+                tags: [{ tagName: 'jacket', price: 100 }, { tagName: 'shoes', price: 200 }, { tagName: 'glasses', price: 100 }]
+            },
+            {
+                img: "https://images.pexels.com/photos/977796/pexels-photo-977796.jpeg?auto=compress&cs=tinysrgb&w=800",
+                tags: [{ tagName: 'jacket', price: 100 }, { tagName: 'shoes', price: 200 }, { tagName: 'glasses', price: 100 }]
+            },
+            {
+                img: "https://images.pexels.com/photos/1018911/pexels-photo-1018911.jpeg?auto=compress&cs=tinysrgb&w=800",
+                tags: [{ tagName: 'jacket', price: 100 }, { tagName: 'shoes', price: 200 }, { tagName: 'glasses', price: 100 }]
+            },
+
+        ]
+    },
+    {
+        coverimg: "https://images.pexels.com/photos/977796/pexels-photo-977796.jpeg?auto=compress&cs=tinysrgb&w=800",
+        lookbookName: "My Coats",
+        totalNoOfTags: 9,
+        totalImages: 3,
+        images: [
+            {
+                img: "https://images.pexels.com/photos/1183266/pexels-photo-1183266.jpeg?auto=compress&cs=tinysrgb&w=800",
+                tags: [{ tagName: 'jacket', price: 100 }, { tagName: 'shoes', price: 200 }, { tagName: 'glasses', price: 100 }]
+            },
+            {
+                img: "https://images.pexels.com/photos/977796/pexels-photo-977796.jpeg?auto=compress&cs=tinysrgb&w=800",
+                tags: [{ tagName: 'jacket', price: 100 }, { tagName: 'shoes', price: 200 }, { tagName: 'glasses', price: 100 }]
+            },
+            {
+                img: "https://images.pexels.com/photos/1018911/pexels-photo-1018911.jpeg?auto=compress&cs=tinysrgb&w=800",
+                tags: [{ tagName: 'jacket', price: 100 }, { tagName: 'shoes', price: 200 }, { tagName: 'glasses', price: 100 }]
+            },
+
+        ]
+    },
+    {
+        coverimg: "https://images.pexels.com/photos/1018911/pexels-photo-1018911.jpeg?auto=compress&cs=tinysrgb&w=800",
         lookbookName: "My Coats",
         totalNoOfTags: 9,
         totalImages: 3,

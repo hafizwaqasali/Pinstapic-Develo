@@ -13,7 +13,7 @@ const styles = StyleSheet.create({
         height: Ios ? height(88) : height(92)
     },
     BottomSlider: {
-        borderTopEndRadius: width(5),
+        borderTopRightRadius: width(5),
         borderTopStartRadius: width(5),
         height: Ios ? height(20) : height(20),
         width: width(100),

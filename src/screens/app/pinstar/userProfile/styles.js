@@ -2,6 +2,7 @@ import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 import { height, width } from '~utills/Dimension'
 import AppColors from '~utills/AppColors'
+import AppFonts from '~utills/AppFonts'
 
 const styles = StyleSheet.create({
     container: {
@@ -11,17 +12,20 @@ const styles = StyleSheet.create({
         marginHorizontal: width(1.5),
         marginVertical: height(1),
         flexDirection: "row",
+        height: height(6)
     },
     userProfileWrapper: {
-        paddingHorizontal: width(5)
+        paddingHorizontal: width(5),
+        height: height(14),
     },
     seprator: {
-        height: "100%",
+        height: height(6),
         width: width(.5),
         backgroundColor: AppColors.darkOrange,
         marginLeft: width(3)
     },
     storiesWrapper: {
+        height: height(8),
         width: width(100),
     },
     containerStyles: {
@@ -49,6 +53,22 @@ const styles = StyleSheet.create({
     btnStyles: {
         backgroundColor: AppColors.white_30,
         marginTop: height(3)
+    },
+    myLookbooksContainer: {
+        flex: 1,
+        alignItems: "center",
+    },
+    flatListItemWrapper: {
+        marginHorizontal: width(3),
+        marginBottom: height(1.5),
+    },
+    editLookbooksBtn: {
+        position: "absolute",
+        bottom: height(1.8),
+        paddingVertical: height(.5)
+    },
+    btnTextStyle: {
+        fontFamily: AppFonts.segoe_ui_bold,
     }
 })
 

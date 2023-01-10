@@ -1,9 +1,10 @@
-import { ScrollView, Text, View, Image } from "react-native";
+import { ScrollView, Text, View, Image, FlatList } from "react-native";
 import React, { useState } from "react";
 import AppColors from "~utills/AppColors";
 import {
     CustomText,
     HeaderWithBtn,
+    LooksCard,
     PrimaryBtn,
     ProfileInfo,
     ScreenWrapper,
@@ -13,18 +14,21 @@ import {
 import { EditPencilIconSvg, EmptyBoxSvg } from "~assets/Svg";
 import { setIsLoggedIn, setUserMeta } from "~redux/slices/user";
 import { setAppLoader } from "~redux/slices/config";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import styles from "./styles";
 import { Icons } from "../../../../assets";
 import { useDummyData } from "~hooks";
-import { width } from "~utills/Dimension";
+import { height, width } from "~utills/Dimension";
 import AppFonts from "~utills/AppFonts";
 import ScreenNames from "~routes/routes";
+import { selectIsLookAdded } from "~redux/slices/extras";
 
 export default function UserProfilePinstar({ navigation }) {
     const [userName, setUserName] = useState("@mango_scavo");
     const dispatch = useDispatch();
+    const isLookAdded = useSelector(selectIsLookAdded);
     const profileData = useDummyData();
+    const { myLookbooks } = useDummyData();
     const [userProfile, setUserProfile] = useState(profileData.profileData);
     let stories = Array(10).fill(0);
     const [tapbarOptions, setTapbarOptions] = useState([
@@ -61,6 +65,36 @@ export default function UserProfilePinstar({ navigation }) {
             </View>
         );
     };
+    const MyLookbooks = () => {
+        return (
+            <View style={styles.myLookbooksContainer}>
+                <FlatList
+                    contentContainerStyle={{ paddingVertical: height(2) }}
+                    data={myLookbooks}
+                    numColumns={2}
+                    showsVerticalScrollIndicator={false}
+                    keyExtractor={(e, i) => i}
+                    renderItem={({ item, index }) => {
+                        return (
+                            <View style={styles.flatListItemWrapper}>
+                                <LooksCard
+                                    imgUri={item.coverimg}
+                                    title={item.lookbookName}
+                                    onPressCard={() => navigation.navigate(ScreenNames.VIEWLOOKBOOK)}
+                                />
+                            </View>
+                        );
+                    }}
+                />
+                <PrimaryBtn
+                    containerStyle={styles.editLookbooksBtn}
+                    title={"Edit my Lookbooks"}
+                    textStyle={styles.btnTextStyle}
+                    onPress={() => navigation.navigate(ScreenNames.MYAllLOOKBOOKS)}
+                />
+            </View>
+        );
+    };
     const YayorNay = () => {
         return (
             <View style={styles.YayorNayContainer}>
@@ -79,6 +113,7 @@ export default function UserProfilePinstar({ navigation }) {
                 <PrimaryBtn
                     title={"Add a Yay or Nay"}
                     containerStyle={styles.btnStyles}
+                    onPress={() => alert('pressed')}
                 />
             </View>
         );
@@ -108,7 +143,7 @@ export default function UserProfilePinstar({ navigation }) {
 
     return (
         <ScreenWrapper
-            scrollEnabled
+            // scrollEnabled
             statusBarColor={AppColors.blueBackground}
             backgroundColor={AppColors.blueBackground}
             barStyle="light-content"
@@ -134,26 +169,25 @@ export default function UserProfilePinstar({ navigation }) {
                 <View style={styles.userProfileWrapper}>
                     <ProfileInfo profileImg={Icons.checkedIcon} data={userProfile} />
                 </View>
-                <ScrollView
-                    horizontal
-                    showsHorizontalScrollIndicator={false}
-                    style={styles.storiesWrapper}
-                >
-                    {stories.map((i, index) => {
-                        return (
-                            <View
-                                key={index}
-                                style={[
-                                    styles.storiesContentContainer,
-                                    index == 0 && { marginLeft: width(5) },
-                                ]}
-                            >
-                                <UserStories isNewStory={index == 0 ? true : false} />
-                                {index == 0 && <View style={styles.seprator} />}
-                            </View>
-                        );
-                    })}
-                </ScrollView>
+                <View style={styles.storiesWrapper}>
+                    <ScrollView horizontal showsHorizontalScrollIndicator={false}>
+                        {stories.map((i, index) => {
+                            return (
+                                <View
+                                    key={index}
+                                    style={[
+                                        styles.storiesContentContainer,
+                                        index == 0 && { marginLeft: width(5) },
+                                    ]}
+                                >
+                                    <UserStories isNewStory={index == 0 ? true : false} />
+                                    {index == 0 && <View style={styles.seprator} />}
+                                </View>
+                            );
+                        })}
+                    </ScrollView>
+                </View>
+
                 <TabBar
                     containerStyles={styles.containerStyles}
                     data={tapbarOptions}
@@ -161,7 +195,11 @@ export default function UserProfilePinstar({ navigation }) {
                     onPress={onChangeOption}
                 />
                 {selectedOpt == "Lookbooks" ? (
-                    <Lookbooks />
+                    !isLookAdded ? (
+                        <Lookbooks />
+                    ) : (
+                        <MyLookbooks />
+                    )
                 ) : selectedOpt == "Yay or Nay" ? (
                     <YayorNay />
                 ) : (
