@@ -10,7 +10,12 @@ import {
 } from "react-native";
 import React, { useEffect, useRef, useState } from "react";
 import styles from "./styles";
-import { HeaderWithBtn, ImagePicker, PrimaryBtn } from "~components";
+import {
+    CustomText,
+    HeaderWithBtn,
+    ImagePicker,
+    PrimaryBtn,
+} from "~components";
 import AppColors from "~utills/AppColors";
 import { CameraRoll } from "@react-native-camera-roll/camera-roll";
 import { FlashList } from "@shopify/flash-list";
@@ -20,13 +25,15 @@ import { useIsFocused } from "@react-navigation/native";
 import { useDispatch } from "react-redux";
 import { setSwitchLoader } from "~redux/slices/config";
 import { CameraIconSvg, CheckMarkSvg } from "~assets/Svg";
+import AppFonts from "~utills/AppFonts";
 
 export default function CustomGallery({
     isVisible = false,
     onPressBackBtn,
     headerTitle = "",
     btnTitle = "Continue",
-    onSave = () => null
+    onSave = () => null,
+    dualSelection = false,
 }) {
     const [photos, setPhotos] = useState();
     const imageRef = useRef();
@@ -34,6 +41,7 @@ export default function CustomGallery({
     const dispatch = useDispatch();
     const [singleImg, setSingleImg] = useState(null);
     const [multiImgs, setMultiImgs] = useState([]);
+    const [isSelected, setIsSelected] = useState(false);
     useEffect(() => {
         dispatch(setSwitchLoader(true));
         (async () => {
@@ -108,8 +116,6 @@ export default function CustomGallery({
             });
     }
 
-
-
     return (
         <Modal
             isVisible={isVisible}
@@ -134,6 +140,40 @@ export default function CustomGallery({
                     }
                 />
                 <View style={styles.flashListContainer}>
+                    {dualSelection && (
+                        <View style={styles.selectionBarContainer}>
+                            <TouchableOpacity
+                                style={[
+                                    styles.LeftItemwrapper,
+                                    !isSelected && { backgroundColor: AppColors.darkOrange },
+                                ]}
+                                onPress={() => {
+                                    setIsSelected(false)
+                                }}
+                            >
+                                <CustomText
+                                    children="Gallery"
+                                    size={4}
+                                    fontFamily={!isSelected ? AppFonts.segoe_ui_bold : AppFonts.segoe_ui_medium}
+                                    textColor={!isSelected ? AppColors.white : AppColors.white_50}
+                                />
+                            </TouchableOpacity>
+                            <TouchableOpacity style={[styles.RightItemwrapper,
+                            isSelected && { backgroundColor: AppColors.darkOrange },
+                            ]}
+                                onPress={() => {
+                                    setIsSelected(true)
+                                }}
+                            >
+                                <CustomText
+                                    children="Lookbook"
+                                    size={4}
+                                    fontFamily={isSelected ? AppFonts.segoe_ui_bold : AppFonts.segoe_ui_medium}
+                                    textColor={isSelected ? AppColors.white : AppColors.white_50}
+                                />
+                            </TouchableOpacity>
+                        </View>
+                    )}
                     <FlatList
                         data={photos ?? []}
                         keyExtractor={(i, k) => k.toString()}
@@ -172,15 +212,16 @@ export default function CustomGallery({
                         numColumns={3}
                         estimatedItemSize={113}
                         showsVerticalScrollIndicator={false}
-
                     />
-                    {singleImg && <PrimaryBtn
-                        containerStyle={styles.bottomBtnContainer}
-                        title={btnTitle}
-                        onPress={() => {
-                            onSave(singleImg)
-                        }}
-                    />}
+                    {singleImg && (
+                        <PrimaryBtn
+                            containerStyle={styles.bottomBtnContainer}
+                            title={btnTitle}
+                            onPress={() => {
+                                onSave(singleImg);
+                            }}
+                        />
+                    )}
                 </View>
             </SafeAreaView>
         </Modal>

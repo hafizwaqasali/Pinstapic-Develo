@@ -55,7 +55,28 @@ const styles = StyleSheet.create({
     bottomBtnContainer: {
         position: "absolute",
         bottom: isIos ? height(14) : height(10)
-    }
+    },
+    selectionBarContainer: {
+        backgroundColor: AppColors.white_10,
+        width: width(100),
+        height: height(5),
+        flexDirection: "row",
+        alignItems: "center",
+        paddingHorizontal: width(7.5),
+        justifyContent: "space-between"
+    },
+    LeftItemwrapper: {
+        width: width(40),
+        alignItems: "center",
+        borderRadius: width(10),
+        paddingVertical: height(.3)
+    },
+    RightItemwrapper: {
+        width: width(40),
+        alignItems: "center",
+        borderRadius: width(10),
+        paddingVertical: height(.3)
+    },
 })
 
 export default styles

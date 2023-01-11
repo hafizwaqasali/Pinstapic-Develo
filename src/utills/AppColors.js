@@ -8,6 +8,7 @@ const AppColors = {
   blue: "#2E68CC",
   darkblue: "#2D66C9",
   blueBackground: "#2A74D1",
+  white_10: 'rgba(255, 255, 255,0.1)',
   white_20: 'rgba(255, 255, 255,0.2)',
   white_30: 'rgba(255, 255, 255,0.3)',
   white_40: 'rgba(255, 255, 255,0.4)',

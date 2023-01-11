@@ -2,6 +2,7 @@ import { ScrollView, Text, View, Image, FlatList } from "react-native";
 import React, { useState } from "react";
 import AppColors from "~utills/AppColors";
 import {
+    CustomGallery,
     CustomText,
     HeaderWithBtn,
     LooksCard,
@@ -25,6 +26,8 @@ import { selectIsLookAdded } from "~redux/slices/extras";
 
 export default function UserProfilePinstar({ navigation }) {
     const [userName, setUserName] = useState("@mango_scavo");
+    const [isVisible, setIsVisible] = useState(false);
+    const Toggle = () => setIsVisible(!isVisible);
     const dispatch = useDispatch();
     const isLookAdded = useSelector(selectIsLookAdded);
     const profileData = useDummyData();
@@ -41,6 +44,10 @@ export default function UserProfilePinstar({ navigation }) {
     const onChangeOption = (val) => {
         setSelectedOpt(val);
     };
+
+    const getCoverPhoto = (val) => {
+        console.log(val, "------")
+    }
 
     const Lookbooks = () => {
         return (
@@ -109,11 +116,12 @@ export default function UserProfilePinstar({ navigation }) {
                     fontFamily={AppFonts.segoe_ui_bold}
                     center
                     textColor={AppColors.white_50}
+
                 />
                 <PrimaryBtn
                     title={"Add a Yay or Nay"}
                     containerStyle={styles.btnStyles}
-                    onPress={() => alert('pressed')}
+                    onPress={() => Toggle()}
                 />
             </View>
         );
@@ -165,6 +173,14 @@ export default function UserProfilePinstar({ navigation }) {
                 />
             )}
         >
+            <CustomGallery
+                isVisible={isVisible}
+                onPressBackBtn={Toggle}
+                headerTitle={"Select 2 to 6 images"}
+                onSave={getCoverPhoto}
+                btnTitle={"Next"}
+                dualSelection={true}
+            />
             <View style={styles.container}>
                 <View style={styles.userProfileWrapper}>
                     <ProfileInfo profileImg={Icons.checkedIcon} data={userProfile} />
