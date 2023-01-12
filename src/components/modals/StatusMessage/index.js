@@ -14,7 +14,7 @@ import AppFonts from "~utills/AppFonts";
 import { useNavigation } from "@react-navigation/native";
 import ScreenNames from "~routes/routes";
 
-const StatusMsg = ({ title = "", titleTxtColor, titleTxtStyles }, ref) => {
+const StatusMsg = ({ title = "", titleTxtColor, titleTxtStyles, disableNavigation = false }, ref) => {
     const navigation = useNavigation()
     const [isVisible, setisVisible] = useState(false);
 
@@ -23,7 +23,7 @@ const StatusMsg = ({ title = "", titleTxtColor, titleTxtStyles }, ref) => {
             setisVisible(true);
             setTimeout(() => {
                 setisVisible(false);
-                navigation.navigate(ScreenNames.VIEWLOOKBOOK)
+                if (!disableNavigation) navigation.navigate(ScreenNames.VIEWLOOKBOOK)
             }, 3000);
         },
         hide: () => {

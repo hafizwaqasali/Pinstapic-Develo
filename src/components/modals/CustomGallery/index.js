@@ -26,6 +26,7 @@ import { useDispatch } from "react-redux";
 import { setSwitchLoader } from "~redux/slices/config";
 import { CameraIconSvg, CheckMarkSvg } from "~assets/Svg";
 import AppFonts from "~utills/AppFonts";
+import { useDummyData } from "~hooks";
 
 export default function CustomGallery({
     isVisible = false,
@@ -34,14 +35,18 @@ export default function CustomGallery({
     btnTitle = "Continue",
     onSave = () => null,
     dualSelection = false,
+    multiSelect = false,
 }) {
     const [photos, setPhotos] = useState();
     const imageRef = useRef();
     const isFocused = useIsFocused();
     const dispatch = useDispatch();
+    const { myLookbookImgs } = useDummyData();
     const [singleImg, setSingleImg] = useState(null);
     const [multiImgs, setMultiImgs] = useState([]);
     const [isSelected, setIsSelected] = useState(false);
+    const [refresh, setRefresh] = useState(false);
+    const [lookbookImgs, SetLookbookImgs] = useState([]);
     useEffect(() => {
         dispatch(setSwitchLoader(true));
         (async () => {
@@ -50,7 +55,19 @@ export default function CustomGallery({
             await getPhotosfromGallery();
         })();
         dispatch(setSwitchLoader(false));
-    }, [isFocused]);
+    }, [isFocused, isSelected]);
+
+    useEffect(() => {
+        let temp = myLookbookImgs;
+        let newArr = [];
+        temp.forEach((i) => {
+            newArr.push({
+                img: i,
+                isSelected: false,
+            });
+        });
+        SetLookbookImgs(newArr);
+    }, [isFocused, isSelected]);
 
     async function hasAndroidPermission() {
         const permission =
@@ -148,34 +165,49 @@ export default function CustomGallery({
                                     !isSelected && { backgroundColor: AppColors.darkOrange },
                                 ]}
                                 onPress={() => {
-                                    setIsSelected(false)
+                                    setIsSelected(false);
+                                    setMultiImgs([]);
+                                    setRefresh(!refresh);
                                 }}
                             >
                                 <CustomText
                                     children="Gallery"
                                     size={4}
-                                    fontFamily={!isSelected ? AppFonts.segoe_ui_bold : AppFonts.segoe_ui_medium}
+                                    fontFamily={
+                                        !isSelected
+                                            ? AppFonts.segoe_ui_bold
+                                            : AppFonts.segoe_ui_medium
+                                    }
                                     textColor={!isSelected ? AppColors.white : AppColors.white_50}
                                 />
                             </TouchableOpacity>
-                            <TouchableOpacity style={[styles.RightItemwrapper,
-                            isSelected && { backgroundColor: AppColors.darkOrange },
-                            ]}
+                            <TouchableOpacity
+                                style={[
+                                    styles.RightItemwrapper,
+                                    isSelected && { backgroundColor: AppColors.darkOrange },
+                                ]}
                                 onPress={() => {
-                                    setIsSelected(true)
+                                    setIsSelected(true);
+                                    setMultiImgs([]);
+                                    setRefresh(!refresh);
                                 }}
                             >
                                 <CustomText
                                     children="Lookbook"
                                     size={4}
-                                    fontFamily={isSelected ? AppFonts.segoe_ui_bold : AppFonts.segoe_ui_medium}
+                                    fontFamily={
+                                        isSelected
+                                            ? AppFonts.segoe_ui_bold
+                                            : AppFonts.segoe_ui_medium
+                                    }
                                     textColor={isSelected ? AppColors.white : AppColors.white_50}
                                 />
                             </TouchableOpacity>
                         </View>
                     )}
                     <FlatList
-                        data={photos ?? []}
+                        extraData={refresh}
+                        data={isSelected ? lookbookImgs : photos ?? []}
                         keyExtractor={(i, k) => k.toString()}
                         renderItem={({ item, index }) => {
                             return (
@@ -191,19 +223,51 @@ export default function CustomGallery({
                                         <TouchableOpacity
                                             style={[styles.Imgcontainer]}
                                             onPress={() => {
-                                                setSingleImg(item.node.image.uri);
+                                                if (dualSelection) {
+                                                    if (isSelected && multiSelect) {
+                                                        multiImgs.push(item?.img);
+                                                        lookbookImgs[index].isSelected = true;
+                                                    }
+                                                    if (multiSelect && !isSelected) {
+                                                        multiImgs?.push(item?.node?.image?.uri);
+                                                        photos[index].isSelected = true;
+                                                    }
+                                                    setRefresh(!refresh);
+                                                }
+                                                if (multiSelect && !dualSelection) {
+                                                    multiImgs?.push(item?.node?.image?.uri);
+                                                    photos[index].isSelected = true;
+                                                    setRefresh(!refresh);
+                                                }
+                                                else {
+                                                    setSingleImg(item?.node?.image?.uri);
+                                                }
                                             }}
                                         >
                                             <Image
                                                 resizeMode="cover"
-                                                source={{ uri: item.node.image.uri }}
+                                                source={{
+                                                    uri: isSelected ? item.img : item?.node?.image?.uri,
+                                                }}
                                                 style={[styles.imgStyles]}
                                             />
-                                            {singleImg === item.node.image.uri && (
+                                            {!dualSelection &&
+                                                !multiSelect &&
+                                                singleImg === item?.node?.image?.uri && (
+                                                    <View style={[styles.overLay]}>
+                                                        <CheckMarkSvg />
+                                                    </View>
+                                                )}
+                                            {dualSelection && item?.isSelected ? (
                                                 <View style={[styles.overLay]}>
                                                     <CheckMarkSvg />
                                                 </View>
-                                            )}
+                                            ) : null}
+                                            {multiSelect && item?.isSelected ? (
+                                                <View style={[styles.overLay]}>
+                                                    <CheckMarkSvg />
+                                                </View>
+                                            ) : null}
                                         </TouchableOpacity>
                                     )}
                                 </View>
@@ -219,6 +283,15 @@ export default function CustomGallery({
                             title={btnTitle}
                             onPress={() => {
                                 onSave(singleImg);
+                            }}
+                        />
+                    )}
+                    {multiImgs?.length > 0 && (
+                        <PrimaryBtn
+                            containerStyle={styles.bottomBtnContainer}
+                            title={btnTitle}
+                            onPress={() => {
+                                onSave(multiImgs);
                             }}
                         />
                     )}

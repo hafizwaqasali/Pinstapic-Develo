@@ -33,12 +33,13 @@ const styles = StyleSheet.create({
     },
     emptyBoxImg: {
         tintColor: AppColors.white_50,
-        alignSelf: "center"
+        alignSelf: "center",
+        marginBottom: height(1.5)
     },
     lookbookContainer: {
         height: height(60),
         justifyContent: "center",
-        alignItems: "center"
+        alignItems: "center",
     },
     YayorNayContainer: {
         height: height(60),
@@ -69,6 +70,20 @@ const styles = StyleSheet.create({
     },
     btnTextStyle: {
         fontFamily: AppFonts.segoe_ui_bold,
+    },
+    myYayNayContainer: {
+        height: height(50),
+        alignItems: "center",
+    },
+    imgStyling: {
+        height: "100%",
+        width: "100%"
+    },
+    itemWrapper: {
+
+    },
+    contentContainerStyle: {
+        backgroundColor: "red"
     }
 })
 

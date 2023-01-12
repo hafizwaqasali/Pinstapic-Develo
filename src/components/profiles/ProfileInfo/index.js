@@ -11,7 +11,7 @@ export default function ProfileInfo({ profileImg, data, onPressFollowers = () =>
             <TouchableOpacity style={styles.leftContainer}>
                 {ProfileInfo && (
                     <Image
-                        source={profileImg}
+                        source={{ uri: profileImg }}
                         resizeMode="contain"
                         style={styles.imgStyles}
                     />

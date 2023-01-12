@@ -2,6 +2,7 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 const initialState = {
     isLookAdded: false,
+    isYayorNayAdded: false
 };
 
 const extrasSlice = createSlice({
@@ -10,6 +11,9 @@ const extrasSlice = createSlice({
     reducers: {
         setIsLookAdded: (state, action) => {
             state.isLookAdded = action.payload;
+        },
+        setIsYayorNayAdded: (state, action) => {
+            state.isYayorNayAdded = action.payload;
         },
     },
 });

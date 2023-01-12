@@ -1,5 +1,5 @@
 import { ScrollView, Text, View, Image, FlatList } from "react-native";
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import AppColors from "~utills/AppColors";
 import {
     CustomGallery,
@@ -9,10 +9,12 @@ import {
     PrimaryBtn,
     ProfileInfo,
     ScreenWrapper,
+    StatusMsgModal,
     TabBar,
     UserStories,
+    ViewImage,
 } from "~components";
-import { EditPencilIconSvg, EmptyBoxSvg } from "~assets/Svg";
+import { EditPencilIconSvg } from "~assets/Svg";
 import { setIsLoggedIn, setUserMeta } from "~redux/slices/user";
 import { setAppLoader } from "~redux/slices/config";
 import { useDispatch, useSelector } from "react-redux";
@@ -22,14 +24,17 @@ import { useDummyData } from "~hooks";
 import { height, width } from "~utills/Dimension";
 import AppFonts from "~utills/AppFonts";
 import ScreenNames from "~routes/routes";
-import { selectIsLookAdded } from "~redux/slices/extras";
+import { selectIsLookAdded, selectIsYayorNayAdded, setIsYayorNayAdded } from "~redux/slices/extras";
 
 export default function UserProfilePinstar({ navigation }) {
     const [userName, setUserName] = useState("@mango_scavo");
     const [isVisible, setIsVisible] = useState(false);
     const Toggle = () => setIsVisible(!isVisible);
     const dispatch = useDispatch();
+    const YayorNayImageRef = useRef();
+    const saveModalRef = useRef();
     const isLookAdded = useSelector(selectIsLookAdded);
+    const isYayorNayAdded = useSelector(selectIsYayorNayAdded);
     const profileData = useDummyData();
     const { myLookbooks } = useDummyData();
     const [userProfile, setUserProfile] = useState(profileData.profileData);
@@ -40,14 +45,33 @@ export default function UserProfilePinstar({ navigation }) {
         "My Closet",
     ]);
     const [selectedOpt, setSelectedOpt] = useState(tapbarOptions[0]);
+    const [YayorNayImages, setYayorNayImages] = useState([]);
 
     const onChangeOption = (val) => {
         setSelectedOpt(val);
     };
 
     const getCoverPhoto = (val) => {
-        console.log(val, "------")
-    }
+        setYayorNayImages(val);
+        setIsVisible(false);
+        setTimeout(() => {
+            YayorNayImageRef?.current?.show();
+        }, 600);
+    };
+
+    const renderFlatList = ({ item, index }) => {
+        console.log(item)
+        return (
+            <View style={styles.itemWrapper}>
+                <Image
+                    source={{ uri: item }}
+                    resizeMode={'cover'}
+                    style={styles.imgStyling}
+                />
+            </View>
+        );
+    };
+
 
     const Lookbooks = () => {
         return (
@@ -87,7 +111,9 @@ export default function UserProfilePinstar({ navigation }) {
                                 <LooksCard
                                     imgUri={item.coverimg}
                                     title={item.lookbookName}
-                                    onPressCard={() => navigation.navigate(ScreenNames.VIEWLOOKBOOK)}
+                                    onPressCard={() =>
+                                        navigation.navigate(ScreenNames.VIEWLOOKBOOK)
+                                    }
                                 />
                             </View>
                         );
@@ -102,6 +128,23 @@ export default function UserProfilePinstar({ navigation }) {
             </View>
         );
     };
+
+    const MyYayorNay = () => {
+        return (
+            <View style={styles.myYayNayContainer}>
+                <Text>hi</Text>
+                <FlatList
+                    data={YayorNayImages ?? []}
+                    keyExtractor={(e, i) => i}
+                    renderItem={renderFlatList}
+                    // horizontal
+                    // showsHorizontalScrollIndicator={false}
+                    contentContainerStyle={styles.contentContainerStyle}
+                />
+            </View>
+        );
+    };
+
     const YayorNay = () => {
         return (
             <View style={styles.YayorNayContainer}>
@@ -116,7 +159,6 @@ export default function UserProfilePinstar({ navigation }) {
                     fontFamily={AppFonts.segoe_ui_bold}
                     center
                     textColor={AppColors.white_50}
-
                 />
                 <PrimaryBtn
                     title={"Add a Yay or Nay"}
@@ -150,78 +192,113 @@ export default function UserProfilePinstar({ navigation }) {
     };
 
     return (
-        <ScreenWrapper
-            // scrollEnabled
-            statusBarColor={AppColors.blueBackground}
-            backgroundColor={AppColors.blueBackground}
-            barStyle="light-content"
-            headerUnScrollable={() => (
-                <HeaderWithBtn
-                    centerText={`${userName}`}
-                    isCenterTitle
-                    onPressBackBtn={() => {
-                        dispatch(setAppLoader(true));
-                        setTimeout(() => {
-                            dispatch(setUserMeta(null));
-                            dispatch(setIsLoggedIn(false));
-                            dispatch(setAppLoader(false));
-                        }, 600);
-                    }}
-                    rightElement={<EditPencilIconSvg />}
-                    enableRightElement={true}
-                    onPressRightBtn={() => alert("presssed")}
-                />
-            )}
-        >
-            <CustomGallery
-                isVisible={isVisible}
-                onPressBackBtn={Toggle}
-                headerTitle={"Select 2 to 6 images"}
-                onSave={getCoverPhoto}
-                btnTitle={"Next"}
-                dualSelection={true}
+        <>
+            <ViewImage
+                ref={YayorNayImageRef}
+                headerTitle={"Yay or Nay"}
+                btnTitle={"Post"}
+                data={YayorNayImages}
+                onPressBackBtn={() => YayorNayImageRef?.current?.hide()}
+                onPressBtn={() => {
+                    YayorNayImageRef?.current?.hide();
+                    setTimeout(() => {
+                        saveModalRef?.current?.show();
+                    }, 600);
+                    setTimeout(() => {
+                        saveModalRef?.current?.hide();
+                        dispatch(setIsYayorNayAdded(true))
+                    }, 2000);
+                }}
             />
-            <View style={styles.container}>
-                <View style={styles.userProfileWrapper}>
-                    <ProfileInfo profileImg={Icons.checkedIcon} data={userProfile} />
-                </View>
-                <View style={styles.storiesWrapper}>
-                    <ScrollView horizontal showsHorizontalScrollIndicator={false}>
-                        {stories.map((i, index) => {
-                            return (
-                                <View
-                                    key={index}
-                                    style={[
-                                        styles.storiesContentContainer,
-                                        index == 0 && { marginLeft: width(5) },
-                                    ]}
-                                >
-                                    <UserStories isNewStory={index == 0 ? true : false} />
-                                    {index == 0 && <View style={styles.seprator} />}
-                                </View>
-                            );
-                        })}
-                    </ScrollView>
-                </View>
-
-                <TabBar
-                    containerStyles={styles.containerStyles}
-                    data={tapbarOptions}
-                    isSelected={selectedOpt}
-                    onPress={onChangeOption}
+            <View style={{ position: "absolute" }}>
+                <StatusMsgModal
+                    ref={saveModalRef}
+                    title={"POSTED"}
+                    titleTxtColor={AppColors.blueBackground}
+                    disableNavigation
                 />
-                {selectedOpt == "Lookbooks" ? (
-                    !isLookAdded ? (
-                        <Lookbooks />
-                    ) : (
-                        <MyLookbooks />
-                    )
-                ) : selectedOpt == "Yay or Nay" ? (
-                    <YayorNay />
-                ) : (
-                    selectedOpt == "My Closet" && <MyCloset />
-                )}
             </View>
-        </ScreenWrapper>
+            <ScreenWrapper
+                // scrollEnabled
+                statusBarColor={AppColors.blueBackground}
+                backgroundColor={AppColors.blueBackground}
+                barStyle="light-content"
+                headerUnScrollable={() => (
+                    <HeaderWithBtn
+                        centerText={`${userName}`}
+                        isCenterTitle
+                        onPressBackBtn={() => {
+                            dispatch(setAppLoader(true));
+                            setTimeout(() => {
+                                dispatch(setUserMeta(null));
+                                dispatch(setIsLoggedIn(false));
+                                dispatch(setAppLoader(false));
+                            }, 600);
+                        }}
+                        rightElement={<EditPencilIconSvg />}
+                        enableRightElement={true}
+                        onPressRightBtn={() => alert("presssed")}
+                    />
+                )}
+            >
+                <CustomGallery
+                    isVisible={isVisible}
+                    onPressBackBtn={Toggle}
+                    headerTitle={"Select 2 to 6 images"}
+                    onSave={getCoverPhoto}
+                    btnTitle={"Next"}
+                    dualSelection={selectedOpt == "Yay or Nay" ? true : false}
+                    multiSelect={selectedOpt == "Yay or Nay" ? true : false}
+                />
+                <View style={styles.container}>
+                    <View style={styles.userProfileWrapper}>
+                        <ProfileInfo
+                            profileImg={myLookbooks[0]?.coverimg}
+                            data={userProfile}
+                        />
+                    </View>
+                    <View style={styles.storiesWrapper}>
+                        <ScrollView horizontal showsHorizontalScrollIndicator={false}>
+                            {stories.map((i, index) => {
+                                return (
+                                    <View
+                                        key={index}
+                                        style={[
+                                            styles.storiesContentContainer,
+                                            index == 0 && { marginLeft: width(5) },
+                                        ]}
+                                    >
+                                        <UserStories isNewStory={index == 0 ? true : false} />
+                                        {index == 0 && <View style={styles.seprator} />}
+                                    </View>
+                                );
+                            })}
+                        </ScrollView>
+                    </View>
+
+                    <TabBar
+                        containerStyles={styles.containerStyles}
+                        data={tapbarOptions}
+                        isSelected={selectedOpt}
+                        onPress={onChangeOption}
+                    />
+                    {selectedOpt == "Lookbooks" ? (
+                        !isLookAdded ? (
+                            <Lookbooks />
+                        ) : (
+                            <MyLookbooks />
+                        )
+                    ) : selectedOpt == "Yay or Nay" ? (
+                        !isYayorNayAdded ? (
+                            <YayorNay />
+                        ) : (
+                            <MyYayorNay />
+                        )
+                    ) : (
+                        selectedOpt == "My Closet" && <MyCloset />
+                    )}
+                </View>
+            </ScreenWrapper>
+        </>
     );
 }
