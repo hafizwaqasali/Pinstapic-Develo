@@ -72,7 +72,7 @@ const styles = StyleSheet.create({
         fontFamily: AppFonts.segoe_ui_bold,
     },
     myYayNayContainer: {
-        height: height(50),
+        height: height(60),
         alignItems: "center",
     },
     imgStyling: {
@@ -80,10 +80,35 @@ const styles = StyleSheet.create({
         width: "100%"
     },
     itemWrapper: {
-
+        height: height(60),
+        width: width(100)
     },
     contentContainerStyle: {
         backgroundColor: "red"
+    },
+    editYayorNayBtn: {
+        position: "absolute",
+        bottom: height(5),
+        paddingVertical: height(.5)
+    },
+    likeContainer: {
+        backgroundColor: AppColors.white,
+        height: height(4),
+        width: height(4),
+        position: "absolute",
+        overflow: "hidden",
+        justifyContent: "center",
+        alignItems: "center",
+        borderRadius: width(5),
+        alignContent: "center",
+        right: width(3.5),
+        top: height(2)
+    },
+    likePercentText: {
+        // fontFamily: AppFonts.segoe_ui_bold,
+        // fontSize: width(3),
+        // position: "absolute",
+
     }
 })
 

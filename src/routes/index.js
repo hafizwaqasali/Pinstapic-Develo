@@ -22,7 +22,7 @@ export default function Routes() {
     <NavigationContainer>
       <AnimatedLoader />
       {!isLogin ? (
-        <Stack.Navigator initialRouteName={ScreenNames.CHOOSECATEGORY} screenOptions={{ header: () => false }}>
+        <Stack.Navigator initialRouteName={ScreenNames.WELCOME} screenOptions={{ header: () => false }}>
           <Stack.Screen name={ScreenNames.WELCOME} component={WelcomeScreen} />
           <Stack.Screen name={ScreenNames.LOGIN} component={LoginScreen} />
           <Stack.Screen name={ScreenNames.SIGNUP} component={SignupScreen} />

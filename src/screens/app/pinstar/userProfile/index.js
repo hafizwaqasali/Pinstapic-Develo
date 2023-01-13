@@ -1,4 +1,4 @@
-import { ScrollView, Text, View, Image, FlatList } from "react-native";
+import { ScrollView, Text, View, Image, FlatList, TouchableOpacity } from "react-native";
 import React, { useRef, useState } from "react";
 import AppColors from "~utills/AppColors";
 import {
@@ -14,7 +14,7 @@ import {
     UserStories,
     ViewImage,
 } from "~components";
-import { EditPencilIconSvg } from "~assets/Svg";
+import { EditPencilIconSvg, LikeIconSvg } from "~assets/Svg";
 import { setIsLoggedIn, setUserMeta } from "~redux/slices/user";
 import { setAppLoader } from "~redux/slices/config";
 import { useDispatch, useSelector } from "react-redux";
@@ -132,15 +132,24 @@ export default function UserProfilePinstar({ navigation }) {
     const MyYayorNay = () => {
         return (
             <View style={styles.myYayNayContainer}>
-                <Text>hi</Text>
                 <FlatList
                     data={YayorNayImages ?? []}
                     keyExtractor={(e, i) => i}
                     renderItem={renderFlatList}
-                    // horizontal
-                    // showsHorizontalScrollIndicator={false}
+                    horizontal
+                    showsHorizontalScrollIndicator={false}
                     contentContainerStyle={styles.contentContainerStyle}
                 />
+                <PrimaryBtn
+                    containerStyle={styles.editYayorNayBtn}
+                    title={"Edit My Yay or Nay"}
+                    textStyle={styles.btnTextStyle}
+                    onPress={() => alert('pressed')}
+                />
+                <TouchableOpacity style={styles.likeContainer}>
+                    <LikeIconSvg />
+                </TouchableOpacity>
+                {/* <CustomText textStyles={styles.likePercentText} children={'67%'} backgroundColor={AppColors.red} /> */}
             </View>
         );
     };
