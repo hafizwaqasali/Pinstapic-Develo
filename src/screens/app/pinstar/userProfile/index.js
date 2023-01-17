@@ -237,7 +237,7 @@ export default function UserProfilePinstar({ navigation }) {
                 headerUnScrollable={() => (
                     <HeaderWithBtn
                         centerText={`${userName}`}
-                        leftElement={<TouchableOpacity onPress={() => navigation.navigate(ScreenNames.PINSTARDASHBOARD)}>
+                        leftElement={<TouchableOpacity onPress={() => navigation.navigate('Tabbar')}>
                             <HomeIconSvg />
                         </TouchableOpacity>}
                         isCenterTitle

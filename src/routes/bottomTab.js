@@ -27,19 +27,21 @@ const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
 
 
-const AppStack = () => {
-    return (
-        <Stack.Navigator initialRouteName={ScreenNames.USERPROFILEPINSTAR} screenOptions={{ header: () => false }}>
-            <Stack.Screen name={ScreenNames.USERPROFILEPINSTAR} component={UserProfilePinstarScreen} />
-            <Stack.Screen name={ScreenNames.CREATELOOKBOOK} component={CreateLookbookScreen} />
-            <Stack.Screen name={ScreenNames.ADDPHOTOSTOLOOKBOOK} component={AddPhotosToLookbookScreen} />
-            <Stack.Screen name={ScreenNames.VIEWLOOKBOOK} component={ViewLookbookScreen} />
-            <Stack.Screen name={ScreenNames.VIEWLOOKBOOKIMAGE} component={ViewLookbookImageScreen} />
-            <Stack.Screen name={ScreenNames.MYAllLOOKBOOKS} component={MyAllLookbooksScreen} />
-            <Stack.Screen name={ScreenNames.PINSTARDASHBOARD} component={PinstarDashboardScreen} />
-        </Stack.Navigator>
-    )
-}
+// const AppStack = () => {
+//     return (
+//         <Stack.Navigator initialRouteName={ScreenNames.USERPROFILEPINSTAR} screenOptions={{ header: () => false }}>
+//             <Stack.Screen name={ScreenNames.USERPROFILEPINSTAR} component={UserProfilePinstarScreen}
+
+//             />
+//             <Stack.Screen name={ScreenNames.CREATELOOKBOOK} component={CreateLookbookScreen} />
+//             <Stack.Screen name={ScreenNames.ADDPHOTOSTOLOOKBOOK} component={AddPhotosToLookbookScreen} />
+//             <Stack.Screen name={ScreenNames.VIEWLOOKBOOK} component={ViewLookbookScreen} />
+//             <Stack.Screen name={ScreenNames.VIEWLOOKBOOKIMAGE} component={ViewLookbookImageScreen} />
+//             <Stack.Screen name={ScreenNames.MYAllLOOKBOOKS} component={MyAllLookbooksScreen} />
+//             <Stack.Screen name={ScreenNames.PINSTARDASHBOARD} component={PinstarDashboardScreen} />
+//         </Stack.Navigator>
+//     )
+// }
 
 const CustomTabBar = (props) => {
     const [focused, setFocused] = useState(-1)
@@ -91,11 +93,11 @@ const CustomTabBar = (props) => {
 const Tabbar = ({ navigation }) => {
     return (
         <Tab.Navigator
-
+            initialRouteName={ScreenNames.ADDPHOTOSTOLOOKBOOK}
             tabBar={(props) => <CustomTabBar {...props} />}
             screenOptions={{ header: () => false }}
         >
-            <Tab.Screen name={'AppStack'} component={AppStack} />
+            <Tab.Screen name={ScreenNames.PINSTARDASHBOARD} component={PinstarDashboardScreen} />
         </Tab.Navigator>
     );
 };

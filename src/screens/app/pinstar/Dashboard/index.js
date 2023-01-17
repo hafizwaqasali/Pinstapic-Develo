@@ -3,6 +3,7 @@ import React from 'react'
 import styles from "./styles"
 import { CustomText, ScreenWrapper } from '~components'
 import AppColors from '~utills/AppColors'
+import ScreenNames from '~routes/routes'
 
 export default function PinstarDashboard({ navigation }) {
     return (
@@ -13,7 +14,7 @@ export default function PinstarDashboard({ navigation }) {
             barStyle="light-content"
         >
             <View style={styles.container}>
-                <CustomText children='Under-Development' center size={5} />
+                <CustomText children='Under-Development' center size={5} onPress={() => navigation.goBack()} />
             </View>
         </ScreenWrapper>
     )
