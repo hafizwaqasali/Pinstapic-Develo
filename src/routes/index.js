@@ -9,6 +9,9 @@ import { AddPhotosToLookbookScreen, CreateLookbookScreen, HomeScreen, MyAllLookb
 import { selectIsLoggedIn } from '~redux/slices/user';
 import SplashScreen from 'react-native-splash-screen'
 import { ImageGalleryScreen, ManageLocationScreen } from '~screens/common';
+import { createDrawerNavigator } from '@react-navigation/drawer';
+import Appdrawer from './drawer';
+const Drawer = createDrawerNavigator();
 const Stack = createNativeStackNavigator();
 
 export default function Routes() {
@@ -18,14 +21,16 @@ export default function Routes() {
   SplashScreen.hide();
 
   const AppStack = () => {
-    <Stack.Navigator initialRouteName={ScreenNames.USERPROFILEPINSTAR} screenOptions={{ header: () => false }}>
-      <Stack.Screen name={ScreenNames.USERPROFILEPINSTAR} component={UserProfilePinstarScreen} />
-      <Stack.Screen name={ScreenNames.CREATELOOKBOOK} component={CreateLookbookScreen} />
-      <Stack.Screen name={ScreenNames.ADDPHOTOSTOLOOKBOOK} component={AddPhotosToLookbookScreen} />
-      <Stack.Screen name={ScreenNames.VIEWLOOKBOOK} component={ViewLookbookScreen} />
-      <Stack.Screen name={ScreenNames.VIEWLOOKBOOKIMAGE} component={ViewLookbookImageScreen} />
-      <Stack.Screen name={ScreenNames.MYAllLOOKBOOKS} component={MyAllLookbooksScreen} />
-    </Stack.Navigator>
+    return (
+      <Stack.Navigator initialRouteName={ScreenNames.USERPROFILEPINSTAR} screenOptions={{ header: () => false }}>
+        <Stack.Screen name={ScreenNames.USERPROFILEPINSTAR} component={UserProfilePinstarScreen} />
+        <Stack.Screen name={ScreenNames.CREATELOOKBOOK} component={CreateLookbookScreen} />
+        <Stack.Screen name={ScreenNames.ADDPHOTOSTOLOOKBOOK} component={AddPhotosToLookbookScreen} />
+        <Stack.Screen name={ScreenNames.VIEWLOOKBOOK} component={ViewLookbookScreen} />
+        <Stack.Screen name={ScreenNames.VIEWLOOKBOOKIMAGE} component={ViewLookbookImageScreen} />
+        <Stack.Screen name={ScreenNames.MYAllLOOKBOOKS} component={MyAllLookbooksScreen} />
+      </Stack.Navigator>
+    )
   }
 
 
@@ -46,7 +51,10 @@ export default function Routes() {
           <Stack.Screen name={ScreenNames.IMAGEGALLERY} component={ImageGalleryScreen} />
         </Stack.Navigator>
       ) : (
-        <AppStack />
+        <Drawer.Navigator drawerContent={(props) => <Appdrawer {...props} />}>
+          <Drawer.Screen name="AppStack" component={AppStack} />
+
+        </Drawer.Navigator>
       )}
     </NavigationContainer>
   );
