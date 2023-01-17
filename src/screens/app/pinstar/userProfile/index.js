@@ -237,12 +237,13 @@ export default function UserProfilePinstar({ navigation }) {
                         centerText={`${userName}`}
                         isCenterTitle
                         onPressBackBtn={() => {
-                            dispatch(setAppLoader(true));
-                            setTimeout(() => {
-                                dispatch(setUserMeta(null));
-                                dispatch(setIsLoggedIn(false));
-                                dispatch(setAppLoader(false));
-                            }, 600);
+                            navigation.navigate(ScreenNames.PINSTARDASHBOARD)
+                            // dispatch(setAppLoader(true));
+                            // setTimeout(() => {
+                            //     dispatch(setUserMeta(null));
+                            //     dispatch(setIsLoggedIn(false));
+                            //     dispatch(setAppLoader(false));
+                            // }, 600);
                         }}
                         rightElement={<EditPencilIconSvg />}
                         enableRightElement={true}

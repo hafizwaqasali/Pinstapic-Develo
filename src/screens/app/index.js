@@ -5,3 +5,4 @@ export { default as AddPhotosToLookbookScreen } from "./pinstar/addphotostolookb
 export { default as ViewLookbookScreen } from "./pinstar/viewlookbook"
 export { default as ViewLookbookImageScreen } from "./pinstar/viewlookbookImage"
 export { default as MyAllLookbooksScreen } from "./pinstar/myalllookbooks"
+export { default as PinstarDashboardScreen } from "./pinstar/Dashboard"

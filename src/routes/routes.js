@@ -16,5 +16,6 @@ const ScreenNames = {
   VIEWLOOKBOOK: 'ViewLookbook',
   VIEWLOOKBOOKIMAGE: 'ViewLookbookImage',
   MYAllLOOKBOOKS: 'MyAllLookbooks',
+  PINSTARDASHBOARD: 'PinstarDashboardScreen'
 }
 export default ScreenNames;

@@ -5,12 +5,13 @@ import { useSelector } from 'react-redux';
 import { ChooseCategoryScreen, LoginScreen, PrivacyPolicyScreen, SignupScreen, TermsandConditionsScreen, WelcomeScreen, CategoryDescriptionScreen, WelcomeProfileScreen } from '~screens/auth';
 import { AnimatedLoader, } from '~components';
 import ScreenNames from './routes';
-import { AddPhotosToLookbookScreen, CreateLookbookScreen, HomeScreen, MyAllLookbooksScreen, UserProfilePinstarScreen, ViewLookbookImageScreen, ViewLookbookScreen } from '~screens/app';
+import { AddPhotosToLookbookScreen, CreateLookbookScreen, HomeScreen, MyAllLookbooksScreen, PinstarDashboardScreen, UserProfilePinstarScreen, ViewLookbookImageScreen, ViewLookbookScreen } from '~screens/app';
 import { selectIsLoggedIn } from '~redux/slices/user';
 import SplashScreen from 'react-native-splash-screen'
 import { ImageGalleryScreen, ManageLocationScreen } from '~screens/common';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import Appdrawer from './drawer';
+import Tabbar from './bottomTab';
 const Drawer = createDrawerNavigator();
 const Stack = createNativeStackNavigator();
 
@@ -29,6 +30,7 @@ export default function Routes() {
         <Stack.Screen name={ScreenNames.VIEWLOOKBOOK} component={ViewLookbookScreen} />
         <Stack.Screen name={ScreenNames.VIEWLOOKBOOKIMAGE} component={ViewLookbookImageScreen} />
         <Stack.Screen name={ScreenNames.MYAllLOOKBOOKS} component={MyAllLookbooksScreen} />
+        <Stack.Screen name={ScreenNames.PINSTARDASHBOARD} component={PinstarDashboardScreen} />
       </Stack.Navigator>
     )
   }
@@ -51,8 +53,9 @@ export default function Routes() {
           <Stack.Screen name={ScreenNames.IMAGEGALLERY} component={ImageGalleryScreen} />
         </Stack.Navigator>
       ) : (
-        <Drawer.Navigator drawerContent={(props) => <Appdrawer {...props} />}>
+        <Drawer.Navigator drawerContent={(props) => <Appdrawer {...props} />} screenOptions={{ header: () => false }}>
           <Drawer.Screen name="AppStack" component={AppStack} />
+          <Drawer.Screen name="Tabbar" component={Tabbar} />
 
         </Drawer.Navigator>
       )}
