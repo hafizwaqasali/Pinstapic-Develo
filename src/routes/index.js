@@ -17,12 +17,23 @@ export default function Routes() {
   const isLogin = useSelector(selectIsLoggedIn)
   SplashScreen.hide();
 
+  const AppStack = () => {
+    <Stack.Navigator initialRouteName={ScreenNames.USERPROFILEPINSTAR} screenOptions={{ header: () => false }}>
+      <Stack.Screen name={ScreenNames.USERPROFILEPINSTAR} component={UserProfilePinstarScreen} />
+      <Stack.Screen name={ScreenNames.CREATELOOKBOOK} component={CreateLookbookScreen} />
+      <Stack.Screen name={ScreenNames.ADDPHOTOSTOLOOKBOOK} component={AddPhotosToLookbookScreen} />
+      <Stack.Screen name={ScreenNames.VIEWLOOKBOOK} component={ViewLookbookScreen} />
+      <Stack.Screen name={ScreenNames.VIEWLOOKBOOKIMAGE} component={ViewLookbookImageScreen} />
+      <Stack.Screen name={ScreenNames.MYAllLOOKBOOKS} component={MyAllLookbooksScreen} />
+    </Stack.Navigator>
+  }
+
 
   return (
     <NavigationContainer>
       <AnimatedLoader />
       {!isLogin ? (
-        <Stack.Navigator initialRouteName={ScreenNames.WELCOME} screenOptions={{ header: () => false }}>
+        <Stack.Navigator initialRouteName={ScreenNames.CHOOSECATEGORY} screenOptions={{ header: () => false }}>
           <Stack.Screen name={ScreenNames.WELCOME} component={WelcomeScreen} />
           <Stack.Screen name={ScreenNames.LOGIN} component={LoginScreen} />
           <Stack.Screen name={ScreenNames.SIGNUP} component={SignupScreen} />
@@ -35,14 +46,7 @@ export default function Routes() {
           <Stack.Screen name={ScreenNames.IMAGEGALLERY} component={ImageGalleryScreen} />
         </Stack.Navigator>
       ) : (
-        <Stack.Navigator initialRouteName={ScreenNames.USERPROFILEPINSTAR} screenOptions={{ header: () => false }}>
-          <Stack.Screen name={ScreenNames.USERPROFILEPINSTAR} component={UserProfilePinstarScreen} />
-          <Stack.Screen name={ScreenNames.CREATELOOKBOOK} component={CreateLookbookScreen} />
-          <Stack.Screen name={ScreenNames.ADDPHOTOSTOLOOKBOOK} component={AddPhotosToLookbookScreen} />
-          <Stack.Screen name={ScreenNames.VIEWLOOKBOOK} component={ViewLookbookScreen} />
-          <Stack.Screen name={ScreenNames.VIEWLOOKBOOKIMAGE} component={ViewLookbookImageScreen} />
-          <Stack.Screen name={ScreenNames.MYAllLOOKBOOKS} component={MyAllLookbooksScreen} />
-        </Stack.Navigator>
+        <AppStack />
       )}
     </NavigationContainer>
   );
