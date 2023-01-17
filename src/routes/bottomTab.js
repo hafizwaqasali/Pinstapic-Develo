@@ -10,7 +10,7 @@ import {
 import React, { useState } from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import ScreenNames from "./routes";
-import { AddPhotosToLookbookScreen, CreateLookbookScreen, MyAllLookbooksScreen, PinstarDashboardScreen, UserProfilePinstarScreen, ViewLookbookImageScreen, ViewLookbookScreen } from "~screens/app";
+import { PinstarCommunityScreen, PinstarDashboardScreen } from "~screens/app";
 import AppColors from "~utills/AppColors";
 import { height, width } from "~utills/Dimension";
 import {
@@ -27,24 +27,14 @@ const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
 
 
-// const AppStack = () => {
-//     return (
-//         <Stack.Navigator initialRouteName={ScreenNames.USERPROFILEPINSTAR} screenOptions={{ header: () => false }}>
-//             <Stack.Screen name={ScreenNames.USERPROFILEPINSTAR} component={UserProfilePinstarScreen}
-
-//             />
-//             <Stack.Screen name={ScreenNames.CREATELOOKBOOK} component={CreateLookbookScreen} />
-//             <Stack.Screen name={ScreenNames.ADDPHOTOSTOLOOKBOOK} component={AddPhotosToLookbookScreen} />
-//             <Stack.Screen name={ScreenNames.VIEWLOOKBOOK} component={ViewLookbookScreen} />
-//             <Stack.Screen name={ScreenNames.VIEWLOOKBOOKIMAGE} component={ViewLookbookImageScreen} />
-//             <Stack.Screen name={ScreenNames.MYAllLOOKBOOKS} component={MyAllLookbooksScreen} />
-//             <Stack.Screen name={ScreenNames.PINSTARDASHBOARD} component={PinstarDashboardScreen} />
-//         </Stack.Navigator>
-//     )
-// }
-
 const CustomTabBar = (props) => {
-    const [focused, setFocused] = useState(-1)
+    const [focused, setFocused] = useState(1)
+
+    const getFocused = async (focusIndex, screenToNavigate) => {
+        setFocused(focusIndex)
+        if (screenToNavigate) props.navigation.navigate(screenToNavigate)
+    }
+
 
     return (
         <SafeAreaView style={styles.tabbarContainer}>
@@ -54,35 +44,22 @@ const CustomTabBar = (props) => {
                 }}>
                     <ThreeLinesSvg />
                 </TouchableOpacity>
-                <TouchableOpacity onPress={() => {
-                    setFocused(1)
-                }}>
+                <TouchableOpacity onPress={() => getFocused(1, ScreenNames.PINSTARDASHBOARD)}>
                     <HomeIconSvg color={focused === 1 ? AppColors.darkOrange : AppColors.white} />
                 </TouchableOpacity>
-                <TouchableOpacity onPress={() => {
-                    setFocused(2)
-                }}>
+                <TouchableOpacity onPress={() => getFocused(2, ScreenNames.PINSTARCOMMUNITY)}>
                     <UsersIconSvg color={focused === 2 ? AppColors.darkOrange : AppColors.white} />
                 </TouchableOpacity>
-                <TouchableOpacity onPress={() => {
-                    setFocused(3)
-                }}>
+                <TouchableOpacity onPress={() => getFocused(3)}>
                     <ThumbIconSvg color={focused === 3 ? AppColors.darkOrange : AppColors.white} />
                 </TouchableOpacity>
-                <TouchableOpacity onPress={() => {
-                    setFocused(4)
-                }}>
+                <TouchableOpacity onPress={() => getFocused(4)}>
                     <SearchSvg color={focused === 4 ? AppColors.darkOrange : AppColors.white} />
                 </TouchableOpacity>
-                <TouchableOpacity onPress={() => {
-                    setFocused(5)
-                }}>
+                <TouchableOpacity onPress={() => getFocused(5)}>
                     <ChatIconSvg color={focused === 5 ? AppColors.darkOrange : AppColors.white} />
                 </TouchableOpacity>
-                <TouchableOpacity onPress={() => {
-                    setFocused(6)
-                    props.navigation.navigate(ScreenNames.USERPROFILEPINSTAR)
-                }} style={styles.roundProfileContainer}>
+                <TouchableOpacity onPress={() => getFocused(2, ScreenNames.USERPROFILEPINSTAR)} style={styles.roundProfileContainer}>
                     <Image source={{ uri: "https://images.pexels.com/photos/6865918/pexels-photo-6865918.jpeg?auto=compress&cs=tinysrgb&w=800" }} resizeMode="cover" style={styles.imgStyles} />
                 </TouchableOpacity>
             </View>
@@ -98,6 +75,7 @@ const Tabbar = ({ navigation }) => {
             screenOptions={{ header: () => false }}
         >
             <Tab.Screen name={ScreenNames.PINSTARDASHBOARD} component={PinstarDashboardScreen} />
+            <Tab.Screen name={ScreenNames.PINSTARCOMMUNITY} component={PinstarCommunityScreen} />
         </Tab.Navigator>
     );
 };
