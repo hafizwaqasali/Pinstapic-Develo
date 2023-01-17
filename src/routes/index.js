@@ -21,26 +21,13 @@ export default function Routes() {
   const isLogin = useSelector(selectIsLoggedIn)
   SplashScreen.hide();
 
-  const AppStack = () => {
-    return (
-      <Stack.Navigator initialRouteName={ScreenNames.USERPROFILEPINSTAR} screenOptions={{ header: () => false }}>
-        <Stack.Screen name={ScreenNames.USERPROFILEPINSTAR} component={UserProfilePinstarScreen} />
-        <Stack.Screen name={ScreenNames.CREATELOOKBOOK} component={CreateLookbookScreen} />
-        <Stack.Screen name={ScreenNames.ADDPHOTOSTOLOOKBOOK} component={AddPhotosToLookbookScreen} />
-        <Stack.Screen name={ScreenNames.VIEWLOOKBOOK} component={ViewLookbookScreen} />
-        <Stack.Screen name={ScreenNames.VIEWLOOKBOOKIMAGE} component={ViewLookbookImageScreen} />
-        <Stack.Screen name={ScreenNames.MYAllLOOKBOOKS} component={MyAllLookbooksScreen} />
-        <Stack.Screen name={ScreenNames.PINSTARDASHBOARD} component={PinstarDashboardScreen} />
-      </Stack.Navigator>
-    )
-  }
 
 
   return (
     <NavigationContainer>
       <AnimatedLoader />
       {!isLogin ? (
-        <Stack.Navigator initialRouteName={ScreenNames.CHOOSECATEGORY} screenOptions={{ header: () => false }}>
+        <Stack.Navigator initialRouteName={ScreenNames.WELCOME} screenOptions={{ header: () => false }}>
           <Stack.Screen name={ScreenNames.WELCOME} component={WelcomeScreen} />
           <Stack.Screen name={ScreenNames.LOGIN} component={LoginScreen} />
           <Stack.Screen name={ScreenNames.SIGNUP} component={SignupScreen} />
@@ -54,9 +41,7 @@ export default function Routes() {
         </Stack.Navigator>
       ) : (
         <Drawer.Navigator drawerContent={(props) => <Appdrawer {...props} />} screenOptions={{ header: () => false }}>
-          <Drawer.Screen name="AppStack" component={AppStack} />
           <Drawer.Screen name="Tabbar" component={Tabbar} />
-
         </Drawer.Navigator>
       )}
     </NavigationContainer>

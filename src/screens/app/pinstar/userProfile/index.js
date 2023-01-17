@@ -14,7 +14,7 @@ import {
     UserStories,
     ViewImage,
 } from "~components";
-import { EditPencilIconSvg, LikeIconSvg } from "~assets/Svg";
+import { EditPencilIconSvg, HomeIconSvg, LikeIconSvg } from "~assets/Svg";
 import { setIsLoggedIn, setUserMeta } from "~redux/slices/user";
 import { setAppLoader } from "~redux/slices/config";
 import { useDispatch, useSelector } from "react-redux";
@@ -46,6 +46,8 @@ export default function UserProfilePinstar({ navigation }) {
     ]);
     const [selectedOpt, setSelectedOpt] = useState(tapbarOptions[0]);
     const [YayorNayImages, setYayorNayImages] = useState([]);
+
+
 
     const onChangeOption = (val) => {
         setSelectedOpt(val);
@@ -235,9 +237,12 @@ export default function UserProfilePinstar({ navigation }) {
                 headerUnScrollable={() => (
                     <HeaderWithBtn
                         centerText={`${userName}`}
+                        leftElement={<TouchableOpacity onPress={() => navigation.navigate(ScreenNames.PINSTARDASHBOARD)}>
+                            <HomeIconSvg />
+                        </TouchableOpacity>}
                         isCenterTitle
+
                         onPressBackBtn={() => {
-                            navigation.navigate(ScreenNames.PINSTARDASHBOARD)
                             // dispatch(setAppLoader(true));
                             // setTimeout(() => {
                             //     dispatch(setUserMeta(null));

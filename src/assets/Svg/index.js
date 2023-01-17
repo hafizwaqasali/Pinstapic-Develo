@@ -10,3 +10,11 @@ export { default as EditPencilIconSvg } from "./EditPencilIconSvg"
 export { default as EmptyBoxSvg } from "./EmptyBoxSvg"
 export { default as MenuIconSvg } from "./MenuIconSvg"
 export { default as LikeIconSvg } from "./LikeIconSvg"
+export {
+    ThreeLinesSvg,
+    ChatIconSvg,
+    HomeIconSvg,
+    ThumbIconSvg,
+    SearchSvg,
+    UsersIconSvg,
+} from "./BottomTabSvgs";

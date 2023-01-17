@@ -102,7 +102,10 @@ export default function CategoryDescription({ navigation, route }) {
                     containerStyle={styles.btnContainer}
                     title={`JOIN AS ${type}`}
                     textStyle={styles.btnText}
-                    onPress={() => navigation.navigate(ScreenNames.WELCOMEPROFILE, type)}
+                    onPress={() => {
+                        console.log('pressed===>', type)
+                        navigation.navigate(ScreenNames.WELCOMEPROFILE, type)
+                    }}
                 />
             </View>
         </ScreenWrapper>
