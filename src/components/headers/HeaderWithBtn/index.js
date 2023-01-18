@@ -23,18 +23,23 @@ export default function HeaderWithBtn({
     enableRightElement = false,
     isCenterTitle = false,
     enableCloseButton = false,
+    hideBackBtn = false,
     onPressRightBtn = () => null,
 }) {
     return (
         <View style={[styles.container, containerStyles]}>
             <View style={[styles.leftWrapper, leftWrapperStyles]}>
                 {leftElement ?? (
-                    <TouchableOpacity
-                        style={[styles.backButton, backButtonStyles]}
-                        onPress={onPressBackBtn}
-                    >
-                        {enableCloseButton ? <CloseiconSvg /> : <BackArrowSvg />}
-                    </TouchableOpacity>
+                    <>
+                        {!hideBackBtn ? (
+                            <TouchableOpacity
+                                style={[styles.backButton, backButtonStyles]}
+                                onPress={onPressBackBtn}
+                            >
+                                {enableCloseButton ? <CloseiconSvg /> : <BackArrowSvg />}
+                            </TouchableOpacity>
+                        ) : null}
+                    </>
                 )}
             </View>
             <View
@@ -55,7 +60,10 @@ export default function HeaderWithBtn({
             </View>
             <View style={[styles.rightWrapper, rightWrapperStyles]}>
                 {enableRightElement && (
-                    <TouchableOpacity onPress={onPressRightBtn} style={[styles.rightButton, rightButtonStyles]}>
+                    <TouchableOpacity
+                        onPress={onPressRightBtn}
+                        style={[styles.rightButton, rightButtonStyles]}
+                    >
                         {rightElement}
                     </TouchableOpacity>
                 )}
@@ -100,5 +108,5 @@ const styles = StyleSheet.create({
         borderRadius: height(2),
         alignItems: "center",
         justifyContent: "center",
-    }
+    },
 });

@@ -18,7 +18,9 @@ export function LooksCard({
     titleTextStyles,
     enableDescription = false,
     totalImages = 0,
-    totalTags = 0
+    totalTags = 0,
+    showUserDetails = false,
+    customElement,
 
 }) {
     return (
@@ -31,14 +33,18 @@ export function LooksCard({
                 resizeMode={resizeMode}
                 style={[styles.imgStyles, imgStyling]}
             />
-            <CustomText
+            {!showUserDetails ? <CustomText
                 children={title}
                 size={3.2}
                 fontFamily={AppFonts.segoe_ui_bold}
                 textColor={AppColors.smoky_Grey}
                 textStyles={titleTextStyles}
                 paddingHorizontal={width(4)}
-            />
+            /> :
+                <>
+                    {customElement ?? null}
+                </>
+            }
             {
                 enableDescription &&
                 <View style={styles.lookBooksDescriptionWrapper}>

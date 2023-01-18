@@ -1,19 +1,53 @@
-import { Text, View } from 'react-native'
-import React from 'react'
+import { ScrollView, Text, View } from 'react-native'
+import React, { useState } from 'react'
 import styles from "./styles"
-import { CustomText, ScreenWrapper } from '~components'
+import { CustomText, HeaderWithBtn, ScreenWrapper, TabBar, UserStories } from '~components'
 import AppColors from '~utills/AppColors'
+import PinstarSection from './pinstarSection'
+import { Icons } from '~assets'
+import { width } from '~utills/Dimension'
 
 export default function PinstarCommunity({ navigation }) {
+    const [isSelected, setisSelected] = useState('Pinstars')
+    const [tapbarOptions, setTapbarOptions] = useState([
+        { type: "Pinstars", img: Icons.FlameIcon },
+        { type: "Pinstylists", img: Icons.ScissorIcon },
+        { type: "Pinstores", img: Icons.shoppingCartIcon },
+    ]);
+    const onChangeOption = (val) => setisSelected(val)
+    const headerComponent = () => {
+        return (
+            <>
+                <HeaderWithBtn
+                    centerText={`Community`}
+                    isCenterTitle
+                    hideBackBtn
+                />
+                <TabBar
+                    containerStyles={styles.TabscontainerStyles}
+                    data={tapbarOptions}
+                    isSelected={isSelected}
+                    onPress={onChangeOption}
+                    wrapperStyles={styles.tabItemWrapperStyles}
+                />
+
+            </>
+        )
+    }
     return (
         <ScreenWrapper
-            scrollEnabled
             statusBarColor={AppColors.blueBackground}
             backgroundColor={AppColors.blueBackground}
             barStyle="light-content"
+            headerUnScrollable={headerComponent}
+
         >
             <View style={styles.container}>
-                <CustomText children={`Community Screen ( Under Development )`} center size={3} onPress={() => navigation.goBack()} />
+
+                {
+                    isSelected === 'Pinstars' && <PinstarSection />
+                }
+
             </View>
         </ScreenWrapper>
     )

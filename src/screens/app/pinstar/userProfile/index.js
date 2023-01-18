@@ -40,11 +40,11 @@ export default function UserProfilePinstar({ navigation }) {
     const [userProfile, setUserProfile] = useState(profileData.profileData);
     let stories = Array(10).fill(0);
     const [tapbarOptions, setTapbarOptions] = useState([
-        "Lookbooks",
-        "Yay or Nay",
-        "My Closet",
+        { type: "Lookbooks" },
+        { type: "Yay or Nay" },
+        { type: "My Closet" },
     ]);
-    const [selectedOpt, setSelectedOpt] = useState(tapbarOptions[0]);
+    const [selectedOpt, setSelectedOpt] = useState(tapbarOptions[0].type);
     const [YayorNayImages, setYayorNayImages] = useState([]);
 
 

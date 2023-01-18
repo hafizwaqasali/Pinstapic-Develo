@@ -6,10 +6,11 @@ import AppColors from '~utills/AppColors'
 
 const styles = StyleSheet.create({
     LooksCardContainer: {
-        height: height(20),
-        width: width(36),
+        // height: height(20),
+        // width: width(36),
         borderRadius: width(5),
-        backgroundColor: AppColors.white
+        backgroundColor: AppColors.white,
+        paddingBottom: height(1.5)
     },
     imgStyles: {
         height: height(15),

@@ -6,4 +6,7 @@ export const Icons = {
     checkedIcon: require("../Icons/checked.png"),
     plusIcon: require("../Icons/plus.png"),
     emptyBoxIcon: require("../Icons/box.png"),
+    shoppingCartIcon: require("../Icons/shopping_cart.png"),
+    FlameIcon: require("../Icons/fire.png"),
+    ScissorIcon: require("../Icons/scissors.png"),
 }

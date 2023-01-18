@@ -31,6 +31,12 @@ const styles = StyleSheet.create({
         height: "100%",
         width: "100%"
     },
+    StoriesWrapper: {
+        // flexDirection: "column",
+    },
+    storyTitle: {
+
+    }
 })
 
 export default styles

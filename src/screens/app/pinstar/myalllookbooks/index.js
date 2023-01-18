@@ -113,6 +113,7 @@ export default function MyAllLookbooks({ navigation }) {
                                     enableDescription
                                     totalImages={item.images.length}
                                     totalTags={item.totalNoOfTags}
+                                    resizeMode={"contain"}
                                 />
                             </View>
                         );

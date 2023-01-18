@@ -14,7 +14,8 @@ const styles = StyleSheet.create({
     Wrapper: {
         marginHorizontal: width(4),
         alignItems: "center",
-        justifyContent: "center"
+        justifyContent: "center",
+        flexDirection: "row"
     },
     selected: {
         backgroundColor: AppColors.blueBackground,
@@ -24,6 +25,12 @@ const styles = StyleSheet.create({
         borderWidth: width(0.3),
         borderColor: AppColors.white,
         alignItems: "center"
+    },
+    iconImgStyles: {
+        height: height(2),
+        width: width(4),
+        marginRight: width(1),
+        alignSelf: "center"
     }
 })
 

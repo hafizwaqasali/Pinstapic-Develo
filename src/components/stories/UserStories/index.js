@@ -4,6 +4,7 @@ import styles from "./styles";
 import { Icons } from "../../../assets";
 import { CustomText } from "~components/texts";
 import AppFonts from "~utills/AppFonts";
+import { height } from "~utills/Dimension";
 
 export default function UserStories({
     isNewStory = false,
@@ -33,21 +34,38 @@ export default function UserStories({
                         fontFamily={AppFonts.segoe_ui_medium}
                     />
                 </>
-            ) : (
-                <TouchableOpacity
-                    style={styles.displayStoryContainer}
-                    onPress={onPressStory}
-                >
-                    {
-                        storyImg &&
-                        <Image
-                            source={storyImg}
-                            resizeMode="contain"
-                            style={styles.storyImgStyles}
-                        />
-                    }
-                </TouchableOpacity>
-            )}
+            ) :
+
+                <>
+                    <TouchableOpacity
+                        style={styles.displayStoryContainer}
+                        onPress={onPressStory}
+                    >
+                        {
+                            storyImg &&
+                            <Image
+                                source={storyImg}
+                                resizeMode="contain"
+                                style={styles.storyImgStyles}
+                            />
+                        }
+                    </TouchableOpacity>
+                    {isStoryTitle != '' &&
+                        <CustomText
+                            size={2.5}
+                            fontFamily={AppFonts.segoe_ui_medium}
+                            textStyles={styles.storyTitle}
+                        >
+                            {isStoryTitle}
+                        </CustomText>}
+                </>
+
+
+
+
+
+
+            }
         </>
     );
 }

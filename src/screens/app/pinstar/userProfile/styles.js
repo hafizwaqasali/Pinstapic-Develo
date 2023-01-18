@@ -12,7 +12,7 @@ const styles = StyleSheet.create({
         marginHorizontal: width(1.5),
         marginVertical: height(1),
         flexDirection: "row",
-        height: height(6)
+        height: height(6),
     },
     userProfileWrapper: {
         paddingHorizontal: width(5),
@@ -27,9 +27,10 @@ const styles = StyleSheet.create({
     storiesWrapper: {
         height: height(8),
         width: width(100),
+        marginTop: height(1),
     },
     containerStyles: {
-        marginTop: height(2),
+        marginTop: height(1),
     },
     emptyBoxImg: {
         tintColor: AppColors.white_50,
