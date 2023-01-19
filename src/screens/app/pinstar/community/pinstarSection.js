@@ -2,7 +2,7 @@ import { FlatList, ScrollView, StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 import styles from './styles'
 import { height, width } from '~utills/Dimension';
-import { LooksCard, UserStories } from '~components';
+import { LooksCard, LooksInfoCard, TabBar, UserStories } from '~components';
 import { useDummyData } from "~hooks";
 
 export default function PinstarSection() {
@@ -38,14 +38,16 @@ export default function PinstarSection() {
           renderItem={({ item, index }) => {
             return (
               <View style={styles.flatListItemWrapper}>
-                <LooksCard
+                <LooksInfoCard
                   imgUri={item.coverimg}
                   title={item.lookbookName}
                   onPressCard={() => alert("pressed")}
                   enableDescription
-                  totalImages={item.images.length}
-                  totalTags={item.totalNoOfTags}
                   resizeMode={"cover"}
+                  totalTags={17}
+                  totalImages={5}
+                  userImg={item.coverimg}
+                  userName={item.lookbookName}
                 />
               </View>
             );

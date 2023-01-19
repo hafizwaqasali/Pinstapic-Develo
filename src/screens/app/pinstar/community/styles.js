@@ -12,11 +12,21 @@ const styles = StyleSheet.create({
         width: width(100),
         alignItems: "center"
     },
+    filterTabscontainerStyles: {
+        width: width(100),
+        alignItems: "center"
+    },
     tabItemWrapperStyles: {
         marginHorizontal: 0,
         alignItems: "center",
         justifyContent: "center",
         width: width(30),
+    },
+    filterTabItemWrapperStyles: {
+        marginHorizontal: width(2.1),
+        alignItems: "center",
+        justifyContent: "center",
+        height: height(4),
     },
     storiesWrapper: {
         height: height(12),

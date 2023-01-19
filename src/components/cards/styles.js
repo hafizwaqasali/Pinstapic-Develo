@@ -14,15 +14,31 @@ const styles = StyleSheet.create({
     },
     imgStyles: {
         height: height(15),
-        width: width(36),
+        width: width(40),
         borderTopLeftRadius: width(5),
         borderTopRightRadius: width(5)
     },
     lookBooksDescriptionWrapper: {
         flexDirection: "row",
         alignItems: "center",
-        paddingLeft: width(4),
+        marginLeft: width(4)
     },
+    lookBookDeailsWrapper: {
+        flexDirection: "row",
+        alignItems: "center",
+    },
+    bottomContentWrapper: {
+        flexDirection: "row",
+        alignItems: "center",
+        paddingTop: height(1)
+    },
+    userImgStyles: {
+        height: height(3),
+        width: height(3),
+        borderRadius: height(2),
+        marginLeft: width(3),
+        borderWidth: width(.1)
+    }
 })
 
 export default styles

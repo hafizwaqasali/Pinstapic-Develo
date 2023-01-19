@@ -85,7 +85,7 @@ const styles = StyleSheet.create({
         width: width(100)
     },
     contentContainerStyle: {
-        backgroundColor: "red"
+
     },
     editYayorNayBtn: {
         position: "absolute",

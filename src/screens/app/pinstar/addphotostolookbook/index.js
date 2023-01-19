@@ -32,7 +32,7 @@ export default function AddPhotosToLookbook({ navigation, route }) {
                 <View style={styles.imgContainer}>
                     {img && <Image
                         source={{ uri: img }}
-                        resizeMode="stretch"
+                        resizeMode="contain"
                         style={styles.imgStyles}
                     />}
                 </View>
