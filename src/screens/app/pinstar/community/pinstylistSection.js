@@ -50,7 +50,7 @@ export default function PinstylistSection() {
             <View style={styles.horizontalSeprator} />
             <View style={styles.flatListWrapper}>
                 <FlatList
-                    contentContainerStyle={{ paddingBottom: height(14), paddingTop: height(2) }}
+                    contentContainerStyle={{ paddingBottom: height(18), paddingTop: height(2) }}
                     data={myLookbooks}
                     numColumns={2}
                     showsVerticalScrollIndicator={false}

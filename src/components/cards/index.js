@@ -22,6 +22,7 @@ export function LooksCard({
     totalTags = 0,
     showUserDetails = false,
     customElement,
+    children
 }) {
     return (
         <TouchableOpacity
@@ -75,6 +76,9 @@ export function LooksCard({
                     />
                 </View>
             )}
+            {
+                children ? children : null
+            }
         </TouchableOpacity>
     );
 }

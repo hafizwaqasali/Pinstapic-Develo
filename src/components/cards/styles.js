@@ -10,7 +10,8 @@ const styles = StyleSheet.create({
         // width: width(36),
         borderRadius: width(5),
         backgroundColor: AppColors.white,
-        paddingBottom: height(1.5)
+        paddingBottom: height(1.5),
+        overflow: "hidden"
     },
     imgStyles: {
         height: height(15),

@@ -40,7 +40,7 @@ export default function TabBar({
                                     styles.Wrapper,
                                     isSelected == item.type && styles.selected,
                                     wrapperStyles,
-                                    (index == 0 && item.type == isSelected) && { backgroundColor: AppColors.darkOrange }
+                                    (index == 0 && item?.type == isSelected && selectedItemName == isSelected) && { backgroundColor: AppColors.darkOrange }
                                 ]}
                                 onPress={() => onPress(item.type)}
                             >

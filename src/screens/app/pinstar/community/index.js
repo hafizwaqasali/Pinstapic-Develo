@@ -7,6 +7,7 @@ import PinstarSection from './pinstarSection'
 import { Icons } from '~assets'
 import { width } from '~utills/Dimension'
 import PinstylistSection from './pinstylistSection'
+import PinstoreSection from './pinstoreSection'
 
 export default function PinstarCommunity({ navigation }) {
     const [isSelected, setisSelected] = useState('Pinstars')
@@ -46,7 +47,7 @@ export default function PinstarCommunity({ navigation }) {
             <View style={styles.container}>
 
                 {
-                    isSelected === 'Pinstars' ? <PinstarSection /> : isSelected === 'Pinstylists' && <PinstylistSection />
+                    isSelected === 'Pinstars' ? <PinstarSection /> : isSelected === 'Pinstylists' ? <PinstylistSection /> : isSelected === 'Pinstores' && <PinstoreSection />
                 }
 
             </View>
