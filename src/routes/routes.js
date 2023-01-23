@@ -18,5 +18,6 @@ const ScreenNames = {
   MYAllLOOKBOOKS: 'MyAllLookbooks',
   PINSTARDASHBOARD: 'PinstarDashboardScreen',
   PINSTARCOMMUNITY: "PinstarCommunity",
+  PINSTARYAYORNAY: "PinstarYayorNay",
 }
 export default ScreenNames;

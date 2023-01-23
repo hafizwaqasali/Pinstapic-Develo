@@ -15,7 +15,7 @@ const styles = StyleSheet.create({
         marginHorizontal: width(4),
         alignItems: "center",
         justifyContent: "center",
-        flexDirection: "row"
+        flexDirection: "row",
     },
     selected: {
         backgroundColor: AppColors.blueBackground,
@@ -31,6 +31,10 @@ const styles = StyleSheet.create({
         width: width(4),
         marginRight: width(1),
         alignSelf: "center"
+    },
+    tabItemsTextStyles: {
+        // backgroundColor: "red",
+        lineHeight: height(4)
     }
 })
 

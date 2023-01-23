@@ -20,6 +20,8 @@ const AppColors = {
   lightBlue: "#5786D6",
   smoky_Grey: "#444444",
   smoky_Grey_20: "rgba(68, 68, 68, .2)",
-  seprator_Grey_20: "rgba(164,164,164,.2)"
+  seprator_Grey_20: "rgba(164,164,164,.2)",
+  black_25: "rgba(0, 0, 0, .25)",
+  black_60: "rgba(0, 0, 0, .6)",
 };
 export default AppColors;

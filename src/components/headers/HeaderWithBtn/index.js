@@ -1,4 +1,4 @@
-import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import React from "react";
 import { height, width } from "~utills/Dimension";
 import { BackArrowSvg, CloseiconSvg } from "~assets/Svg";
@@ -6,6 +6,7 @@ import AppColors from "~utills/AppColors";
 import { CustomText } from "~components/texts";
 import AppFonts from "~utills/AppFonts";
 import CommonStyles from "~utills/CommonStyles";
+import { Icons } from "~assets";
 
 export default function HeaderWithBtn({
     containerStyles,
@@ -25,6 +26,7 @@ export default function HeaderWithBtn({
     enableCloseButton = false,
     hideBackBtn = false,
     onPressRightBtn = () => null,
+    enableAddButton = false
 }) {
     return (
         <View style={[styles.container, containerStyles]}>
@@ -36,7 +38,7 @@ export default function HeaderWithBtn({
                                 style={[styles.backButton, backButtonStyles]}
                                 onPress={onPressBackBtn}
                             >
-                                {enableCloseButton ? <CloseiconSvg /> : <BackArrowSvg />}
+                                {enableCloseButton ? <CloseiconSvg /> : enableAddButton ? <Image source={Icons.plusIcon} resizeMode={'contain'} style={styles.plusIconStyles} /> : <BackArrowSvg />}
                             </TouchableOpacity>
                         ) : null}
                     </>
@@ -109,4 +111,10 @@ const styles = StyleSheet.create({
         alignItems: "center",
         justifyContent: "center",
     },
+    plusIconStyles: {
+        height: "50%",
+        width: "80%",
+        tintColor: AppColors.darkOrange,
+
+    }
 });

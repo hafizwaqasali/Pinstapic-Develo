@@ -32,18 +32,17 @@ export default function TabBar({
                     data={data}
                     keyExtractor={(ele, index) => index}
                     renderItem={({ item, index }) => {
-                        console.log(item.type)
-                        console.log('------!_-------')
                         return (
                             <TouchableOpacity
                                 style={[
                                     styles.Wrapper,
                                     isSelected == item.type && styles.selected,
                                     wrapperStyles,
-                                    (index == 0 && item?.type == isSelected && selectedItemName == isSelected) && { backgroundColor: AppColors.darkOrange }
+                                    (index == 0 && item?.type == isSelected && selectedItemName == isSelected) && { backgroundColor: AppColors.darkOrange, }
                                 ]}
                                 onPress={() => onPress(item.type)}
                             >
+
                                 {item.img && (
                                     <Image
                                         source={item.img}
@@ -58,6 +57,8 @@ export default function TabBar({
                                     textColor={
                                         isSelected == item.type ? AppColors.white : AppColors.white_50
                                     }
+                                    textStyles={[styles.tabItemsTextStyles]}
+
                                 />
                             </TouchableOpacity>
                         );

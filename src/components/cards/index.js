@@ -119,12 +119,13 @@ export function LooksInfoCard({
                     <View
                         style={{
                             width: "100%",
-                            height: "35%",
+                            // height: "35%",
                             position: "absolute",
                             bottom: 0,
                             alignItems: "center",
                             paddingVertical: height(0.2),
-                            zIndex: 1
+                            zIndex: 1,
+                            // backgroundColor: "red"
                         }}
                     >
                         <CustomText

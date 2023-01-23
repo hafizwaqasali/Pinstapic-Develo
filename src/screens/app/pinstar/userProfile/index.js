@@ -135,6 +135,7 @@ export default function UserProfilePinstar({ navigation }) {
         return (
             <View style={styles.myYayNayContainer}>
                 <FlatList
+                    pagingEnabled
                     data={YayorNayImages ?? []}
                     keyExtractor={(e, i) => i}
                     renderItem={renderFlatList}

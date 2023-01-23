@@ -18,46 +18,51 @@ export default function UserStories({
         <>
             {isNewStory ? (
                 <>
-                    <TouchableOpacity
-                        style={styles.newStoryContainer}
-                        onPress={onPressNewStory}
-                    >
-                        <Image
-                            source={Icons.plusIcon}
-                            resizeMode="contain"
-                            style={styles.PlusIconStyles}
+                    <View style={styles.userStoriesWrapper}>
+                        <TouchableOpacity
+                            style={styles.newStoryContainer}
+                            onPress={onPressNewStory}
+                        >
+                            <Image
+                                source={Icons.plusIcon}
+                                resizeMode="contain"
+                                style={styles.PlusIconStyles}
+                            />
+                        </TouchableOpacity>
+                        <CustomText
+                            children={isStoryTitle}
+                            size={2.5}
+                            fontFamily={AppFonts.segoe_ui_medium}
                         />
-                    </TouchableOpacity>
-                    <CustomText
-                        children={isStoryTitle}
-                        size={2.5}
-                        fontFamily={AppFonts.segoe_ui_medium}
-                    />
+                    </View>
                 </>
             ) :
 
                 <>
-                    <TouchableOpacity
-                        style={styles.displayStoryContainer}
-                        onPress={onPressStory}
-                    >
-                        {
-                            storyImg &&
-                            <Image
-                                source={storyImg}
-                                resizeMode="contain"
-                                style={styles.storyImgStyles}
-                            />
-                        }
-                    </TouchableOpacity>
-                    {isStoryTitle != '' &&
-                        <CustomText
-                            size={2.5}
-                            fontFamily={AppFonts.segoe_ui_medium}
-                            textStyles={styles.storyTitle}
+                    <View style={styles.userStoriesWrapper}>
+                        <TouchableOpacity
+                            style={styles.displayStoryContainer}
+                            onPress={onPressStory}
                         >
-                            {isStoryTitle}
-                        </CustomText>}
+                            {
+                                storyImg &&
+                                <Image
+                                    source={storyImg}
+                                    resizeMode="contain"
+                                    style={styles.storyImgStyles}
+                                />
+                            }
+
+                        </TouchableOpacity>
+                        {isStoryTitle != '' &&
+                            <CustomText
+                                size={2.5}
+                                fontFamily={AppFonts.segoe_ui_medium}
+                                textStyles={styles.storyTitle}
+                            >
+                                {isStoryTitle}
+                            </CustomText>}
+                    </View>
                 </>
 
 

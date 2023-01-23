@@ -289,6 +289,35 @@ let myLookbookImgs = [
     "https://images.pexels.com/photos/6109344/pexels-photo-6109344.jpeg?auto=compress&cs=tinysrgb&w=800",
 ]
 
+// for Yay or Nay home Screen 
+
+let yayOrNayImages = [
+    {
+        userProfileImg: 'https://images.pexels.com/photos/6865918/pexels-photo-6865918.jpeg?auto=compress&cs=tinysrgb&w=800',
+        yayOrNays: [
+            "https://images.pexels.com/photos/8063408/pexels-photo-8063408.jpeg?auto=compress&cs=tinysrgb&w=800",
+            "https://images.pexels.com/photos/14895708/pexels-photo-14895708.jpeg?auto=compress&cs=tinysrgb&w=800",
+            "https://images.pexels.com/photos/6865918/pexels-photo-6865918.jpeg?auto=compress&cs=tinysrgb&w=800",
+        ]
+    },
+    {
+        userProfileImg: 'https://images.pexels.com/photos/8063408/pexels-photo-8063408.jpeg?auto=compress&cs=tinysrgb&w=800",',
+        yayOrNays: [
+            "https://images.pexels.com/photos/6865918/pexels-photo-6865918.jpeg?auto=compress&cs=tinysrgb&w=800",
+            "https://images.pexels.com/photos/8063408/pexels-photo-8063408.jpeg?auto=compress&cs=tinysrgb&w=800",
+            "https://images.pexels.com/photos/14895708/pexels-photo-14895708.jpeg?auto=compress&cs=tinysrgb&w=800",
+        ]
+    },
+    {
+        userProfileImg: 'https://images.pexels.com/photos/14895708/pexels-photo-14895708.jpeg?auto=compress&cs=tinysrgb&w=800',
+        yayOrNays: [
+            "https://images.pexels.com/photos/14895708/pexels-photo-14895708.jpeg?auto=compress&cs=tinysrgb&w=800",
+            "https://images.pexels.com/photos/6865918/pexels-photo-6865918.jpeg?auto=compress&cs=tinysrgb&w=800",
+            "https://images.pexels.com/photos/8063408/pexels-photo-8063408.jpeg?auto=compress&cs=tinysrgb&w=800",
+        ]
+    },
+
+]
 
 export default function useDummyData() {
     return {
@@ -298,6 +327,7 @@ export default function useDummyData() {
         typeofpinstore: type_of_pinstore,
         profileData: profileData,
         myLookbooks: myLookbooks,
-        myLookbookImgs: myLookbookImgs
+        myLookbookImgs: myLookbookImgs,
+        yayOrNayImages: yayOrNayImages
     }
 }

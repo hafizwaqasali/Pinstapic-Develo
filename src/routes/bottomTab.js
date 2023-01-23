@@ -10,7 +10,7 @@ import {
 import React, { useState } from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import ScreenNames from "./routes";
-import { PinstarCommunityScreen, PinstarDashboardScreen } from "~screens/app";
+import { PinstarCommunityScreen, PinstarDashboardScreen, PinstarYayorNayScreen } from "~screens/app";
 import AppColors from "~utills/AppColors";
 import { height, width } from "~utills/Dimension";
 import {
@@ -50,7 +50,7 @@ const CustomTabBar = (props) => {
                 <TouchableOpacity onPress={() => getFocused(2, ScreenNames.PINSTARCOMMUNITY)}>
                     <UsersIconSvg color={focused === 2 ? AppColors.darkOrange : AppColors.white} />
                 </TouchableOpacity>
-                <TouchableOpacity onPress={() => getFocused(3)}>
+                <TouchableOpacity onPress={() => getFocused(3, ScreenNames.PINSTARYAYORNAY)}>
                     <ThumbIconSvg color={focused === 3 ? AppColors.darkOrange : AppColors.white} />
                 </TouchableOpacity>
                 <TouchableOpacity onPress={() => getFocused(4)}>
@@ -76,6 +76,7 @@ const Tabbar = ({ navigation }) => {
         >
             <Tab.Screen name={ScreenNames.PINSTARDASHBOARD} component={PinstarDashboardScreen} />
             <Tab.Screen name={ScreenNames.PINSTARCOMMUNITY} component={PinstarCommunityScreen} />
+            <Tab.Screen name={ScreenNames.PINSTARYAYORNAY} component={PinstarYayorNayScreen} />
         </Tab.Navigator>
     );
 };

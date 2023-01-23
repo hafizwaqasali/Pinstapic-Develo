@@ -36,6 +36,10 @@ const styles = StyleSheet.create({
     },
     storyTitle: {
 
+    },
+    userStoriesWrapper: {
+        alignItems: "center",
+        // backgroundColor: "yellow",
     }
 })
 
