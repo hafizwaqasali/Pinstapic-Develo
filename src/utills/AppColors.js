@@ -13,6 +13,7 @@ const AppColors = {
   white_30: 'rgba(255, 255, 255,0.3)',
   white_40: 'rgba(255, 255, 255,0.4)',
   white_50: 'rgba(255, 255, 255,0.5)',
+  white_70: 'rgba(255, 255, 255,0.7)',
   white_85: 'rgba(245, 245, 245,0.85)',
   sky_Blue: "#7ECDF6",
   dark_Grey: "#00000029",
@@ -23,5 +24,6 @@ const AppColors = {
   seprator_Grey_20: "rgba(164,164,164,.2)",
   black_25: "rgba(0, 0, 0, .25)",
   black_60: "rgba(0, 0, 0, .6)",
+  purple: "#17426C"
 };
 export default AppColors;
