@@ -129,7 +129,8 @@ export const InputFieldValidate = ({
                 <Text style={[styles.labelText, inverted && styles.invertedLabel, labelStyles, labelBackgroundColor && { backgroundColor: labelBackgroundColor, color: labelColor ?? AppColors.white }]}>{label}</Text>
                 {rightIcon}
             </TouchableOpacity >
-            <Text style={[styles.errorText, { color: errorTextColor ?? '#CBEDD5' }]}>
+            {/* <Text style={[styles.errorText, { color: errorTextColor ?? '#CBEDD5' }]}> */}
+            <Text style={[styles.errorText, { color: errorTextColor ?? AppColors.red }]}>
                 {errorMsg?.message && errorMsg.message}
             </Text>
         </View>

@@ -23,7 +23,7 @@ const DATA = [
 
 export default function Welcome({ navigation }) {
     return (
-        <ScreenWrapper statusBarColor={AppColors.blueBackground}>
+        <ScreenWrapper statusBarColor={AppColors.blueBackground} barStyle="light-content">
             <View style={styles.container}>
                 <View style={styles.swipperContainer}>
                     <OnBoardingSwiper

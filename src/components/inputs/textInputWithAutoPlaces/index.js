@@ -75,6 +75,7 @@ const TextInputWithAutoPlaces = (
                 borderBottomRightRadius: width(5),
                 borderBottomLeftRadius: width(5),
                 fontFamily: AppFonts.segoe_ui_medium,
+                paddingHorizontal: width(4)
               },
 
               separator: {

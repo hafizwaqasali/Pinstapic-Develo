@@ -157,10 +157,12 @@ export default function Signup({ navigation }) {
                 </View>
                 {/* Bottom Section */}
                 <PrimaryBtn
+                    textStyle={!isValid && { color: AppColors.lightBlue }}
                     title="Sign Up"
                     containerStyle={[
                         CommonStyles.marginTop_5,
                         CommonStyles.marginBottom_3,
+                        !isValid && { backgroundColor: AppColors.smoky_Grey_20 }
                     ]}
                     onPress={handleSubmit(onSubmit)}
                     disabled={!isValid}

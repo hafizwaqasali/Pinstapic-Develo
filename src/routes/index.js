@@ -77,7 +77,7 @@ export default function Routes() {
       <AnimatedLoader />
       {!isLogin ? (
         <Stack.Navigator
-          initialRouteName={ScreenNames.CHOOSECATEGORY}
+          initialRouteName={ScreenNames.WELCOME}
           screenOptions={{ header: () => false }}
         >
           <Stack.Screen name={ScreenNames.WELCOME} component={WelcomeScreen} />

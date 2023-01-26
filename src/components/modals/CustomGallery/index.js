@@ -19,7 +19,7 @@ import {
 import AppColors from "~utills/AppColors";
 import { CameraRoll } from "@react-native-camera-roll/camera-roll";
 import { FlashList } from "@shopify/flash-list";
-import { height } from "~utills/Dimension";
+import { height, width } from "~utills/Dimension";
 import Modal from "react-native-modal";
 import { useIsFocused } from "@react-navigation/native";
 import { useDispatch } from "react-redux";
@@ -27,6 +27,7 @@ import { setSwitchLoader } from "~redux/slices/config";
 import { CameraIconSvg, CheckMarkSvg } from "~assets/Svg";
 import AppFonts from "~utills/AppFonts";
 import { useDummyData } from "~hooks";
+import CommonStyles from "~utills/CommonStyles";
 
 export default function CustomGallery({
     isVisible = false,
@@ -209,6 +210,7 @@ export default function CustomGallery({
                         extraData={refresh}
                         data={isSelected ? lookbookImgs : photos ?? []}
                         keyExtractor={(i, k) => k.toString()}
+                        contentContainerStyle={{ paddingHorizontal: width(4) }}
                         renderItem={({ item, index }) => {
                             return (
                                 <View style={styles.elementStyle}>

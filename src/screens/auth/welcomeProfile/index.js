@@ -180,7 +180,7 @@ export default function WelcomeProfile({ navigation, route }) {
                         title={`Continue`}
                         textStyle={styles.btnText}
                         onPress={() => {
-                            dispatch(setIsLoggedIn(true));
+                            if (type == "PINSTAR") dispatch(setIsLoggedIn(true));
                         }}
                     />
                 </View>

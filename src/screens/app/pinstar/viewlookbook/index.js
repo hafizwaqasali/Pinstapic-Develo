@@ -73,7 +73,7 @@ export default function ViewLookbook({ navigation }) {
                 <HeaderWithBtn
                     centerText={myLookbookData.lookbookName}
                     centerTxtStyles={styles.headerText}
-                    onPressBackBtn={() => navigation.goBack()}
+                    onPressBackBtn={() => navigation.navigate(ScreenNames.USERPROFILEPINSTAR)}
                     enableCloseButton
                     rightButtonStyles={{ backgroundColor: "transparent" }}
                     rightElement={

@@ -16,7 +16,7 @@ const styles = StyleSheet.create({
         alignItems: "center",
     },
     flashListContainer: {
-        paddingHorizontal: width(4),
+        // paddingHorizontal: width(4),
         height: height(100),
         width: width(100),
         paddingBottom: height(8),
